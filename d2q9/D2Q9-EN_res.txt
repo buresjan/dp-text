@@ -1,0 +1,11 @@
+KS.rho = 1.0/( ( KS.vy+1.0)*KS.vx+KS.vy+1.0)*( KS.f[zz]+2.0*KS.f[pz]+2.0*KS.f[zp]+4.0*KS.f[pp]);
+dreal m10 = KS.rho*KS.vx;
+dreal m01 = KS.rho*KS.vy;
+dreal m11 = KS.rho*KS.vx*KS.vy;
+dreal m20 = KS.rho*(n1o3 + KS.vx*KS.vx);
+dreal m02 = KS.rho*(n1o3 + KS.vy*KS.vy);
+KS.f[mz] = -m02-m01-m11+KS.f[pz]-m10+2.0*KS.f[zp]+4.0*KS.f[pp]; 
+KS.f[zm] = -m01-m11+2.0*KS.f[pz]-m20-m10+KS.f[zp]+4.0*KS.f[pp]; 
+KS.f[mp] =  m02/2.0+m01/2.0-KS.f[zp]-KS.f[pp]; 
+KS.f[mm] =  m02/2.0+m01/2.0+m11-KS.f[pz]+m20/2.0+m10/2.0-KS.f[zp]+-3.0*KS.f[pp]; 
+KS.f[pm] = -KS.f[pz]+m20/2.0+m10/2.0-KS.f[pp]; 

@@ -1,0 +1,537 @@
+%\bibliographystyle{unsrt}
+%\bibliography{reference}
+%\begin{thebibliography}{10}
+%	
+%	\bibitem{Rubtsova}
+%	E.~Rubtsova{,} A. Markov{,} S. Selishchev{,} J. H.~Karimov a~D.~Telyshev.
+%	\newblock „{M}athematical modeling of the fontan blood circulation supported
+%	with pediatric ventricular assist device".
+%	\newblock {\em Computer Methods in Biomechanics and Biomedical Engineering},
+%	24(6):653--662, 2021.
+%	
+%	\bibitem{Chaloup}
+%	V.~Chaloupecký.
+%	\newblock „{N}emocný s funkčně jedinou srdeční komorou".
+%	FN Motol, Praha,
+%	2004. \url{http://pelikan.lf2.cuni.cz/2003-2004/kveten-cerven2004-12roc-cl6.htm}
+%	
+%	\bibitem{Delorme}
+%	Y.~Delorme{,} K.~Anupindi{,} A.-E.~Kerlo{,} D.~Shetty{,} M.~Rodefeld{,} J.~Chen{,} S.~Frankel.
+%	\newblock „{L}arge eddy simulation of powered Fontan hemodynamics. Journal of Biomechanics".
+%	\newblock {\em Journal of Biomechanics},
+%	46(2):408--422, 2013.
+%	
+%	\bibitem{vanBake}
+%	T.~M.~J. van Bakel{,} K. D. Lau{,} J. Hirsch-Romano{,} S. Trimarchi{,} A. L.
+%	Dorfman~a C.~A.~Figueroa.
+%	\newblock „{P}atient-specific modeling of hemodynamics: Supporting surgical
+%	planning in a fontan circulation correction".
+%	\newblock {\em Journal of Cardiovascular Translational Research},
+%	11(2):145--155, 2018.
+%	
+%	\bibitem{Wang}
+%	C.~Wang{,} K.~Pekkan{,} ~D{,} ~de~Zélicourt{,} M.~Horner{,} A.~Parihar{,} A.~Kulkarni{,} A.~P.~Yoganathan.
+%	\newblock „{P}rogress in the CFD modeling of flow instabilities in anatomical total cavopulmonary connections".
+%	\newblock {\em Annals of Biomedical Engineering},
+%	35(2):1840--56, 2007.
+%	
+%	\bibitem{TOF}
+%	R.~Chabiniok{,} K. {\v S}kardov{\'a}{,} R. Galabov{,} P. Eichler{,}~M.
+%	Gusseva{, et al.}
+%	\newblock „{T}ranslational cardiovascular modeling: Tetralogy of fallot and
+%	modeling of diseases".
+%	\newblock In {\em Modeling Biomaterials}. 2021.
+%	
+%	\bibitem{Schafer}
+%	M.~Sch\"{a}fer{,} S. Turek{,} F. Durst{,} E.~Krause a~R.~Rannacher.
+%	\newblock „{B}enchmark computations of laminar flow around a cylinder".
+%	\newblock s. 547--566, 1996.
+%	
+%	\bibitem{Kruger}
+%	T.~Kr\"{u}ger{, et al.}
+%	\newblock {\em The Lattice Boltzmann Method}.
+%	\newblock Springer International Publishing, 2017.
+%	
+%	\bibitem{Inamuro2000}
+%	T.~Inamuro{,} K.~Maeba a~F.~Ogino.
+%	\newblock „{F}low between parallel walls containing the lines of neutrally
+%	buoyant circular cylinders".
+%	\newblock {\em International Journal of Multiphase Flow}, 26(12):1981--2004,
+%	2000.
+%	
+%	\bibitem{Suzuki2021}
+%	K.~Suzuki{,} K.~Ishizaki a~M.~Yoshino.
+%	\newblock „{L}ocal force calculations by an improved stress tensor
+%	discontinuity-based immersed boundary{\textendash}lattice boltzmann method".
+%	\newblock {\em Physics of Fluids}, 33(4):047104, 2021.
+%	
+%	\bibitem{Latt}
+%	J.~Latt.
+%	\newblock „{H}ydrodynamic limit of lattice boltzmann equations". Disertační práce, Université de Genève, 2007.
+%	
+%	\bibitem{Cengel}
+%	Y.~A.~Cengel a~J.~M.~Cimbala.
+%	\newblock {\em Fluid mechanics: Fundamentals and applications}.
+%	\newblock McGraw-Hill Education, Columbus, OH, 4 edition, 2017.
+%	
+%	\bibitem{Anderson}
+%	J.~D. Anderson.
+%	\newblock {\em Computational Fluid Dynamics}.
+%	\newblock McGraw-Hill series in mechanical engineering. McGraw-Hill
+%	Professional, New York, NY, 1995.
+%	
+%	\bibitem{Boyd}
+%	J.~Boyd{,} J. M.~Buick a~S.~Green.
+%	\newblock „{A}nalysis of the casson and carreau-yasuda non-newtonian blood
+%	models in steady and oscillatory flows using the lattice boltzmann method".
+%	\newblock {\em Physics of Fluids}, 19(9):093103, 2007.
+%	
+%	\bibitem{Landau}
+%	L.~D.~Landau a~E.~M.~Lifshits.
+%	\newblock {\em Fluid Mechanics}.
+%	\newblock Elsevier Science, London, England, 2013.
+%	
+%	\bibitem{GeierCuLBM}
+%	M.~Geier{,} M. Schönherr{,} A.~Pasquali a~M.~Krafczyk.
+%	\newblock „{T}he cumulant lattice boltzmann equation in three dimensions:
+%	Theory and validation".
+%	\newblock {\em Computers and Mathematics with Applications}, 70(4):507--547,
+%	2015.
+%	
+%	\bibitem{MRT}
+%	D.~D’Humières.
+%	\newblock „{G}eneralized lattice-boltzmann equations".
+%	\newblock In {\em Rarefied Gas Dynamics: Theory and Simulations}, s.
+%	450--458. American Institute of Aeronautics and Astronautics, 1994.
+%	
+%	\bibitem{GeierCLBM}
+%	M.~Geier{,} A.~Greiner a~J.~G.~Korvink.
+%	\newblock „{C}ascaded digital lattice boltzmann automata for high reynolds
+%	number flow".
+%	\newblock {\em Physical Review E}, 73(6), 2006.
+%	
+%	\bibitem{ELBM}
+%	I.~V. Karlin{,} A.~Ferrante a~H.~C.~Öttinger.
+%	\newblock „{P}erfect entropy functions of the lattice boltzmann method".
+%	\newblock {\em Europhysics Letters ({EPL})}, 47(2):182--188, 1999.
+%	
+%	\bibitem{NASA}
+%	R.~Mei{,} D. Yu{,} W.~Shyy a~L.-S.~Luo.
+%	\newblock „{F}orce evaluation in the lattice boltzmann method involving
+%	curved geometry".
+%	\newblock {\em Physical Review E}, 65(4), 2002.
+%	
+%	\bibitem{Guo}
+%	Z.~Guo a~S.~Chang.
+%	\newblock {\em Lattice Boltzmann method and its application in engineering}.
+%	\newblock Advances In Computational Fluid Dynamics. World Scientific
+%	Publishing, Singapore, Singapore, 2013.
+%	
+%	\bibitem{Inamuro1997}
+%	T.Inamuro{,} M.~Yoshino a~F.~Ogino.
+%	\newblock „{A}ccuracy of the lattice boltzmann method for small knudsen
+%	number with finite reynolds number".
+%	\newblock {\em Physics of Fluids}, 9(11):3535--3542, 1997.
+%	
+%	\bibitem{Suzuki2018}
+%	K.~Suzuki a~M.~Yoshino.
+%	\newblock „{A} stress tensor discontinuity-based immersed boundary-lattice
+%	boltzmann method".
+%	\newblock {\em Computers and Fluids}, 172:593--608, 2018.
+%	
+%	\bibitem{Bouzidi2001}
+%	M.~Bouzidi{,} M.~Firdaouss a~P.~Lallemand.
+%	\newblock „{M}omentum transfer of a boltzmann-lattice fluid with boundaries".
+%	\newblock {\em Physics of Fluids}, 13(11):3452--3459, 2001.
+%	
+%	\bibitem{Yu2003}
+%	D.~Yu{,} R.~Mei a~W.~Shyy.
+%	\newblock „{A} unified boundary treatment in lattice boltzmann method".
+%	\newblock In {\em 41st Aerospace Sciences Meeting and Exhibit}. American
+%	Institute of Aeronautics and Astronautics, 2003.
+%	
+%	\bibitem{Eisenberg2002}
+%	J.~D. Eisenberg.
+%	\newblock {\em {SVG} Essentials}.
+%	\newblock O'Reilly Media, Sebastopol, CA, 2002.
+%	
+%	\bibitem{Bresenham}
+%	P.~Koopman.
+%	\newblock „{B}resenham line-drawing algorithm".
+%	\newblock {\em Forth Dimensions}, 8(6):12--16, 1987.
+%	
+%\end{thebibliography}
+
+
+\begin{thebibliography}{10}
+	
+	\bibitem{Abraham2005}
+	F.~Abraham, M.~Behr a Matthias Heinkenschloss.
+	\newblock „{S}hape optimization in steady blood flow: A numerical study of
+	non-newtonian effects".
+	\newblock {\em Computer Methods in Biomechanics and Biomedical Engineering},
+	8(2):127--137, 2005.
+	
+	\bibitem{Weddell2015}
+	J.~C. Weddell, J. Kwack, P.~I. Imoukhuede a Arif Masud.
+	\newblock „{H}emodynamic analysis in an idealized artery tree: Differences in wall
+	shear stress between Newtonian and non-Newtonian blood models".
+	\newblock {\em {PLOS} {ONE}}, 10(4), 2015.
+	
+	\bibitem{Marsden2008}
+	A.~L. Marsden, J.~A. Feinstein a Ch.~A. Taylor.
+	\newblock „{A} computational framework for derivative-free optimization of
+	cardiovascular geometries".
+	\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+	197(21-24):1890--1905, 2008.
+	
+	\bibitem{Chaloup}
+	V.~Chaloupecký.
+	\newblock „{N}emocný s funkčně jedinou srdeční komorou".
+	FN Motol, Praha,
+	2004. \url{http://pelikan.lf2.cuni.cz/2003-2004/kveten-cerven2004-12roc-cl6.htm}
+	
+	\bibitem{Rubtsova}
+	E.~Rubtsova{,} A. Markov{,} S. Selishchev{,} J. H.~Karimov a~D.~Telyshev.
+	\newblock „{M}athematical modeling of the Fontan blood circulation supported
+	with pediatric ventricular assist device".
+	\newblock {\em Computer Methods in Biomechanics and Biomedical Engineering},
+	24(6):653--662, 2021.
+	
+	\bibitem{Delorme}
+	Y.~Delorme{,} K.~Anupindi{,} A.-E.~Kerlo{,} D.~Shetty{,} M.~Rodefeld{,} J.~Chen{,} S.~Frankel.
+	\newblock „{L}arge eddy simulation of powered Fontan hemodynamics. Journal of Biomechanics".
+	\newblock {\em Journal of Biomechanics},
+	46(2):408--422, 2013.
+	
+	\bibitem{vanBake}
+	T.~M.~J. van Bakel{,} K. D. Lau{,} J. Hirsch-Romano{,} S. Trimarchi{,} A. L.
+	Dorfman~a C.~A.~Figueroa.
+	\newblock „{P}atient-specific modeling of hemodynamics: Supporting surgical
+	planning in a Fontan circulation correction".
+	\newblock {\em Journal of Cardiovascular Translational Research},
+	11(2):145--155, 2018.
+	
+	\bibitem{Wang}
+	C.~Wang{,} K.~Pekkan{,} ~D{,} ~de~Zélicourt{,} M.~Horner{,} A.~Parihar{,} A.~Kulkarni{,} A.~P.~Yoganathan.
+	\newblock „{P}rogress in the CFD modeling of flow instabilities in anatomical total cavopulmonary connections".
+	\newblock {\em Annals of Biomedical Engineering},
+	35(2):1840--56, 2007.
+	
+	\bibitem{Rijnberg2018}
+	F.~M. Rijnberg, et al.
+	\newblock „{E}nergetics of blood flow in cardiovascular disease".
+	\newblock {\em Circulation},
+	137(22):2393--2407,2018.
+	
+	\bibitem{Porfiryev2020}
+	A.~Porfiryev, et al.
+	\newblock „{F}ontan hemodynamics investigation via modeling and experimental
+	characterization of idealized pediatric total cavopulmonary connection".
+	\newblock {\em Applied Sciences}, 10(19):6910, 2020.
+	
+	\bibitem{Tang2014}
+	E.~Tang, et al.
+	\newblock „{G}eometric characterization of patient-specific total cavopulmonary
+	connections and its relationship to hemodynamics".
+	\newblock {\em {JACC}: Cardiovascular Imaging}, 7(3):215--224, 2014.
+	
+	\bibitem{PE}
+	P.~Eichler.
+	\newblock „Mathematical modeling of fluid flow using lattice Boltzmann method".
+	\newblock Dizertační práce, České vysoké učení technické v Praze, 2023.
+	
+	\bibitem{Kruger}
+	T.~Kr\"{u}ger{, et al.}
+	\newblock {\em The Lattice Boltzmann Method}.
+	\newblock Springer International Publishing, 2017.
+	
+	\bibitem{Anderson}
+	J.~D. Anderson.
+	\newblock {\em Computational Fluid Dynamics}.
+	\newblock McGraw-Hill series in mechanical engineering. McGraw-Hill
+	Professional, New York, NY, 1995.
+	
+	\bibitem{Latt}
+	J.~Latt.
+	\newblock „{H}ydrodynamic limit of lattice Boltzmann equations". Disertační práce, Université de Genève, 2007.
+	
+	\bibitem{Schlichting}
+	H. Schlichting a K. Gersten.
+	\newblock {\em Boundary-layer theory}.
+	\newblock Springer, Berlin, 9. edice, 2016.
+	
+	\bibitem{Cengel}
+	Y.~A.~Cengel a~J.~M.~Cimbala.
+	\newblock {\em Fluid mechanics: Fundamentals and applications}.
+	\newblock McGraw-Hill Education, Columbus, OH, 4. edice, 2017.
+	
+	\bibitem{WallStress}
+	T. Papaioannou a Ch. Stefanadis.
+	\newblock „{V}ascular wall shear stress: Basic principles and methods".
+	\newblock {\em Hellenic journal of cardiology : HJC = Hellenike kardiologike
+		epitheorese}, 46:9--15, 2005.
+	
+	\bibitem{Landau}
+	L.~D.~Landau a~E.~M.~Lifshits.
+	\newblock {\em Fluid Mechanics}.
+	\newblock Elsevier Science, Londýn, Anglie, 2013.
+	
+	\bibitem{Sodja2007}
+	J. Sodja.
+	\newblock „Turbulence models in CFD".
+	\newblock Bakalářská práce, University of Ljubljana, \newblock 2007.
+	
+	
+	\bibitem{Saloner2019}
+	D. Saloner.
+	\newblock „{C}omputational fluid dynamics for evaluating hemodynamics".
+	\newblock In {\em Vessel Based Imaging Techniques}, 331--347. Springer
+	International Publishing, 2019.
+	
+	\bibitem{Peskin}
+	Ch.~S. Peskin.
+	\newblock „{T}he immersed boundary method".
+	\newblock {\em Acta Numerica}, 11:479--517, 2002.
+	
+	\bibitem{DempereMarco2006}
+	L. Dempere-Marco, et al.
+	\newblock „{CFD} analysis incorporating the influence of wall motion:
+	Application to intracranial aneurysms".
+	\newblock {\em Medical Image Computing and Computer-Assisted Intervention
+		{\textendash} {MICCAI} 2006}, 438--445. Springer Berlin Heidelberg,
+	2006.
+	
+	\bibitem{LANTZ2011}
+	J.~Lantz, et al.
+	\newblock „{W}all shear stress in a subject specific human aorta - Influence of fluid--structure interaction".
+	\newblock {\em International Journal of Applied Mechanics}, 03(04):759--778,
+	2011.
+	
+	\bibitem{Fishbein2015}
+	M.~C. Fishbein a G.~A. Fishbein.
+	\newblock „{A}rteriosclerosis: facts and fancy".
+	\newblock {\em Cardiovascular Pathology}, 24(6):335--342, 2015.
+	
+	\bibitem{Syed1997}
+	M. Syed a M. Lesch.
+	\newblock „{C}oronary artery aneurysm: A review".
+	\newblock {\em Progress in Cardiovascular Diseases}, 40(1):77--84, 1997.
+	
+	\bibitem{Eichler2023}
+	P. Eichler, et al.
+	\newblock „{N}on-Newtonian turbulent flow through aortic phantom: Experimental and
+	computational study using magnetic resonance imaging and lattice Boltzmann
+	method".
+	\newblock {\em Computers and Mathematics with Applications}, 136:80--94,
+	2023.
+	
+	\bibitem{Boyd2007}
+	J. Boyd, J.~M. Buick a S. Green.
+	\newblock „{A}nalysis of the casson and {C}arreau-{Y}asuda non-Newtonian blood models
+	in steady and oscillatory flows using the lattice {B}oltzmann method".
+	\newblock {\em Physics of Fluids}, 19(9):093103, 2007.
+	
+	\bibitem{Sequeira}
+	A. Sequeira a J. Janela.
+	\newblock „{A}n overview of some mathematical models of blood rheology".
+	\newblock {\em A Portrait of State-of-the-Art Research at the Technical
+		University of Lisbon}, 65--87. Springer Netherlands.
+	
+	\bibitem{Saqr2020}
+	K.~M. Saqr, et al.
+	\newblock „{P}hysiologic blood flow is turbulent".
+	\newblock {\em Scientific Reports}, 10(1), 2020.
+	
+	\bibitem{Carabello2009}
+	B.~A. Carabello a W.~J Paulus.
+	\newblock „{A}ortic stenosis'.
+	\newblock {\em The Lancet}, 373(9667):956--966, 2009.
+	
+	\bibitem{Jain2022}
+	K. Jain.
+	\newblock „{T}he effect of varying degrees of stenosis on transition to turbulence
+	in oscillatory flows".
+	\newblock {\em Biomechanics and Modeling in Mechanobiology}, 21(3):1029--1041,
+	2022.
+	
+	\bibitem{Varghese2003}
+	S.~S. Varghese a S.~H. Frankel.
+	\newblock „{N}umerical modeling of pulsatile turbulent flow in stenotic vessels".
+	\newblock {\em Journal of Biomechanical Engineering}, 125(4):445--460,
+	2003.
+	
+	\bibitem{Kameneva2004}
+	M.~V. Kameneva, et al.
+	\newblock „{E}ffects of turbulent stresses upon mechanical hemolysis: Experimental
+	and computational analysis".
+	\newblock {\em {ASAIO} Journal}, 50(5):418--423, 2004.
+	
+	\bibitem{GeierCuLBM}
+	M.~Geier{,} M. Schönherr{,} A.~Pasquali a~M.~Krafczyk.
+	\newblock „{T}he cumulant lattice Boltzmann equation in three dimensions:
+	Theory and validation".
+	\newblock {\em Computers and Mathematics with Applications}, 70(4):507--547,
+	2015.
+	
+	\bibitem{MRT}
+	D.~D’Humières.
+	\newblock „{G}eneralized lattice-Boltzmann equations".
+	\newblock In {\em Rarefied Gas Dynamics: Theory and Simulations}, pages
+	450--458. American Institute of Aeronautics and Astronautics, 1994.
+	
+	\bibitem{GeierCLBM}
+	M.~Geier{,} A.~Greiner a~J.~G.~Korvink.
+	\newblock „{C}ascaded digital lattice Boltzmann automata for high reynolds
+	number flow".
+	\newblock {\em Physical Review E}, 73(6), 2006.
+	
+	\bibitem{ELBM}
+	I.~V. Karlin{,} A.~Ferrante a~H.~C.~Öttinger.
+	\newblock „{P}erfect entropy functions of the lattice Boltzmann method".
+	\newblock {\em Europhysics Letters ({EPL})}, 47(2):182--188, 1999.
+	
+	\bibitem{DP-PE}
+	P.~Eichler.
+	\newblock „Matematické modelování interakce elastického tělesa s nestlačitelnou	tekutinou".
+	\newblock Diplomová práce, České vysoké učení technické v Praze, 2018ř.
+	
+	\bibitem{Bouzidi2001}
+	M.~Bouzidi{,} M.~Firdaouss a~P.~Lallemand.
+	\newblock „{M}omentum transfer of a Boltzmann-lattice fluid with boundaries".
+	\newblock {\em Physics of Fluids}, 13(11):3452--3459, 2001.
+	
+	\bibitem{Yu2003}
+	D.~Yu{,} R.~Mei a~W.~Shyy.
+	\newblock „{A} unified boundary treatment in lattice Boltzmann method".
+	\newblock In {\em 41st Aerospace Sciences Meeting and Exhibit}. American
+	Institute of Aeronautics and Astronautics, 2003.
+	
+	\bibitem{LBMAT}
+	R. Fu{\v{c}}{\'{\i}}k, P. Eichler, J. Klinkovsk{\'{y}}, R. Straka
+	a Tom{\'{a}}{\v{s}} Oberhuber.
+	\newblock „{L}attice Boltzmann method analysis tool ({LBMAT})".
+	\newblock {\em Numerical Algorithms}, 2022.
+	
+	\bibitem{NASA}
+	R.~Mei{,} D. Yu{,} W.~Shyy a~L.-S.~Luo.
+	\newblock „{F}orce evaluation in the lattice Boltzmann method involving
+	curved geometry".
+	\newblock {\em Physical Review E}, 65(4), 2002.
+	
+	\bibitem{JB}
+	J.~Bureš.
+	\newblock „Matematické modelování proudění krve v cévách".
+	\newblock Bakalářská práce, České vysoké učení technické v Praze,  2022.
+	
+	\bibitem{Ginac}
+	J.~Vollinga.
+	\newblock „{GiNaC}{\textemdash}symbolic computation".
+	\newblock {\em Nuclear Instruments and Methods in Physics Research Section A:
+		Accelerators, Spectrometers, Detectors and Associated Equipment},
+	559(1):282--284, 2006.
+	
+	\bibitem{Powell}
+	M.J.D. Powell.
+	\newblock „{A} hybrid method for nonlinear equations".
+	\newblock {\em Numerical Methods for Nonlinear Algebraic Equations},
+	87–144, 1970.
+	
+	\bibitem{Eisenberg2002}
+	J.~D. Eisenberg.
+	\newblock „{\em {SVG} Essentials}".
+	\newblock O'Reilly Media, Sebastopol, CA, 2002.
+	
+	\bibitem{Bert}
+	D. Bertsekas.
+	\newblock „{\em Nonlinear programming}".
+	\newblock Athena Scientific, 2016.
+	
+	\bibitem{non-linear-textbook}
+	D.~G. Luenberger a Y. Ye.
+	\newblock „{\em Linear and nonlinear programming}".
+	\newblock International series in operations research \& management science.
+	Springer, New York, NY, 3. edice, 2008.
+	
+	\bibitem{Fletcher1963}
+	R.~Fletcher a M.~J.~D. Powell.
+	\newblock „{A} rapidly convergent descent method for minimization".
+	\newblock {\em The Computer Journal}, 6(2):163--168, 1963.
+	
+	\bibitem{broyden1970}
+	C.~G. Broyden.
+	\newblock „{T}he convergence of a class of double-rank minimization algorithms".
+	\newblock {\em {IMA} Journal of Applied Mathematics}, 6(3):222--231, 1970.
+	
+	\bibitem{Byrd1995}
+	R.~H. Byrd, P. Lu, J. Nocedal a C. Zhu.
+	\newblock „{A} limited memory algorithm for bound constrained optimization".
+	\newblock {\em {SIAM} Journal on Scientific Computing}, 16(5):1190--1208,
+	1995.
+	
+	\bibitem{BBO-textbook}
+	C. Audet a W. Hare.
+	\newblock „{\em Derivative-free and blackbox optimization}".
+	\newblock Springer Series in Operations Research and Financial Engineering.
+	Springer International Publishing, Cham, Switzerland, 1. edice, 2017.
+	
+	\bibitem{derivative-free-review}
+	J. Larson, M. Menickelly a S.~M. Wild.
+	\newblock „{D}erivative-free optimization methods".
+	\newblock {\em Acta Numerica}, 28:287--404, 2019.
+	
+	\bibitem{two-decades}
+	S. Alarie, et al.
+	\newblock „{T}wo decades of blackbox optimization applications".
+	\newblock {\em {EURO} Journal on Computational Optimization}, 9:100011, 2021.
+	
+	\bibitem{Kramer2011}
+	O. Kramer, D.~E. Ciaurri a Slawomir Koziel.
+	\newblock „{D}erivative-free optimization".
+	\newblock {\em Computational Optimization, Methods and Algorithms}, 61--83. Springer Berlin Heidelberg, 2011.
+	
+	\bibitem{Dantzig1990}
+	G.~B. Dantzig.
+	\newblock „Origins of the simplex method". 
+	\newblock {\em A history of scientific computing}, 141--151, 1990.
+	
+	\bibitem{Nelder1965}
+	J.~A. Nelder a R.~Mead.
+	\newblock „{A} simplex method for function minimization".
+	\newblock {\em The Computer Journal}, 7(4):308--313, 1965.
+	
+	\bibitem{Audet2002}
+	Ch. Audet a J.~E. Dennis.
+	\newblock „{A}nalysis of generalized pattern searches".
+	\newblock {\em {SIAM} Journal on Optimization}, 13(3):889--903, 2002.
+	
+	\bibitem{Audet2006}
+	Ch. Audet a J.~E. Dennis.
+	\newblock „{M}esh adaptive direct search algorithms for constrained optimization".
+	\newblock {\em {SIAM} Journal on Optimization}, 17(1):188--217, 2006.
+	
+	\bibitem{Optim.jl}
+	P.~K. Mogensen a A.~N. Riseth.
+	\newblock „{O}ptim: A mathematical optimization package for {Julia}".
+	\newblock {\em Journal of Open Source Software}, 3(24):615, 2018.
+	
+	\bibitem{nomad}
+	C.~Audet, S.~{Le~Digabel}, V.~{Rochon~Montplaisir} a C.~Tribes.
+	\newblock „{Algorithm~1027: NOMAD version~4: Nonlinear optimization with the
+		MADS algorithm}".
+	\newblock {\em {ACM} Transactions on Mathematical Software}, 48(3):35:1--35:22,
+	2022.
+	
+	\bibitem{Cassini}
+	M. Karataş.
+	\newblock „{A} multi foci closed curve: Cassini oval, its properties and
+	applications".
+	\newblock {\em Doğuş Üniversitesi Dergisi}, 14(2):231 -- 248, 2013.
+	
+	\bibitem{Ensley1999}
+	A.~E. Ensley, et al..
+	\newblock „{T}oward designing the optimal total cavopulmonary connection: an in
+	vitro study".
+	\newblock {\em The Annals of Thoracic Surgery}, 68(4):1384--1390, 1999.
+	
+\end{thebibliography}

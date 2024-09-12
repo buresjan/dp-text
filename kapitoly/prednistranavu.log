@@ -1,0 +1,992 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.14)  14 OCT 2023 22:24
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**prednistranavu.tex
+(./prednistranavu.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21>
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \noindent
+              %
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.11 \includegraphics
+                     [width=3cm,height=3cm,keepaspectratio]{Images/TITLE/cvut}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 13.
+! Undefined control sequence.
+<recently read> \large 
+                       
+l.16 ...�eské vysoké učení technické v Praze}
+                                                  {\large{}}\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.16 ...vysoké učení technické v Praze}{\large
+                                                  {}}\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (29.94981pt too wide) in paragraph at lines 16--16
+ []\OT1/cmr/m/sc/10 Cesk[]e 
+ []
+
+
+Overfull \hbox (35.1332pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/sc/10 vysok[]e 
+ []
+
+
+Overfull \hbox (26.77765pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/sc/10 u[]cen[]^^P 
+ []
+
+
+Overfull \hbox (27.31094pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/sc/10 tech- 
+ []
+
+
+Overfull \hbox (26.99986pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/sc/10 nick[]e 
+ []
+
+
+Overfull \hbox (6.13332pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/sc/10 v 
+ []
+
+
+Overfull \hbox (30.17204pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/sc/10 Praze 
+ []
+
+! Undefined control sequence.
+l.17 {\large
+            {}Fakulta jaderná a fyzikálně inženýrská}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no F in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no n in font nullfont!
+LaTeX Font Info:    Trying to load font information for +cmr on input line 17.
+LaTeX Font Info:    No file cmr.fd. on input line 17.
+
+LaTeX Font Warning: Font shape `/cmr/m/n' undefined
+(Font)              using `/cmr/m/n' instead on input line 17.
+
+! Corrupted NFSS tables.
+wrong@fontshape ...message {Corrupted NFSS tables}
+                                                  error@fontshape else let f...
+l.17 {\large{}Fakulta jaderná
+                               a fyzikálně inženýrská}
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+
+LaTeX Font Warning: Font shape `/cmr/m/n' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 17.
+
+Missing character: There is no a in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no k in font nullfont!
+
+Overfull \hbox (10.00003pt too wide) in paragraph at lines 17--18
+ \/cmr/m/n/10 ^^Sa 
+ []
+
+
+Overfull \hbox (9.44446pt too wide) in paragraph at lines 17--18
+ \/cmr/m/n/10 ^^Sa^^Te 
+ []
+
+
+Overfull \hbox (14.72226pt too wide) in paragraph at lines 17--18
+ \/cmr/m/n/10 ^^Tz^^Sy^^Sa 
+ []
+
+! Undefined control sequence.
+l.22 \includegraphics
+                     [width=3cm,height=3cm,keepaspectratio]{Images/TITLE/fjfi}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no I in font nullfont!
+Missing character: There is no T in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (170.71652pt too wide) in paragraph at lines 8--25
+ $[]$$[]$$[]$ 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 ...ho kavopulmonálního cévního napojení}
+                                                  {\huge\par}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \huge 
+                      
+l.28 ...ho kavopulmonálního cévního napojení}
+                                                  {\huge\par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.28 ...opulmonálního cévního napojení}{\huge
+                                                  \par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (39.02756pt too wide) in paragraph at lines 28--28
+ []\OT1/cmr/bx/n/10 Hled^^San^^S^^P 
+ []
+
+
+Overfull \hbox (15.97214pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 op- 
+ []
+
+
+Overfull \hbox (47.75667pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 tim^^Saln^^S^^Pho 
+ []
+
+
+Overfull \hbox (26.6179pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 tvaru 
+ []
+
+
+Overfull \hbox (20.66794pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 st^^Ten 
+ []
+
+
+Overfull \hbox (38.33311pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 matem- 
+ []
+
+
+Overfull \hbox (13.89574pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 at- 
+ []
+
+
+Overfull \hbox (31.46512pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 ick^^Seho 
+ []
+
+
+Overfull \hbox (25.87486pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 mod- 
+ []
+
+
+Overfull \hbox (14.8541pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 elu 
+ []
+
+
+Overfull \hbox (44.50673pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 proud^^Ten^^S^^P 
+ []
+
+
+Overfull \hbox (21.8263pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 krve 
+ []
+
+
+Overfull \hbox (6.06941pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 v 
+ []
+
+
+Overfull \hbox (27.09709pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 prob- 
+ []
+
+
+Overfull \hbox (21.88184pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 lem- 
+ []
+
+
+Overfull \hbox (13.89574pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 at- 
+ []
+
+
+Overfull \hbox (13.57632pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 ice 
+ []
+
+
+Overfull \hbox (39.77063pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 ^^Supln^^Seho 
+ []
+
+
+Overfull \hbox (42.0067pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 kavopul- 
+ []
+
+
+Overfull \hbox (52.22887pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 mon^^Saln^^S^^Pho 
+ []
+
+
+Overfull \hbox (38.17342pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 c^^Sevn^^S^^Pho 
+ []
+
+
+Overfull \hbox (28.27066pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 napo- 
+ []
+
+
+Overfull \hbox (18.36797pt too wide) in paragraph at lines 28--28
+ \OT1/cmr/bx/n/10 jen^^S^^P 
+ []
+
+! Not loaded.
+\selectlanguage ...ing it}\errmessage {Not loaded}
+                                                  
+l.32 \selectlanguage
+                    {american}%
+Selecting a language requires a package supporting it
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \selectlanguage{a
+                      merican}%
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+! Undefined control sequence.
+<recently read> \huge 
+                      
+l.33 ...ing on the total cavopulmonary connection}
+                                                  {\huge\par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.33 ... the total cavopulmonary connection}{\huge
+                                                  \par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (41.06226pt too wide) in paragraph at lines 32--33
+ []\OT1/cmr/bx/n/10 Optimal 
+ []
+
+
+Overfull \hbox (28.49426pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 shape 
+ []
+
+
+Overfull \hbox (15.49298pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 de- 
+ []
+
+
+Overfull \hbox (19.86932pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 sign 
+ []
+
+
+Overfull \hbox (9.26384pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 of 
+ []
+
+
+Overfull \hbox (24.50122pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 walls 
+ []
+
+
+Overfull \hbox (9.26384pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 of 
+ []
+
+
+Overfull \hbox (28.11096pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 blood 
+ []
+
+
+Overfull \hbox (20.1249pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 flow 
+ []
+
+
+Overfull \hbox (29.86787pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 math- 
+ []
+
+
+Overfull \hbox (9.10413pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 e- 
+ []
+
+
+Overfull \hbox (23.47902pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 mat- 
+ []
+
+
+Overfull \hbox (7.02774pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 i- 
+ []
+
+
+Overfull \hbox (13.89574pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 cal 
+ []
+
+
+Overfull \hbox (30.50679pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 model 
+ []
+
+
+Overfull \hbox (13.09715pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 fo- 
+ []
+
+
+Overfull \hbox (19.86932pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 cus- 
+ []
+
+
+Overfull \hbox (15.33325pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 ing 
+ []
+
+
+Overfull \hbox (12.13882pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 on 
+ []
+
+
+Overfull \hbox (16.13187pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 the 
+ []
+
+
+Overfull \hbox (14.05548pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 to- 
+ []
+
+
+Overfull \hbox (13.25685pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 tal 
+ []
+
+
+Overfull \hbox (41.68726pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 cavopul- 
+ []
+
+
+Overfull \hbox (38.11784pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 monary 
+ []
+
+
+Overfull \hbox (21.08322pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 con- 
+ []
+
+
+Overfull \hbox (20.60406pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 nec- 
+ []
+
+
+Overfull \hbox (19.80545pt too wide) in paragraph at lines 32--33
+ \OT1/cmr/bx/n/10 tion 
+ []
+
+! Not loaded.
+\selectlanguage ...ing it}\errmessage {Not loaded}
+                                                  
+l.35 \selectlanguage
+                    {czech}%
+Selecting a language requires a package supporting it
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 \selectlanguage{c
+                      zech}%
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no c in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no h in font nullfont!
+! Undefined control sequence.
+l.38 {\large
+            {}Soutěžní práce\\Rektorysova soutěž 2023}{\large\par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 {\large{}S
+               outěžní práce\\Rektorysova soutěž 2023}{\large\par}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no S in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+
+Overfull \hbox (11.66667pt too wide) in paragraph at lines 38--38
+ []\/cmr/m/n/10 ^^Te^^Tz^^S^^P 
+ []
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 38--38
+ \/cmr/m/n/10 ^^Sa 
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 {\large{}Soutěžní práce\\R
+                                   ektorysova soutěž 2023}{\large\par}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no R in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no y in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+! Undefined control sequence.
+l.38 ... práce\\Rektorysova soutěž 2023}{\large
+                                                  \par}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (8.88889pt too wide) in paragraph at lines 38--38
+ \/cmr/m/n/10 ^^Te^^Tz 
+ []
+
+
+! LaTeX Error: Environment lyxlist undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 \begin{lyxlist}
+                    {MMMMMMMMM}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 \begin{lyxlist}{M
+                      MMMMMMMM}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no M in font nullfont!
+
+! LaTeX Error: Environment singlespace undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.42 	\begin{singlespace}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.43 		\item [{Autor:}]
+                        \textbf{Bc. Jan Bureš}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (16.48602pt too wide) in paragraph at lines 43--44
+ \OT1/cmr/bx/n/10 Bc. 
+ []
+
+
+Overfull \hbox (17.9235pt too wide) in paragraph at lines 43--44
+ \OT1/cmr/bx/n/10 Jan 
+ []
+
+
+Overfull \hbox (29.11235pt too wide) in paragraph at lines 43--44
+ \OT1/cmr/bx/n/10 Bure^^Ts 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.44 		\item [{Vedoucí~práce:}]
+                                  \textbf{doc. Ing. Radek Fučík, Ph.D.}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.76378pt too wide) in paragraph at lines 44--45
+ \OT1/cmr/bx/n/10 doc. 
+ []
+
+
+Overfull \hbox (19.69434pt too wide) in paragraph at lines 44--45
+ \OT1/cmr/bx/n/10 Ing. 
+ []
+
+
+Overfull \hbox (31.94426pt too wide) in paragraph at lines 44--45
+ \OT1/cmr/bx/n/10 Radek 
+ []
+
+
+Overfull \hbox (30.23595pt too wide) in paragraph at lines 44--45
+ \OT1/cmr/bx/n/10 Fu^^Tc^^S^^Pk, 
+ []
+
+
+Overfull \hbox (29.45818pt too wide) in paragraph at lines 44--45
+ \OT1/cmr/bx/n/10 Ph.D. 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 		\item [{Konzultant:}]
+                             \textbf{Ing. Pavel Eichler}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (19.69434pt too wide) in paragraph at lines 45--46
+ \OT1/cmr/bx/n/10 Ing. 
+ []
+
+
+Overfull \hbox (27.02762pt too wide) in paragraph at lines 45--46
+ \OT1/cmr/bx/n/10 Pavel 
+ []
+
+
+Overfull \hbox (25.76375pt too wide) in paragraph at lines 45--46
+ \OT1/cmr/bx/n/10 Eich- 
+ []
+
+
+Overfull \hbox (13.20134pt too wide) in paragraph at lines 45--46
+ \OT1/cmr/bx/n/10 ler 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 		\item [{Akademický~rok:}]
+                                  2022/2023
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{singlespace}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 	\end{singlespace}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{lyxlist}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 \end{lyxlist}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49 \newpage
+             {}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ~
+      \newpage{}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 54--54
+[] 
+ []
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ~\newpage
+              {}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[2]
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56 ~
+      
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 56--57
+[]  
+ []
+
+)
+! Emergency stop.
+<*> prednistranavu.tex
+                      
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 45 strings out of 478287
+ 694 string characters out of 5849288
+ 296004 words of memory out of 5000000
+ 18337 multiletter control sequences out of 15000+600000
+ 469868 words of font info for 30 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 23i,5n,32p,224b,215s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

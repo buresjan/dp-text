@@ -1,0 +1,46 @@
+texpreamble("\usepackage{amsmath}");
+
+import graph;
+import fontsize;
+
+size(0,400);
+size3(400,IgnoreAspect);
+defaultpen(fontsize(20));
+
+pen pen1=black+1;
+pen pen2=pen1;//lightblue;
+pen pen3=blue;//magenta;
+
+
+
+//6
+draw((0,0)--(1,0), pen1, Arrow);
+draw((0,0)--(0,1), pen1, Arrow);
+draw((0,0)--(-1,0), pen1, Arrow);
+draw((0,0)--(0,-1), pen1, Arrow);
+
+// 8
+draw((0,0)--(1,1), pen1, Arrow);
+draw((0,0)--(1,-1), pen1, Arrow);
+draw((0,0)--(-1,-1), pen1, Arrow);
+draw((0,0)--(-1,1), pen1, Arrow);
+
+dot((0,0),pen3 + 12);
+
+int ix, iy;
+ix=-1;iy=1;
+
+// labels
+label("$\vec{\xi_0}$",(0,0.1),NE, pen3);
+label("$\vec{\xi_1}$",(1.067,0),N);
+label("$\vec{\xi_2}$",(-0.083,1.11),E);
+label("$\vec{\xi_3}$",(-1.065,0),N);
+label("$\vec{\xi_4}$",(-0.083,-1.11),E);
+
+label("$\vec{\xi_5}$",(1.15,1.01),NW);
+label("$\vec{\xi_6}$",(-1.14,1.01),NE);
+label("$\vec{\xi_7}$",(-1.14,-1.01),SE);
+label("$\vec{\xi_8}$",(0.99,-1.01),SE);
+
+
+scale(true);

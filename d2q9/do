@@ -1,0 +1,13 @@
+#!/bin/bash
+rpl -v f_\\bb\{0,0\} f_0 '*.txt'
+
+#sed -i 's/f_\\bb\{0,0\}/f_0/g' * 
+#sed -i 's/f_\\bb\{1,0\}/f_1/g' *
+#sed -i 's/f_\\bb\{1,1\}/f_5/g' *
+#sed -i 's/f_\\bb\{0,1\}/f_2/g' *
+#sed -i 's/f_\\bb\{-1,1\}/f_6/g' *
+#sed -i 's/f_\\bb\{-1,0\}/f_3/g' *
+#sed -i 's/f_\\bb\{-1,-1\}/f_7/g' *
+#sed -i 's/f_\\bb\{0,-1\}/f_4/g' *
+#sed -i 's/f_\\bb\{1,-1\}/f_8/g' *
+

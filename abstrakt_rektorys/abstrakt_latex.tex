@@ -1,0 +1,86 @@
+\documentclass[a4paper,czech,12pt,leqno]{article}
+\usepackage[czech]{babel}
+\usepackage[cp1250]{inputenc}
+\usepackage{a4wide}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\def\refname{\normalsize{Literatura:}}
+
+\begin{center}
+
+% název pøíspìvku:
+{\Large{\bf Hledání optimálního tvaru stìn matematického modelu proudìní krve v problematice úplného kavopulmonálního cévního napojení}} 
+
+\vspace{15pt}
+
+% jména autorù:
+{\bf Jan Bureš$^\ast$}
+
+\vspace{15pt}
+
+% pùsobištì a email autoru:
+$^\ast$Katedra matematiky FJFI ÈVUT v Praze, buresj11@fjfi.cvut.cz
+
+\end{center}
+
+\noindent{\bf Abstrakt}. Tato práce se zabývá optimalizací tvaru stìn v rámci modelování proudìní nestlaèitelné newtonovské tekutiny se zamìøením na modelování proudìní krve v cévách. Je pøedstaven a implementován optimalizaèní rámec, který lze následnì využít pro øešení optimalizaèních úloh týkajících se proudìní tekutin okolo rigidních pøekážek ve 2D. Pro numerické øešení matematického modelu je zvolena møížková Boltzmannova metoda, která je struènì popsána.
+Na hranici obtékaných tìles jsou pøedepsány interpolaèní okrajové podmínky, které jsou popsány a dále použity. Díky interpolaèním okrajovým podmínkám je zohlednìn skuteèný tvar hranice tìles.
+V teoretické èásti jsou pak dále popsány metody matematické optimalizace použité v této práci. Dále je popsán balík využitý k automatickému generování geometrií použitelných v numerických simulací, který byl implementován pro úèely této práce. Praktická èást demonstruje a analyzuje použití optimalizaèního rámce na sérii vhodnì navržených testovacích úloh. Na závìr jsou prezentovány výsledky optimalizaèní úlohy zjednodušeného modelu totálního kavopulmonálního spojení ve 2D, které jsou ve shodì s dostupnou literaturou. Použití optimalizaèního rámce lze tedy považovat za úspìšné.
+
+% seznam použité literatury
+\begin{thebibliography}{99}
+\bibitem{Kruger}
+T.~Kr\"{u}ger{, et al.}
+\newblock {\em The Lattice Boltzmann Method}.
+\newblock Springer International Publishing, 2017.
+
+\bibitem{Bert}
+D. Bertsekas.
+\newblock „{\em Nonlinear programming}".
+\newblock Athena Scientific, 2016.
+
+\bibitem{BBO-textbook}
+C. Audet a W. Hare.
+\newblock „{\em Derivative-free and blackbox optimization}".
+Springer International Publishing, Cham, Switzerland, 1. edice, 2017.
+
+\bibitem{Rijnberg2018}
+F.~M. Rijnberg, et al.
+\newblock „{E}nergetics of blood flow in cardiovascular disease".
+\newblock {\em Circulation},
+137(22):2393--2407,2018.
+
+\bibitem{Porfiryev2020}
+A.~Porfiryev, et al.
+\newblock „{F}ontan hemodynamics investigation via modeling and experimental
+characterization of idealized pediatric total cavopulmonary connection".
+\newblock {\em Applied Sciences}, 10(19):6910, 2020.
+
+	\bibitem{Marsden2008}
+A.~L. Marsden, J.~A. Feinstein a Ch.~A. Taylor.
+\newblock „{A} computational framework for derivative-free optimization of
+cardiovascular geometries".
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+197(21-24):1890--1905, 2008.
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

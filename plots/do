@@ -1,0 +1,26 @@
+#!/bin/bash
+
+cd
+
+python3 VU/text/plots/cassini2D.py
+
+cd VU/text/plots/_cass
+python3 try.py
+python3 cassini1.py
+cd
+
+python3 VU/text/plots/ellipse1interpolated.py
+python3 VU/text/plots/ellipse2interpolated.py
+python3 VU/text/plots/ellipse1maxpoints.py
+python3 VU/text/plots/ellipse1minpoints.py
+python3 VU/text/plots/ellipse2maxpoints.py
+python3 VU/text/plots/ellipse2minpoints.py
+
+mv VU/text/plots/_cass/1full.png VU/text/Images/1full.png
+mv VU/text/plots/_cass/2full.png VU/text/Images/2full.png
+mv VU/text/plots/_cass/3full.png VU/text/Images/3full.png
+mv VU/text/plots/_cass/1.pdf VU/text/Images/1.pdf
+mv VU/text/plots/_cass/2.pdf VU/text/Images/2.pdf
+mv VU/text/plots/_cass/3.pdf VU/text/Images/3.pdf
+
+cd VU/text/plots

@@ -1,0 +1,62 @@
+\babel@toc {czech}{}\relax 
+\babel@toc {american}{}\relax 
+\babel@toc {czech}{}\relax 
+\babel@toc {american}{}\relax 
+\babel@toc {czech}{}\relax 
+\babel@toc {american}{}\relax 
+\babel@toc {czech}{}\relax 
+\contentsline {chapter}{Úvod}{7}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Matematický model proudění krve}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Dynamika tekutin}{9}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Tenzor napětí a silové působení}{10}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Turbulence a Reynoldsův rozklad}{11}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Popis cévního proudění}{11}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Předpoklady matematického modelu v této práci}{14}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Mřížková Boltzmannova metoda}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Bezrozměrnost a diskretizace}{16}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Přechod k bezrozměrným jednotkám}{16}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Výpočetní oblast a diskrétní mřížka}{17}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Diskrétní Boltzmannova transportní rovnice}{18}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Makroskopické veličiny}{19}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Algoritmus LBM}{19}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Kolizní operátory}{19}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Počáteční a okrajové podmínky}{21}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Počáteční podmínka}{21}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Okrajové podímky}{21}{subsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.2.1}Bounce-back okrajová podmínka}{21}{subsubsection.2.4.2.1}%
+\contentsline {subsubsection}{\numberline {2.4.2.2}Interpolační okrajové podmínky}{23}{subsubsection.2.4.2.2}%
+\contentsline {subsubsection}{\numberline {2.4.2.3}Rovnovážná okrajová podmínka}{25}{subsubsection.2.4.2.3}%
+\contentsline {subsubsection}{\numberline {2.4.2.4}Momentová okrajová podmínka}{25}{subsubsection.2.4.2.4}%
+\contentsline {section}{\numberline {2.5}Výpočet síly v LBM}{25}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Poznámky k implementaci LBM}{26}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Generování geometrie}{28}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Struktura generovaných dat}{28}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Výpočet normálového vektoru}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Výpočet interpolačního parametru}{29}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Struktura kódu a poznámky k implementaci}{30}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Matematická optimalizace}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Základní optimalizační úloha}{32}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Řešení úlohy bez vazeb}{33}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Davidonův-Fletcherův-Powellův algoritmus}{33}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Broydenův-Fletcherův-Goldfarbův-Shannoův algoritmus}{34}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Řešení úlohy s vazbami}{34}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Penalizační metody}{34}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Bariérová metoda}{35}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Black-box optimalizace}{37}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Heuristické metody}{38}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Metody přímého vyhledávání}{40}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Optimalizace s využitím náhradního modelu}{40}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Popis optimalizačního rámce}{41}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Numerické výsledky}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Úlohy s jedním optimalizačním parametrem}{43}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Definice parametrů úlohy}{43}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Rotující elipsa bez překážky}{44}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Rotující elipsa s překážkou}{49}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Shrnutí výsledků úloh s jedním parametrem}{52}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Úloha s dvěma optimalizačními parametry}{53}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Shrnutí výsledků úlohy s dvěma parametry}{57}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Úloha s třemi optimalizačními parametry}{58}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Shrnutí výsledků úlohy s třemi parametry}{65}{subsection.5.3.1}%
+\contentsline {chapter}{Záv\v {e}r}{66}{chapter*.49}%
+\contentsline {chapter}{Přílohy}{67}{section*.50}%
+\contentsline {chapter}{\numberline {A}Momentová okrajová podmínka ve 2D}{68}{appendix.1.A}%

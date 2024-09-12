@@ -1,0 +1,29 @@
+\begin{subequations}
+\begin{equation}
+\begin{pmatrix}f_0b{1,0} \\ f_0b{0,-1} \\ f_0b{1,1} \\ f_0b{-1,-1} \\ f_0b{1,-1} \end{pmatrix} = \mathbb{A}_f
+\begin{pmatrix}f_0b{0,0} \\ f_0b{0,1} \\ f_0b{-1,0} \\ f_0b{-1,1} \end{pmatrix} + \mathbb{A}_m \begin{pmatrix}
+m_\bb{1,0} \\ m_\bb{0,1} \\ m_\bb{1,1} \\ m_\bb{2,0} \\ m_\bb{0,2}\end{pmatrix},
+\end{equation}
+where 
+\tiny
+\begin{equation}
+\mathbb{A}_f = \begin{pmatrix}0 &	2 &	1 &	4\\
+0 &	1 &	2 &	4\\
+0 &	-1 &	0 &	-1\\
+0 &	0 &	-1 &	-1\\
+0 &	-1 &	-1 &	-3
+\end{pmatrix},
+\end{equation}
+\normalsize
+and 
+\tiny 
+\begin{equation}
+\mathbb{A}_m = \begin{pmatrix}1 &	-1 &	1 &	0 &	-1\\
+1 &	-1 &	1 &	-1 &	0\\
+0 &	\frac{1}{2} &	0 &	0 &	\frac{1}{2}\\
+-\frac{1}{2} &	0 &	0 &	\frac{1}{2} &	0\\
+-\frac{1}{2} &	\frac{1}{2} &	-1 &	\frac{1}{2} &	\frac{1}{2}
+\end{pmatrix}.
+\end{equation}
+\normalsize
+\end{subequations}
