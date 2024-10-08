@@ -1,0 +1,13 @@
+\section{Black-box Optimization}\label{black-box}
+In practice, it is common to encounter cases where it is necessary to optimize an objective function~$f$, the analytical form of which, as well as the formula for calculating its derivative, is unknown. This problem is typical, for instance, in the results of numerical simulations, where we can only evaluate the objective function at specific points and thus obtain the desired function value. Additionally, in practice, evaluating the function at a point may itself be problematic and can be, for example, very time-consuming or computationally expensive. Clearly, the standard optimization algorithms mentioned earlier are not suitable for solving problems of this nature.
+
+The discipline that deals with problems where the objective function (or constraints) is given by a so-called black-box\footnote{In programming, a black-box refers to a system whose internal mechanisms are unknown to the user. This means that the user generally has access only to the system’s input and output \cite{BBO-textbook}.}, is called black-box optimization (hereafter referred to as BBO). In BBO, it is typically not assumed that the objective function is continuous or differentiable \cite{BBO-textbook, derivative-free-review, two-decades}.
+
+It is worth noting that in the literature, black-box optimization is often confused with derivative-free optimization (DFO), which encompasses methods and techniques for objective functions whose derivatives are unknown or difficult to compute \cite{BBO-textbook, derivative-free-review, Kramer2011}. These two disciplines share many common characteristics, but they differ primarily in that, within DFO, the formula for calculating the derivative of the objective function may still be known. Furthermore, BBO includes heuristic methods, whereas DFO focuses mainly on methods that can be reliably analyzed mathematically in terms of convergence and stopping criteria, which is often not possible for BBO methods \cite{BBO-textbook}. Therefore, although the terms BBO and DFO are often used interchangeably, in this work, we will treat them as two distinct disciplines \cite{BBO-textbook}.
+
+Additionally, it should be noted that various classifications of methods within BBO can be found in the literature. In this work, we will adhere to the classification presented in \cite{BBO-textbook}, distinguishing between heuristic methods, direct search methods, and methods based on surrogate models. Each of these classes will be briefly described in this section.
+
+
+\input{chapters/optimization/heuristic_methods.tex}
+%\input{chapters/optimization/direct_search.tex}
+%\input{chapters/optimization/surrogate_model.tex}

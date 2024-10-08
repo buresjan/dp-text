@@ -1,0 +1,47 @@
+\section{General optimization problem}
+
+Let $m, n, q \in \mathbb{N}$. Define the continuous functions $f : \mathbf{D} \rightarrow \mathbb{R}$, $ \vec{g} : \mathbf{D} \rightarrow \mathbb{R}^m$, $ \vec{h} : \mathbf{D} \rightarrow \mathbb{R}^q $, where $ \mathbf{D} = \mathrm{Dom} \, (f) \cap \mathrm{Dom} \, (\vec{g}) \cap \mathrm{Dom} \, (\vec{h})$, i.e., $ \mathbf{D} $ is the intersection of the domains of the given functions. Next, define the set
+
+\begin{equation}\label{eq:admissible solution}
+	\mathbf{X} = \big\{ \vec{x} \in \mathbf{D} \subseteq \mathbb{R}^n \ | \ \vec{g} (\vec{x}) \leq \vec{0} \wedge \vec{h} (\vec{x}) = \vec{0} \, \big\},
+\end{equation}
+where the inequality $ \vec{g} \leq \vec{0} $ and equality $ \vec{h} = \vec{0} $ are understood component-wise. The general goal of mathematical optimization is to solve the problem
+\begin{equation}\label{eq:basic problem}
+	\min_{\vec{x} \in \mathbf{X}} f(\vec{x}).
+\end{equation}
+
+The function $f$ being minimized is called the objective function, $\mathbf{D}$ is referred to as the domain of the problem, and $\mathbf{X}$~is called the set of admissible solutions of the problem \cite{Bert}. Note that, henceforth, $f$ will denote only the objective function and not the distribution function mentioned in Chapter \ref{lbm}.
+
+When classifying optimization problems, we refer to what are known as constraints. These are determined by the definition of the set $ \mathbf{X} $, i.e., the equality and inequality conditions for the functions $ \vec{g} $ and $ \vec{h} $, and by the domain $ \mathbf{D} $. Constraints defined by $ \vec{g} (\vec{x}) \leq \vec{0} \wedge \vec{h} (\vec{x}) = \vec{0} $ are called explicit constraints, while those determined by the domain $ \mathbf{D} $ are called implicit constraints.
+
+We call the element $ \vec{x}^{\star} \in \mathbf{X} $ the optimal solution of the problem \eqref{eq:basic problem} if
+\begin{equation}
+	\vec{x}^{\star} = \operatorname*{argmin}_{\vec{x} \in \mathbf{X}} \, f(\vec{x}).
+\end{equation}
+Note that the optimal solution may not be unique, and we refer to the set of all optimal solutions as the optimal set. It is also important to recognize that the search for an optimal solution can equivalently be formulated as finding the maximum of the function $ -f$ over the same set $ \mathbf{X}$, enabling the use of the same techniques for solving maximization problems that will be introduced later \cite{Bert, non-linear-textbook}.
+
+%\begin{enumerate}
+%	\item \textbf{Inicializace:} Volba $ \vec{x}_0 \in \mathbf{X}$ a následné vypočtení $ \vec{g}_0 = \nabla f (\vec{x}_0) $. Nastavení hodnot $ k=0 $ a $ H_0 = I $.
+%	\item \textbf{Cyklus} končící splněním podmínky ukončení, která je zadána uživatelem. Z důvodu konečné strojové přesnosti typicky požadujeme, aby vypočtená hodnota gradientu byla menší než požadovaný parametr $ \varepsilon > 0$.
+%	\begin{enumerate}
+	%		\item \textbf{Vypočtení směru hledání} jako $ \vec{d}_k = -H_k \vec{g}_k $.
+	%		\item \textbf{Jednorozměrná minimalizace}, při které najdeme $ \alpha_k = \operatorname*{argmin}_{\alpha \geq 0} f (\vec{x}_k + \alpha \vec{d}_k)$.
+	%		\item \textbf{Vypočtení a nastavení hodnot:}
+	%		\begin{subequations}
+		%			\begin{eqnarray}
+			%				\vec{x}_{k+1} &=& \vec{x}_k + \alpha_k \vec{d}_k,\\[3pt]
+			%				\vec{g}_{k+1} &=& \nabla f({\vec{x}_{k+1}}).
+			%			\end{eqnarray}
+		%		\end{subequations}
+	%		\item \textbf{Aproximace inverze Hessovy matice:} 
+	%		\begin{subequations}
+		%			\begin{eqnarray}
+			%				\vec{p}_{k} &=& \vec{x}_{k+1} - \vec{x}_{k},\\[3pt]
+			%				\vec{q}_{k} &=& \vec{g}_{k+1} - \vec{g}_{k},\\[3pt]\label{eq:hessian}
+			%				H_{k+1} &=& H_k - \frac{1}{\vec{q}^T_k H_k \vec{q}^{}_k} (H_k \vec{q}^{}_k)(H_k \vec{q}^{}_k)^T + \frac{1}{\vec{p}^T_k \vec{q}^{}_k} (\vec{p}^{}_k \vec{p}^{T}_k).
+			%			\end{eqnarray}
+		%		\end{subequations}
+	%		\item \textbf{Nastavení} $ k = k + 1 $.
+	%	\end{enumerate}
+%	\item \textbf{Konec algoritmu.}
+%\end{enumerate}

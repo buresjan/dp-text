@@ -1,0 +1,201 @@
+%% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+%\documentclass[11pt,american,czech]{book}
+\documentclass[11pt,oneside,american,czech]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=4cm,bmargin=3cm,lmargin=3cm,rmargin=2cm,headheight=0.8cm,headsep=1cm,footskip=0.5cm}
+\pagestyle{headings}
+\setcounter{secnumdepth}{3}
+\usepackage{url}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{empheq} 
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[svgnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{listings}
+\usepackage[draft]{todonotes}
+\usepackage{colortbl}
+\usepackage[toc, page]{appendix}
+\usepackage{multirow}
+\usepackage{pdfpages}
+
+
+\renewcommand\appendixpagename{Přílohy}
+\renewcommand\appendixtocname{Přílohy}
+
+\DeclareCaptionLabelFormat{andtable}{#1~#2  \&  \tablename~\thetable}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+\lstset{
+	literate={š}{{s}}1
+	{ä}{{\"a}}1
+	{ü}{{\"u}}1
+}
+
+
+\usepackage{ upgreek }
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+
+\hypersetup{
+	colorlinks,
+	linkcolor={red},
+	citecolor={blue},
+	urlcolor={purple}
+}
+
+%
+%\hypersetup{
+%	colorlinks,
+%	linkcolor={black},
+%	citecolor={black},
+%	urlcolor={black}
+%}
+
+\definecolor{myGrey}{rgb}{0.55, 0.55, 0.55}
+
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+\makeatletter
+\newcommand\bb[1]{{\left(#1\right)}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxlist}[1]
+	{\begin{list}{}
+		{\settowidth{\labelwidth}{#1}
+		 \setlength{\leftmargin}{\labelwidth}
+		 \addtolength{\leftmargin}{\labelsep}
+		 \renewcommand{\makelabel}[1]{##1\hfil}}}
+	{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%% Font setup: please leave the LyX font settings all set to 'default'
+%% if you want to use any of these packages:
+
+%% Use Times New Roman font for text and Belleek font for math
+%% Please make sure that the 'esint' package is turned off in the
+%% 'Math options' page.
+\usepackage[varg]{txfonts}
+\usepackage{pdfpages}
+
+%% Use Utopia text with Fourier-GUTenberg math
+%\usepackage{fourier}
+
+%% Bitstream Charter text with Math Design math
+%\usepackage[charter]{mathdesign}
+%\usepackage[varg]{mathdesign}
+
+%%---------------------------------------------------------------------
+
+%% Make the multiline figure/table captions indent so that the second
+%% line "hangs" right below the first one.
+%\usepackage[format=hang]{caption}
+
+%% Indent even the first paragraph in each section
+\usepackage{indentfirst}
+
+%%---------------------------------------------------------------------
+
+%% Disable page numbers in the TOC. LOF, LOT (TOC automatically
+%% adds \thispagestyle{chapter} if not overriden
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+%\addtocontents{lof}{\protect\thispagestyle{empty}}
+%\addtocontents{lot}{\protect\thispagestyle{empty}}
+
+%% Shifts the top line of the TOC (not the title) 1cm upwards 
+%% so that the whole TOC fits on 1 page. Additional page size
+%% adjustment is performed at the point where the TOC
+%% is inserted.
+%\addtocontents{toc}{\protect\vspace{-1cm}}
+
+
+\newtcolorbox[auto counter,number within=chapter]{uloha}[2][]{
+	enhanced,
+	colframe = myGrey,
+%	colback  = #2!10,
+%	coltitle = #2!20!black,
+	breakable,
+	arc=0pt,
+	outer arc=0pt,
+	boxrule=0.9pt,
+	rightrule=0.9pt,
+	bottomrule=0.9pt,
+	fonttitle=\scshape,
+	title={\textbf{{\large Úloha}} {\large \thetcbcounter: \hspace{0.1mm}} {\large #2}}
+}
+%%---------------------------------------------------------------------
+
+% completely avoid orphans (first lines of a new paragraph on the bottom of a page)
+\clubpenalty=9500
+
+% completely avoid widows (last lines of paragraph on a new page)
+\widowpenalty=9500
+
+% disable hyphenation of acronyms
+\hyphenation{CDFA HARDI HiPPIES IKEM InterTrack MEGIDDO MIMD MPFA DICOM ASCLEPIOS MedInria}
+
+%%---------------------------------------------------------------------
+
+%% Print out all vectors in bold type instead of printing an arrow above them
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\renewcommand{\lstlistingname}{Příklad kódu}
+
+% Replace standard \cite by the parenthetical variant \citep
+%\renewcommand{\cite}{\citep}
+
+\makeatother
+
+\usepackage[czech]{babel}
+\begin{document}
+
+\input{chapters/frontpage.tex}
+\input{chapters/zadani.tex}
+%\includepdf[pages=-]{chapters/zadani.pdf}
+\input{chapters/declaration.tex}
+%\input{chapters/abstract.tex}
+%\input{chapters/introduction.tex}
+\input{chapters/optimization/optimization.tex}
+
+
+\bibliographystyle{unsrt}
+\bibliography{reference}
+
+\end{document}
+

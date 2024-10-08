@@ -1,0 +1,32 @@
+texpreamble("\usepackage{amsmath}");
+
+
+import graph;
+import fontsize;
+
+size(0,400);
+defaultpen(fontsize(20));
+
+
+pen pen1=black+1;
+pen pen2=pen1;//lightblue;
+pen pen3=pen1;//magenta;
+
+draw((0,0)--(1,0), pen1, Arrow);
+draw((0,0)--(-1,0), pen1, Arrow);
+//dot((0 0), filltype=FillDraw(fillpen=white, drawpen=black));
+dot((0,0),pen1+12);
+
+draw((0,0)--(0,1), invisible);
+draw((0,0)--(0,-1), invisible);
+
+int ix, iy;
+ix=-1;iy=1;
+
+// labels
+label("$\vec{\xi_0}$",(0,0.03),N);
+label("$\vec{\xi_1}$",(1,0.03),N);
+label("$\vec{\xi_2}$",(-1,0.03),N);
+
+
+scale(true);

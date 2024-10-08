@@ -1,0 +1,79 @@
+\begin{thebibliography}{10}
+
+\bibitem{Fletcher1963}
+R.~Fletcher and M.~J.~D. Powell.
+\newblock A rapidly convergent descent method for minimization.
+\newblock {\em The Computer Journal}, 6(2):163--168, August 1963.
+
+\bibitem{broyden1970}
+C.~G. BROYDEN.
+\newblock The convergence of a class of double-rank minimization algorithms.
+\newblock {\em {IMA} Journal of Applied Mathematics}, 6(3):222--231, 1970.
+
+\bibitem{Bert}
+Dimitri Bertsekas.
+\newblock {\em Nonlinear programming}.
+\newblock Athena Scientific, September 2016.
+
+\bibitem{non-linear-textbook}
+David~G Luenberger and Yinyu Ye.
+\newblock {\em Linear and nonlinear programming}.
+\newblock International series in operations research \& management science.
+  Springer, New York, NY, 3 edition, July 2008.
+
+\bibitem{BBO-textbook}
+Charles Audet and Warren Hare.
+\newblock {\em Derivative-free and blackbox optimization}.
+\newblock Springer Series in Operations Research and Financial Engineering.
+  Springer International Publishing, Cham, Switzerland, 1 edition, December
+  2017.
+
+\bibitem{derivative-free-review}
+Jeffrey Larson, Matt Menickelly, and Stefan~M. Wild.
+\newblock Derivative-free optimization methods.
+\newblock {\em Acta Numerica}, 28:287--404, May 2019.
+
+\bibitem{two-decades}
+St{\'{e}}phane Alarie, Charles Audet, Aïmen~E. Gheribi, Michael Kokkolaras,
+  and S{\'{e}}bastien~Le Digabel.
+\newblock Two decades of blackbox optimization applications.
+\newblock {\em {EURO} Journal on Computational Optimization}, 9:100011, 2021.
+
+\bibitem{Kramer2011}
+Oliver Kramer, David~Echeverr{\'{\i}}a Ciaurri, and Slawomir Koziel.
+\newblock Derivative-free optimization.
+\newblock In {\em Computational Optimization, Methods and Algorithms}, pages
+  61--83. Springer Berlin Heidelberg, 2011.
+
+\bibitem{Dantzig1990}
+George~B. Dantzig.
+\newblock Origins of the simplex method, June 1990.
+
+\bibitem{Nelder1965}
+J.~A. Nelder and R.~Mead.
+\newblock A simplex method for function minimization.
+\newblock {\em The Computer Journal}, 7(4):308--313, January 1965.
+
+\bibitem{Audet2002}
+Charles Audet and J.~E. Dennis.
+\newblock Analysis of generalized pattern searches.
+\newblock {\em {SIAM} Journal on Optimization}, 13(3):889--903, January 2002.
+
+\bibitem{Audet2006}
+Charles Audet and J.~E. Dennis.
+\newblock Mesh adaptive direct search algorithms for constrained optimization.
+\newblock {\em {SIAM} Journal on Optimization}, 17(1):188--217, January 2006.
+
+\bibitem{Optim.jl}
+Patrick~Kofod Mogensen and Asbj{\o}rn~Nilsen Riseth.
+\newblock Optim: A mathematical optimization package for {Julia}.
+\newblock {\em Journal of Open Source Software}, 3(24):615, 2018.
+
+\bibitem{nomad}
+C.~Audet, S.~{Le~Digabel}, V.~{Rochon~Montplaisir}, and C.~Tribes.
+\newblock {Algorithm~1027: NOMAD version~4: Nonlinear optimization with the
+  MADS algorithm}.
+\newblock {\em {ACM} Transactions on Mathematical Software}, 48(3):35:1--35:22,
+  2022.
+
+\end{thebibliography}
