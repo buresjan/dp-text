@@ -17,29 +17,70 @@ The Nelder-Mead method finds a solution to an optimization problem by iterativel
 
 The transformations performed during each iteration are determined by comparing the function values at the vertices of the simplex. The newly formed simplex shares either exactly one vertex or exactly $ n $ vertices with the simplex from the preceding iteration. The algorithm continues to iteratively transform the simplex until a stopping condition (specified by the user) is met \cite{BBO-textbook}. Details of the Nelder-Mead method, including the algorithm's description and the choice of stopping condition, are discussed in \cite{BBO-textbook, derivative-free-review, Nelder1965}.
 
-\begin{enumerate}
-	\item \textbf{Initialise} the transformation parameters:
-	\begin{itemize}
-		\item $\delta^\text{exp}$,
-		\item $\delta^\text{out}$,
-		\item $\delta^\text{ins}$,
-		\item $\delta^\text{shrink}$,
-		\item $k_{\text{iter}} = 0$
-	\end{itemize}
-	\item \textbf{Cyklus} končící splněním podmínky ukončení, která je zadána uživatelem.
-	\begin{enumerate}
-		\item \textbf{Šíření} (anglicky \textit{streaming}) postkolizních distribučních funkcí $ f^{*}_{k} $  v příslušných směrech $ \vec{\xi_{k}} $.
-		\item \textbf{Výpočet makroskopických veličin} pomocí vztahů \eqref{macroeq}.
-		\item \textbf{Kolize} (anglicky \textit{collision}), kdy dochází k výpočtu postkolizního stavu distribuční funkce pomocí \eqref{eq:collision} a \textbf{vyřešení okrajových podmínek} diskutovaných v sekci \ref{pocatecni a okrajove podminky}.
-	\end{enumerate}
-	\item \textbf{Konec algoritmu.}
-\end{enumerate}
+
+\begin{algorithm}
+	\caption{Nelder-Mead algorithm}\label{neldermead}
+	\begin{algorithmic}[1]
+		\Require Initial simplex $Y^0 = \{y^0, y^1, \dots, y^n\}$, function $f: \mathbb{R}^n \to \mathbb{R}$, parameters $\delta^e$, $\delta^{oc}$, $\delta^{ic}$, $\gamma$, iteration counter $k \gets 0$
+		\Ensure Approximate minimum of $f$
+		
+		\Procedure{Nelder-Mead}{$Y^0$}
+		\State Reorder $Y^k$ so that $f(y^0) \leq f(y^1) \leq \dots \leq f(y^n)$
+		\State Set $f^k_{\text{best}} = f(y^0)$
+		
+		\While{stopping condition not met}
+		\Algphase{Reflection}
+		\State Compute centroid $x^c = \frac{1}{n} \sum_{i=0}^{n-1} y^i$
+		\State Set reflection point $x^r = x^c + \delta^r (x^c - y^n)$
+		\State Compute $f^r = f(x^r)$
+		\If{$f^k_{\text{best}} \leq f^r < f(y^{n-1})$}
+		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^r\}$
+		\State Increment $k \gets k+1$ and continue
+		\EndIf
+		
+		\Algphase{Expansion}
+		\If{$f^r < f^k_{\text{best}}$}
+		\State Set expansion point $x^e = x^c + \delta^e (x^r - x^c)$
+		\State Compute $f^e = f(x^e)$
+		\If{$f^e < f^r$}
+		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^e\}$
+		\Else
+		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^r\}$
+		\EndIf
+		\State Increment $k \gets k+1$ and continue
+		\EndIf
+		
+		\Algphase{Contraction}
+		\If{$f^r \geq f(y^n)$}
+		\State \textbf{Outside Contraction:} Compute $x^{oc} = x^c + \delta^{oc}(x^c - y^n)$
+		\State Compute $f^{oc} = f(x^{oc})$
+		\If{$f^{oc} < f(y^n)$}
+		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^{oc}\}$
+		\Else
+		\State \textbf{Shrink:} Set $Y^{k+1} = \{y^0, y^0 + \gamma(y^1 - y^0), \dots, y^0 + \gamma(y^n - y^0)\}$
+		\EndIf
+		\State Increment $k \gets k+1$ and continue
+		\Else
+		\State \textbf{Inside Contraction:} Compute $x^{ic} = x^c + \delta^{ic}(x^c - y^n)$
+		\State Compute $f^{ic} = f(x^{ic})$
+		\If{$f^{ic} < f(y^n)$}
+		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^{ic}\}$
+		\Else
+		\State Set $Y^{k+1} = \{y^0, y^0 + \gamma(y^1 - y^0), \dots, y^0 + \gamma(y^n - y^0)\}$
+		\EndIf
+		\State Increment $k \gets k+1$ and continue
+		\EndIf
+		\EndWhile
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
 
 The heuristic nature of the Nelder-Mead method stems from the fact that its principle is based on a somewhat random search of the space using predefined rules. Several iterations of space exploration using simplexes, for a specific choice of initial simplex and a specific function, are shown in Figure \ref{fig:NM}. While the convergence of this method has been proven, it is not guaranteed that the method will always converge to a stationary point \cite{BBO-textbook}. It should be noted that the Nelder-Mead method was primarily developed for unconstrained optimization problems, but it can be adapted for constrained optimization problems using the techniques described in section \ref{unconstrained}.
 
 
 \begin{figure}[H]
-	\vspace{-2mm}
+	\vspace{-5mm}
 	\begin{subfigure}[b]{0.32\textwidth}
 		\centering
 		%		trim={<left> <lower> <right> <upper>}
@@ -90,3 +131,4 @@ The heuristic nature of the Nelder-Mead method stems from the fact that its prin
 	\caption{Several iterations of the Nelder-Mead method for a specific choice of the initial simplex when minimizing the function $ x^2 - 4x + y^2 - y - xy + 7 $, with the minimum at the point (3,2) marked by a red cross.}
 	\label{fig:NM}
 \end{figure}
+

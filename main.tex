@@ -1,7 +1,7 @@
 %% LyX 2.3.6.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 %\documentclass[11pt,american,czech]{book}
-\documentclass[11pt,oneside,american,czech]{book}
+\documentclass[11pt,oneside,american]{book}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper]{geometry}
@@ -19,6 +19,8 @@
 \usepackage{siunitx}
 \usepackage{multicol}
 \usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage[hidelinks]{hyperref}
 \usepackage{float}
 \usepackage{booktabs}
@@ -32,6 +34,11 @@
 \usepackage{multirow}
 \usepackage{pdfpages}
 
+\newcommand\Algphase[1]{%
+	\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+	\Statex\hspace*{-\algorithmicindent}\textbf{#1}%
+	\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+}
 
 \renewcommand\appendixpagename{Přílohy}
 \renewcommand\appendixtocname{Přílohy}
@@ -182,7 +189,7 @@
 
 \makeatother
 
-\usepackage[czech]{babel}
+\usepackage[american]{babel}
 \begin{document}
 
 \input{chapters/frontpage.tex}
@@ -192,6 +199,7 @@
 %\input{chapters/abstract.tex}
 %\input{chapters/introduction.tex}
 \input{chapters/optimization/optimization.tex}
+
 
 
 \bibliographystyle{unsrt}

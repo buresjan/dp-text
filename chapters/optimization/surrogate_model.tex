@@ -1,19 +1,20 @@
-\subsection{Optimalizace s využitím náhradního modelu}\label{model-based}
-V případech, kdy je vyčíslení účelové funkce v konkrétním bodě časově nebo výpočetně  náročné, je užitečné během optimalizace v nějaké formě využít náhradu účelové funkce. Definujeme náhradní model (anglicky \textit{surrogate model}) zkoumané úlohy jako úlohu
+\subsection{Optimization Using a Surrogate Model}\label{model-based}
+In cases where evaluating the objective function at a specific point is time-consuming or computationally expensive, it can be useful to employ a surrogate for the objective function during optimization. We define a surrogate model of the given problem as the problem
+
 \begin{equation}
 	\min_{\vec{x} \in \mathbf{\tilde{X}}} \tilde{f}(\vec{x}),
 \end{equation}
-kde
+where
 \begin{equation}
-	\mathbf{\tilde{X}} = \big\{ \vec{x} \in \mathbf{D} \subseteq \mathbb{R}^n \ | \ \vec{\tilde{g}} (\vec{x}) \leq \vec{0} \wedge \vec{\tilde{h}} (\vec{x}) = \vec{0} \, \big\},
+	\mathbf{\tilde{X}} = \left\{ \vec{x} \in \mathbf{D} \subseteq \mathbb{R}^n \ \middle| \ \vec{\tilde{g}} (\vec{x}) \leq \vec{0} \wedge \vec{\tilde{h}} (\vec{x}) = \vec{0} \right\},
 \end{equation}
-přičemž funkce $ \tilde{f}, \vec{\tilde{g}}$ a $ \vec{\tilde{h}} $ mají podobný charakter, jako funkce $ f, \vec{g} $ a $ \vec{h}$ z původní úlohy. Charakter funkcí $ \tilde{f}, \vec{\tilde{g}}$ a $ \vec{\tilde{h}} $ je záměrně vymezen neurčitě - tento způsob definice odpovídá tomu, že po náhradním modelu nutně nepožadujeme, aby byl vhodným aproximativním modelem původní úlohy \cite{two-decades, BBO-textbook, Kramer2011}. Dobrý aproximativní model totiž nemusí být z hlediska optimalizace vhodnou náhradou, tato situace je znázorněna na obr. \ref{fig:surrogate}.
+and the functions \( \tilde{f}, \vec{\tilde{g}} \), and \( \vec{\tilde{h}} \) have characteristics similar to those of the functions \( f, \vec{g} \), and \( \vec{h} \) in the original problem. The characteristics of \( \tilde{f}, \vec{\tilde{g}} \), and \( \vec{\tilde{h}} \) are intentionally left undefined, reflecting the fact that the surrogate model does not necessarily need to be an accurate approximation of the original problem \cite{two-decades, BBO-textbook, Kramer2011}. A good approximative model may not always be a suitable surrogate for optimization purposes, a situation illustrated in Fig. \ref{fig:surrogate}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/surrogate.pdf}
-	\caption{Ilustrace dvou náhradních modelů $ s_1 $ a $ s_2 $. Černě jsou vyznačeny hodnoty účelové funkce vykazující šum. Použití náhradního modelu $ s_1 $ představuje volbu lepší z hlediska aproximace funkce, pro optimalizaci však tato volba vhodná není, jelikož $ s_1 $ obsahuje mnoho nežádoucích stacionárních bodů, které původní účelová funkce nemá. Na druhou stranu náhradní model $ s_1$ vhodně neaproximuje účelovou funkci ve smyslu funkčních hodnot, z hlediska optimalizace jde však o lepší volbu, jelikož stacionární body $ s_2$ se nacházejí na téměř shodných pozicích, jako je tomu u optimalizované účelové funkce.}
+	\caption{An illustration of two surrogate models, $ s_1 $ and $ s_2 $. The black points represent noisy values of the objective function. While using surrogate model $ s_1 $ represents a better choice for approximating the function, it is not suitable for optimization since $ s_1 $ contains many undesirable stationary points that the original objective function does not have. On the other hand, while surrogate model $ s_2 $ is not as accurate in approximating the function's values, it is a better choice for optimization because the stationary points of $ s_2 $ are almost identical to those of the optimized objective function.}
 	\label{fig:surrogate}
 \end{figure}
 
-Využití náhradního modelu v rámci optimalizace je většinou dílčí částí jiné obecné optimalizační metody. Náhradní modely lze např. použít v rámci metod GPS a MADS popsaných v sekci \ref{direct-search}, kdy při vyčíslování účelové funkce v kroku průzkumu nejdříve vyčíslíme v těch samých bodech náhradní funkci $ \tilde{f} $, tyto hodnoty pak seřadíme, a již seřazenou množinu bodů použijeme k vyčíslení původní funkce $ f $. To nám umožní potenciálně výrazně zkrátit čas, který je potřebný k provedení kroku průzkumu, jelikož seřazením bodů zvýšíme pravděpodobnost, že úspěšně najdeme lepší odhad řešení již pro jeden z prvních zkoumaných bodů \cite{BBO-textbook}. Náhradní modely lze použít i v rámci jiných metod a urychlit tak jejich průběh, detailně je jejich použití rozebráno např. v \cite{two-decades, BBO-textbook}.
+Using a surrogate model in optimization is often part of a larger optimization method. Surrogate models can, for example, be used within GPS and MADS methods described in section \ref{direct-search}, where, during the exploration step, we first evaluate the surrogate function \( \tilde{f} \) at the same points, sort these values, and then use the sorted set of points to evaluate the original function \( f \). This potentially allows us to significantly reduce the time required to complete the exploration step, as sorting the points increases the probability of finding a better estimate of the solution at one of the first examined points \cite{BBO-textbook}. Surrogate models can also be used within other methods to accelerate the process, and their application is discussed in detail in \cite{two-decades, BBO-textbook}.
