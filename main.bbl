@@ -64,16 +64,4 @@ Charles Audet and J.~E. Dennis.
 \newblock Mesh adaptive direct search algorithms for constrained optimization.
 \newblock {\em {SIAM} Journal on Optimization}, 17(1):188--217, January 2006.
 
-\bibitem{Optim.jl}
-Patrick~Kofod Mogensen and Asbj{\o}rn~Nilsen Riseth.
-\newblock Optim: A mathematical optimization package for {Julia}.
-\newblock {\em Journal of Open Source Software}, 3(24):615, 2018.
-
-\bibitem{nomad}
-C.~Audet, S.~{Le~Digabel}, V.~{Rochon~Montplaisir}, and C.~Tribes.
-\newblock {Algorithm~1027: NOMAD version~4: Nonlinear optimization with the
-  MADS algorithm}.
-\newblock {\em {ACM} Transactions on Mathematical Software}, 48(3):35:1--35:22,
-  2022.
-
 \end{thebibliography}

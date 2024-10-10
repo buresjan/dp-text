@@ -12,7 +12,7 @@ As mentioned earlier, penalty methods convert constrained optimization problems 
 \end{align}
 A typical choice for the penalty function is, e.g.,
 \begin{equation}\label{eq:penalty function}
-	p (\vec{x}) = \sum_{j=1}^{m} \left( \, \max  \left\{ \, g_j (\vec{x}), 0 \, \right\} \, \right)^2 + \sum_{j=1}^{q} h_j (\vec{x})^2.
+	p (\vec{x}) = \sum_{j=1}^{m} \left( \, \max  \left\{ \, g_j \, (\vec{x}), 0 \, \right\} \, \right)^2 + \sum_{j=1}^{q} h_j (\vec{x})^2.
 \end{equation}
 Using the penalty function $ p $, we construct the modified objective function
 \begin{equation}\label{eq:cost function with penalty}
@@ -51,19 +51,19 @@ A typical choice for the barrier function is the logarithmic barrier function
 \begin{equation}\label{eq:log barrier function}
 	B (\vec{x}) = -\sum_{j=1}^{m} \ln \left( - g_j (\vec{x}) \right),
 \end{equation}
-or alternatively, the reciprocal barrier function
+or the reciprocal barrier function
 \begin{equation}\label{eq:reciprocal barrier function}
 	B (\vec{x}) = -\sum_{j=1}^{m} \frac{1}{g_j (\vec{x})}.
 \end{equation}
-Using the barrier function $ B $, similar to the penalty methods, we construct the modified objective function
+Using the barrier function $ B $, we construct the modified objective function
 \begin{equation}\label{eq:cost function with barrier}
 	\phi (\vec{x}, r) = f (\vec{x}) + r B(\vec{x}),
 \end{equation}
-where $ r > 0 $ is a chosen parameter \cite{non-linear-textbook}.
+where $ r > 0 $ \cite{non-linear-textbook}.
 
-To solve the constrained problem using the barrier method, at each iteration we construct a new term in a strictly decreasing sequence of positive parameters $ r_1, r_2, \dots$, for which we solve the unconstrained optimization problem for the modified function $ \phi (\vec{x}, r_k)$. The vector $ \vec{x}_k  = \operatorname*{argmin}_{\vec{x} \in \mathbf{X}^\mathrm{o}} (f(\vec{x}) + r_k B(\vec{x})) $, obtained by optimizing the unconstrained problem, is used as the starting point for the next iteration. This process is repeated until the condition $ r_k < \varepsilon$ for some chosen $ \varepsilon > 0$ is satisfied, at which point $ \vec{x}_k $ is considered a sufficient approximation to the solution of the constrained problem \cite{non-linear-textbook}.
+To solve the constrained problem using the barrier method, at each iteration we construct a new term in a strictly decreasing sequence of positive parameters $ r_1, r_2, \dots$, for which we solve the unconstrained optimization problem for the modified function $ \phi (\vec{x}, r_k)$. The vector $ \vec{x}_k  = \operatorname*{argmin}_{\vec{x} \in \mathbf{X}^\mathrm{o}} (f(\vec{x}) + r_k B(\vec{x})) $, obtained by optimizing the unconstrained problem, is used as the starting point for the next iteration. This process is repeated until the condition $ r_k < \varepsilon$ for some $ \varepsilon > 0$ is satisfied, at which point $ \vec{x}_k $ is considered a sufficient approximation to the solution of the constrained problem \cite{non-linear-textbook}.
 
-The construction of the parameter sequence $ (r_k)_{k \in \mathbb{N}} $ and the principle of the barrier method are illustrated in Fig.~\ref{fig:barrier} using the example of minimizing the function $ f(x) = 0.5x $ with the constraint $ g(x) = 4 - x \leq 0 $ and the choice of the reciprocal barrier function. The modified objective function in this case is
+The construction of the parameter sequence $ (r_k)_{k \in \mathbb{N}} $ and the principle of the barrier method are illustrated in Figure~\ref{fig:barrier} using the example of minimizing the function $ f(x) = 0.5x $ with the constraint $ g(x) = 4 - x \leq 0 $ and the choice of the reciprocal barrier function. The modified objective function in this case is
 \begin{equation}
 	\phi (x, r) = 0.5x - \frac{r}{4-x}.
 \end{equation}
@@ -75,7 +75,7 @@ The construction of the parameter sequence $ (r_k)_{k \in \mathbb{N}} $ and the 
 	\label{fig:barrier}
 \end{figure}
 
-Finally, we mention the choice of the barrier function $ B_{\infty} $ used to define the so-called extreme barrier function, as the modified objective function is called with this choice \cite{BBO-textbook}. This barrier function mirrors the asymptotic behavior of the aforementioned barrier functions and is given by
+Finally, we define the specific choice of the barrier function $ B_{\infty} $ called the extreme barrier function \cite{BBO-textbook}. This extreme barrier function mirrors the asymptotic behavior of the aforementioned barrier functions and is given by
 \begin{align}
 	\begin{split}
 		B_{\infty}(\vec{x}) &= 0, \ \ \forall \vec{x} \in \mathbf{X},\\[6pt]
