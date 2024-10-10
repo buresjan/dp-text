@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.16)  9 OCT 2024 20:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.16)  10 OCT 2024 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1552,30 +1552,52 @@ multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figures/nelder9.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
-> <./figures/nelder.png>] [15]) (./chapters/optimization/surrogate_model.tex
-[16] [17]
-<figures/surrogate.pdf, id=385, 526.04471pt x 375.00183pt>
+> <./figures/nelder.png>]
+<figures/gps.pdf, id=356, 489.4653pt x 377.75896pt>
+File: figures/gps.pdf Graphic file (type pdf)
+<use figures/gps.pdf>
+Package pdftex.def Info: figures/gps.pdf  used on input line 19.
+(pdftex.def)             Requested size: 318.66948pt x 245.95541pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--70
+
+ []
+
+[15 <./figures/gps.pdf>] [16]
+<figures/mads.pdf, id=380, 579.58401pt x 254.1411pt>
+File: figures/mads.pdf Graphic file (type pdf)
+<use figures/mads.pdf>
+Package pdftex.def Info: figures/mads.pdf  used on input line 77.
+(pdftex.def)             Requested size: 459.79404pt x 201.61852pt.
+
+Overfull \hbox (4.54993pt too wide) in paragraph at lines 77--79
+ [][] 
+ []
+
+) (./chapters/optimization/surrogate_model.tex [17 <./figures/mads.pdf>]
+[18]
+<figures/surrogate.pdf, id=399, 526.04471pt x 375.00183pt>
 File: figures/surrogate.pdf Graphic file (type pdf)
 <use figures/surrogate.pdf>
 Package pdftex.def Info: figures/surrogate.pdf  used on input line 15.
 (pdftex.def)             Requested size: 273.14923pt x 194.72168pt.
-))) (./main.bbl [18 <./figures/surrogate.pdf>]) [19
+))) (./main.bbl [19 <./figures/surrogate.pdf>]) [20
 
 ] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 87152D2304678694669315E9D4D91C99;1628.
+(rerunfilecheck)             Checksum: B9748AF23A10A12C5E307B0F07DBDBA1;1585.
  ) 
 Here is how much of TeX's memory you used:
- 37815 strings out of 478287
- 777835 string characters out of 5849289
- 1077207 words of memory out of 5000000
- 55194 multiletter control sequences out of 15000+600000
+ 37834 strings out of 478287
+ 778209 string characters out of 5849289
+ 1077586 words of memory out of 5000000
+ 55208 multiletter control sequences out of 15000+600000
  558963 words of font info for 176 fonts, out of 8000000 for 9000
  1152 hyphenation exceptions out of 8191
- 90i,18n,99p,1325b,945s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 90i,18n,99p,1192b,945s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
@@ -1589,10 +1611,10 @@ dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (19 pages, 3759131 bytes).
+Output written on main.pdf (20 pages, 3789877 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 72 named destinations out of 1000 (max. 500000)
- 340 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 493 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 350 words of extra memory for PDF output out of 10000 (max. 10000000)
 
