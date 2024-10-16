@@ -1,0 +1,159 @@
+\chapter{Lattice Boltzmann method}
+
+We can consider a fluid as a continuum and use a macroscopic description, meaning we view the fluid as a whole and utilize macroscopic quantities such as density, flow velocity, or pressure for the state description, with the governing equations being \eqref{NS}. On the other hand, we can describe the dynamics of each particle in a given volume and thus use a microscopic description. Describing the dynamics of a particle at a microscopic scale is not difficult, but a significant drawback of this approach is its evident computational complexity, which is directly proportional to the number of particles being studied.
+
+A middle ground between the above-mentioned descriptions is the mesoscopic description \cite{PE}, which is based on kinetic theory. The fluid is described using one-particle probability distribution functions of density \( f(\vec{x},\vec{\xi}, t) \) \si{[kg.s^3.m^{-6}]}, which describe the system in the space of coordinates \( \vec{x} \), microscopic velocities \( \vec{\xi} \), and time \( t \). The distribution functions \( f \) give the density of particles occurring in the vicinity of \( \vec{x} \) at time \( t \) with a microscopic velocity \( \vec{\xi} \).
+
+The one-particle distribution functions in the vicinity of \( \vec{x} \) satisfy the Boltzmann transport equation \cite{Kruger}
+\begin{equation}\label{eq:BTR}
+	\frac{\partial f}{\partial t} + \sum_{i = 1}^{3} \xi _{i} \frac{\partial f}{\partial x_{i}} + \sum_{i = 1}^{3} g_{i} \frac{\partial f}{\partial \xi _{i}} = \mathcal{C}(f), 
+\end{equation}
+where \( \vec{g} \) \si{[m.s^{-2}]} is the acceleration vector of external forces, and \( \mathcal{C}(f)\) \si{[kg.s^2.m^{-6}]} is the collision operator, which will be discussed further in section \ref{kol}.
+
+Using the distribution functions \( f \), certain macroscopic quantities can be expressed as statistical moments \cite{Kruger}, such as
+
+\begin{subequations}\label{eq:macroscopic basic}
+	\begin{alignat}{1}
+		\rho(\vec{x}, t) & =\int\displaylimits_{\mathbb{R}^3} f(\vec{x}, \vec{\xi}, t) \mathrm{~d} \vec{\xi} \label{subeq:rho}, \\
+		\rho(\vec{x}, t) \vec{u}(\vec{x}, t) & =\int\displaylimits_{\mathbb{R}^3} f(\vec{x}, \vec{\xi}, t) \, \vec{\xi} \mathrm{~d} \vec{\xi} \label{subeq:momentum}.
+	\end{alignat}
+\end{subequations}
+
+
+The lattice Boltzmann method (LBM) is a numerical method based on the mesoscopic description of fluids. The numerical scheme of LBM can be derived by discretizing \eqref{eq:BTR}. In LBM, the spatial discretization is performed using a discrete equidistant lattice, and the discretization of velocity space is carried out using a finite set of microscopic velocities. We introduce velocity models denoted as D$d$Q$q$, where $ d$ and $q$ represent the dimension of the considered space and the number of different directions in which movement from each lattice node is possible, respectively.
+
+In this thesis, we consider the D3Q27 velocity model, which is schematically shown in Figure~\ref{fig:d3q27}.
+
+\begin{figure}[h]
+	\centering
+	\vspace{4mm}
+	\includegraphics[width=.6\textwidth]{figures/d3q27.pdf}
+	\caption{Geometric representation of the D3Q27 velocity model.}
+	\label{fig:d3q27}
+\end{figure}
+
+The velocity space of the microscopic particle velocity is discretized by a finite set of microscopic velocities, which, in the case of the D3Q27 model, is defined as
+
+\begin{equation}\label{eq:velocities}
+	\begin{gathered}
+		\left(\boldsymbol{\xi}_k\right)_{k=1}^{27}=\left(\left(\begin{array}{l}
+			0 \\
+			0 \\
+			0
+		\end{array}\right),\left(\begin{array}{l}
+			1 \\
+			0 \\
+			0
+		\end{array}\right),\left(\begin{array}{l}
+			0 \\
+			1 \\
+			0
+		\end{array}\right),\left(\begin{array}{l}
+			0 \\
+			0 \\
+			1
+		\end{array}\right),\left(\begin{array}{c}
+			-1 \\
+			0 \\
+			0
+		\end{array}\right),\left(\begin{array}{c}
+			0 \\
+			-1 \\
+			0
+		\end{array}\right),\left(\begin{array}{c}
+			0 \\
+			0 \\
+			-1
+		\end{array}\right)\right., \\
+		\left.\left(\begin{array}{l}
+			0 \\
+			1 \\
+			1
+		\end{array}\right),\left(\begin{array}{c}
+			0 \\
+			1 \\
+			-1
+		\end{array}\right),\left(\begin{array}{c}
+			0 \\
+			-1 \\
+			1
+		\end{array}\right),\left(\begin{array}{c}
+			0 \\
+			-1 \\
+			-1
+		\end{array}\right),\left(\begin{array}{l}
+			1 \\
+			1 \\
+			0
+		\end{array}\right),\left(\begin{array}{c}
+			1 \\
+			-1 \\
+			0
+		\end{array}\right),\left(\begin{array}{c}
+			-1 \\
+			1 \\
+			0
+		\end{array}\right),\left(\begin{array}{l}
+			-1 \\
+			-1 \\
+			0
+		\end{array}\right),\left(\begin{array}{l}
+			1 \\
+			0 \\
+			1
+		\end{array}\right),\left(\begin{array}{l}
+			1 \\
+			0 \\
+			-1
+		\end{array}\right)\right., \\
+		\left.\left(\begin{array}{c}
+			-1 \\
+			0 \\
+			1
+		\end{array}\right),\left(\begin{array}{c}
+			-1 \\
+			0 \\
+			-1
+		\end{array}\right),\left(\begin{array}{l}
+			1 \\
+			1 \\
+			1
+		\end{array}\right),\left(\begin{array}{c}
+			1 \\
+			1 \\
+			-1
+		\end{array}\right),\left(\begin{array}{c}
+			1 \\
+			-1 \\
+			1
+		\end{array}\right),\left(\begin{array}{c}
+			1 \\
+			-1 \\
+			-1
+		\end{array}\right),\left(\begin{array}{c}
+			-1 \\
+			1 \\
+			1
+		\end{array}\right),\left(\begin{array}{c}
+			-1 \\
+			1 \\
+			-1
+		\end{array}\right),\left(\begin{array}{c}
+			-1 \\
+			-1 \\
+			1
+		\end{array}\right),\left(\begin{array}{l}
+			-1 \\
+			-1 \\
+			-1
+		\end{array}\right)\right).
+	\end{gathered}
+\end{equation}
+
+\input{chapters/lbm/dimensionless.tex}
+\input{chapters/lbm/discretization.tex}
+\input{chapters/lbm/macroscopic.tex}
+\input{chapters/lbm/algo.tex}
+\input{chapters/lbm/collision.tex}
+\input{chapters/lbm/bc.tex}
+\input{chapters/lbm/implementation.tex}

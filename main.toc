@@ -1,0 +1,30 @@
+\babel@toc {american}{}\relax 
+\babel@toc {american}{}\relax 
+\babel@toc {american}{}\relax 
+\babel@toc {american}{}\relax 
+\babel@toc {american}{}\relax 
+\contentsline {chapter}{Introduction}{7}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Mathematical model}{8}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Lattice Boltzmann method}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Non-dimensionalization and discretization}{10}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Non-dimensional units}{11}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Computational Domain and Discrete Grid}{11}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Discrete Boltzmann transport equation}{12}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Macroscopic Quantities}{13}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}LBM Algorithm}{13}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Initial and boundary conditions}{13}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Initial Condition}{14}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Boundary Conditions}{14}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.1}Bounce-back Boundary Condition}{14}{subsubsection.2.3.2.1}%
+\contentsline {subsubsection}{\numberline {2.3.2.2}Equilibrium Boundary Condition}{16}{subsubsection.2.3.2.2}%
+\contentsline {section}{\numberline {2.4}Notes on the implementation}{16}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Mathematical optimization}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}General optimization problem}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Solving constrained problems}{18}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Penalty methods}{18}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Barrier method}{19}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Black-box optimization}{21}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Heuristic Methods}{21}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Direct search methods}{24}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Optimization Using a Surrogate Model}{28}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Popis optimalizačního rámce}{29}{section.3.4}%

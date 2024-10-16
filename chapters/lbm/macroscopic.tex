@@ -1,0 +1,12 @@
+\subsection{Macroscopic Quantities}\label{macro}
+Finally, we present the relations for calculating some of the macroscopic quantities. Some of these relations can be derived through the process of discretization from the general relations \eqref{eq:macroscopic basic} \cite{Kruger}. The relations for calculating density, momentum, and pressure are as follows:
+
+\begin{subequations}\label{macroeq}
+	\begin{eqnarray}
+		\label{rho}
+		\rho &=& \sum_{k=1}^{27} f_{k},\\[3pt]
+		\rho \vec{u} &=& \sum_{k=1}^{27} f_{k} \vec{\xi_{k}} + \rho \dfrac{\Delta t}{2} \vec{g},\\[3pt]
+		p &=& p_0 + c_{s}^{2} (\rho - \rho_0),
+	\end{eqnarray}
+\end{subequations}
+where $ p_0 $ \si{[-]} is the non-dimensional reference value of pressure, $ c_s $ \si{[-]} is the non-dimensional (lattice) speed of sound, and $ \rho_0 $ is the non-dimensional reference value of density. For $ c_s $ in the D3Q27 model, $ c_s = \frac{1}{\sqrt{3}} $. Furthermore, we consider $ \rho_0 = 1 $. A detailed description of the calculation of macroscopic quantities is provided in \cite{Kruger}.

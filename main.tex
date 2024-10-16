@@ -7,6 +7,7 @@
 \usepackage[a4paper]{geometry}
 \geometry{verbose,tmargin=4cm,bmargin=3cm,lmargin=3cm,rmargin=2cm,headheight=0.8cm,headsep=1cm,footskip=0.5cm}
 \pagestyle{headings}
+%\pagestyle{plain}
 \setcounter{secnumdepth}{3}
 \usepackage{url}
 \usepackage{mathtools}
@@ -33,6 +34,11 @@
 \usepackage[toc, page]{appendix}
 \usepackage{multirow}
 \usepackage{pdfpages}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
 
 \newcommand\Algphase[1]{%
 	\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
@@ -191,15 +197,16 @@
 
 \usepackage[american]{babel}
 \begin{document}
-
 \input{chapters/frontpage.tex}
 \input{chapters/zadani.tex}
-%\includepdf[pages=-]{chapters/zadani.pdf}
 \input{chapters/declaration.tex}
 %\input{chapters/abstract.tex}
-%\input{chapters/introduction.tex}
+\input{chapters/toc.tex}
+\input{chapters/introduction.tex}
+\input{chapters/model/mathematicalmodel.tex}
+\input{chapters/lbm/lbm.tex}
 \input{chapters/optimization/optimization.tex}
-
+%\input{chapters/conclusion.tex}
 
 
 \bibliographystyle{unsrt}
