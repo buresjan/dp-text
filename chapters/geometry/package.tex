@@ -1,0 +1,27 @@
+\section{Python Package Implementation}
+
+\subsection{Overview of the Custom Python Package}
+
+The custom Python package automates the entire geometry generation process, from reading and modifying Gmsh template files to voxelizing the resulting geometries and preparing them for simulation. This package integrates Gmsh, Trimesh, and other tools, providing a seamless pipeline for generating geometries that are parameterized and ready for optimization.
+
+The package is divided into several modules, each responsible for specific tasks such as reading templates, voxelizing the mesh, and exporting the final geometry. The modular design ensures that each component can be developed and tested independently while maintaining overall flexibility in the system.
+
+\subsection{Key Functionalities}
+
+\textbf{Template Modification:} The \texttt{mesher.py} module provides functionality for reading and modifying Gmsh templates. This involves replacing placeholders within the template files with the actual values of optimization parameters.
+
+% [Include code listing: Function that modifies a GEO file by replacing placeholders with parameter values.]
+
+\textbf{Voxelization:} The \texttt{voxels.py} module is responsible for voxelizing the generated STL mesh. It supports both splitting the mesh into segments for parallel processing and voxelizing the entire mesh in a single operation.
+
+% [Include code listing: Function that voxelizes the mesh, with and without splitting.]
+
+\textbf{Geometry Class:} The core of the package is the \texttt{Geometry} class, defined in the \texttt{geometry.py} module. This class orchestrates the entire workflow, from generating the voxelized mesh to saving and visualizing it.
+
+% [Include code listing: The Geometry class, showing its initialization, voxel mesh generation, saving, and visualization methods.]
+
+\subsection{Code Example}
+
+Here is an example of how the \texttt{Geometry} class is used to generate and save a voxelized mesh for the \texttt{tcpc\_classic} geometry.
+
+% [Include code listing: Example usage of the Geometry class, showing how to generate, save, and visualize the voxel mesh.]

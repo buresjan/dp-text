@@ -31,7 +31,7 @@ The fullway variant of the bounce-back boundary condition requires two time step
 \begin{figure}[h]
 %	\vspace{-.5cm}
 	\centering
-	\label{fig:fbb}
+
 	\begin{subfigure}{0.48\textwidth}
 		\centering
 		\includegraphics[width=0.9\textwidth, trim={0mm 0mm 0mm 0mm}]{figures/fwbba.pdf}
@@ -60,6 +60,7 @@ The fullway variant of the bounce-back boundary condition requires two time step
 	\end{subfigure}
 	
 	\caption{Schematic representation of the fullway bounce-back boundary condition for the D3Q27 velocity model. White points represent the fluid sites and gray points represent the wall sites, with the wall shown as a gray plane.}
+	\label{fig:fbb}
 \end{figure}
 
 
@@ -67,9 +68,7 @@ It is worth noting that there is also a \textit{halfway} variant of the bounce-b
 
 \subsubsection{Equilibrium Boundary Condition}\label{equilibrium bc}
 One option for approximating unknown distribution function values at the boundary nodes is to use the equilibrium distribution function, defined as \cite{PE}
-
 \begin{equation}
 	f_i(\vec{x}, t)=f_{i}^{\text{(eq)}}(\rho(\vec{x}, t), \vec{u}(\vec{x}, t)), \hspace{2mm}  \forall k \in \{1,\dots,27\}, \forall t \in \hat{\mathcal{I}}.
 \end{equation}
-
 The advantage of this approximation is its simple implementation, while the disadvantage is the neglect of the non-equilibrium part of the distribution function \cite{PE}.

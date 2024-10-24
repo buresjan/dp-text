@@ -1,5 +1,56 @@
 \begin{thebibliography}{10}
 
+\bibitem{PE}
+P.~Eichler.
+\newblock Mathematical modeling of fluid flow using lattice boltzmann method.
+\newblock {\em Dizertační práce}, 2023.
+
+\bibitem{Kruger}
+T.~Kr\"{u}ger{, et al.}
+\newblock {\em The Lattice Boltzmann Method}.
+\newblock Springer International Publishing, 2017.
+
+\bibitem{GeierCuLBM}
+M.~Geier{,} M. Schönherr{,} A.~Pasquali a~M.~Krafczyk.
+\newblock „{T}he cumulant lattice boltzmann equation in three dimensions:
+  Theory and validation".
+\newblock {\em Computers and Mathematics with Applications}, 70(4):507--547,
+  2015.
+
+\bibitem{MRT}
+D.~D’Humières.
+\newblock „{G}eneralized lattice-boltzmann equations".
+\newblock In {\em Rarefied Gas Dynamics: Theory and Simulations}, pages
+  450--458. American Institute of Aeronautics and Astronautics, 1994.
+
+\bibitem{GeierCLBM}
+M.~Geier{,} A.~Greiner a~J.~G.~Korvink.
+\newblock „{C}ascaded digital lattice boltzmann automata for high reynolds
+  number flow".
+\newblock {\em Physical Review E}, 73(6), 2006.
+
+\bibitem{ELBM}
+I.~V. Karlin{,} A.~Ferrante a~H.~C.~Öttinger.
+\newblock „{P}erfect entropy functions of the lattice boltzmann method".
+\newblock {\em Europhysics Letters ({EPL})}, 47(2):182--188, 1999.
+
+\bibitem{Oberhuber2021}
+Tomáš Oberhuber, Jakub Klinkovský, and Radek Fučík.
+\newblock Tnl: Numerical library for modern parallel architectures.
+\newblock {\em Acta Polytechnica}, 61(SI):122–134, February 2021.
+
+\bibitem{Klinkovsky2022}
+Jakub Klinkovský, Tomáš Oberhuber, Radek Fučík, and Vítězslav Žabka.
+\newblock Configurable open-source data structure for distributed conforming
+  unstructured homogeneous meshes with gpu support.
+\newblock {\em ACM Transactions on Mathematical Software}, 48(3):1–30,
+  September 2022.
+
+\bibitem{JB}
+J.~Bureš.
+\newblock Matematické modelování proudění krve v cévách.
+\newblock {\em Bakalářská práce}, 2022.
+
 \bibitem{Fletcher1963}
 R.~Fletcher and M.~J.~D. Powell.
 \newblock A rapidly convergent descent method for minimization.
@@ -63,5 +114,17 @@ Charles Audet and J.~E. Dennis.
 Charles Audet and J.~E. Dennis.
 \newblock Mesh adaptive direct search algorithms for constrained optimization.
 \newblock {\em {SIAM} Journal on Optimization}, 17(1):188--217, January 2006.
+
+\bibitem{Optim.jl}
+Patrick~Kofod Mogensen and Asbj{\o}rn~Nilsen Riseth.
+\newblock Optim: A mathematical optimization package for {Julia}.
+\newblock {\em Journal of Open Source Software}, 3(24):615, 2018.
+
+\bibitem{nomad}
+C.~Audet, S.~{Le~Digabel}, V.~{Rochon~Montplaisir}, and C.~Tribes.
+\newblock {Algorithm~1027: NOMAD version~4: Nonlinear optimization with the
+  MADS algorithm}.
+\newblock {\em {ACM} Transactions on Mathematical Software}, 48(3):35:1--35:22,
+  2022.
 
 \end{thebibliography}
