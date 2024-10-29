@@ -18,4 +18,41 @@ One of the main challenges during parameterization is ensuring consistency acros
 
 To illustrate the process, consider the generation of an extracardiac conduit. The Gmsh template defines the conduit using several geometric points, splines, and surfaces. The optimization parameters, such as the conduit diameter and length, are substituted into the template at predefined positions. Once the template is modified, Gmsh generates a 3D mesh of the conduit, which can then be further processed.
 
-% [Figure suggestion: A diagram or flowchart of this workflow, showing the flow from initial parameters to Gmsh template modification, and finally the meshed geometry.]
+\begin{lstlisting}[language=C++]
+	...
+	// Define points along the axis of the upper cylinder
+	Point(101) = {0.0, 0.0, LOWER_LENGTH + UPPER_LENGTH, h};
+	Point(102) = {0.0, 0.0, LOWER_LENGTH, h};
+	
+	// Create line and wire for upper cylinder extrusion
+	Line(101) = {102, 101};
+	Wire(102) = {101};
+	
+	// Disk representing the base of the upper cylinder
+	Disk(101) = {0.0, 0.0, LOWER_LENGTH + UPPER_LENGTH, UPPER_RADIUS};
+	
+	// Extrude the surface to form the second cylinder volume
+	Extrude { Surface{101}; } Using Wire {102}
+	...
+\end{lstlisting}
+
+
+\begin{figure}[H]
+	\centering
+	\vspace{6mm}
+	\includegraphics[width=.99\textwidth]{figures/gmsh.pdf}
+	\vspace{4mm}
+	\caption{Overview of the \texttt{meshgen} package.}
+	\label{fig:gmsh}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\vspace{6mm}
+	\includegraphics[width=.99\textwidth]{figures/stl.pdf}
+	\vspace{4mm}
+	\caption{Overview of the \texttt{meshgen} package.}
+	\label{fig:stl}
+\end{figure}

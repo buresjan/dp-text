@@ -14,6 +14,11 @@ The conversion process involves discretizing the surface of the geometry into a 
 
 % [Figure suggestion: A comparison of the original STL mesh and the voxelized mesh, highlighting the transformation from surface to voxel representation.]
 
-\subsection{Challenges and Considerations}
-
-One of the main challenges during mesh processing is ensuring that the level of mesh refinement is sufficient to capture important geometric details while maintaining computational efficiency. Additionally, care must be taken when converting the surface mesh to a voxel mesh, as the voxel size needs to be chosen carefully. Too large a voxel size may result in a loss of detail, while too small a size can lead to high computational costs and memory usage.
+\begin{figure}[H]
+	\centering
+	\vspace{6mm}
+	\includegraphics[width=.77\textwidth]{figures/voxelizing.pdf}
+	\vspace{4mm}
+	\caption{Overview of the \texttt{meshgen} package.}
+	\label{fig:voxelizing}
+\end{figure}

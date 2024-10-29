@@ -1,14 +1,13 @@
-\section{Introduction}
+In this chapter, we describe the geometry generation process central to the optimization framework. The generated geometry serves as the foundation for simulation using the lattice Boltzmann method described in Chapter \ref{lbm}. The geometry is directly influenced by optimization parameters that define it. The values of these parameters arise from the used optimization algorithm and are used to dynamically fill predefined geometry templates, ensuring that the model accurately represents the system under varying conditions. The templates are implemented in Gmsh -- a mesh generation software allowing parametric definition of geometries \cite{gmsh} -- hence the type of the file \texttt{.geo}.
 
-\subsection{Purpose of Geometry Generation}
+The overview of the entire process is presented in Figure \ref{fig:meshgen overview}.
 
-The geometry generation process is a crucial component of the optimization framework, as it provides the physical representation of the system to be optimized. In our case, the geometry is directly influenced by the optimization parameters, which control aspects such as dimensions, resolution, and mesh density. These parameters allow for the dynamic generation of geometries that accurately represent the system, enabling precise numerical simulations and effective optimization.
 
-\subsection{Overview of the Process}
-
-The process begins with a set of optimization parameters that dynamically modify predefined geometry templates. These templates, written in Gmsh scripting language, form the foundation for generating the geometry. After parameterization, the geometry is meshed and exported in STL format. Subsequently, the STL file is processed using Trimesh to create a rectilinear mesh suitable for numerical simulations. 
-
-This entire workflow is automated through a custom Python package, which integrates template modification, mesh generation, and post-processing in a seamless pipeline.
-
-% [Figure suggestion: A diagram showing the workflow, starting with optimization parameters, followed by modifying Gmsh templates, exporting STL, and processing with Trimesh to obtain a rectilinear mesh suitable for simulations.]
-
+\begin{figure}[H]
+	\centering
+	\vspace{6mm}
+	\includegraphics[width=.85\textwidth]{figures/meshgen.pdf}
+	\vspace{4mm}
+	\caption{Overview of the \texttt{meshgen} package.}
+	\label{fig:meshgen overview}
+\end{figure}
