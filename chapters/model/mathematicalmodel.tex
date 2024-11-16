@@ -1,11 +1,10 @@
-\chapter{Mathematical model}
-In this chapter, we describe the basic relationships related to continuum dynamics relevant to this work. We will introduce equations describing flow in a free environment. We describe turbulent behavior and Reynolds decomposition. Furthermore, we will mention some characteristics important for describing blood flow in vessels. Finally, we summarize the assumptions further made on the mathematical model used in this work.
+\chapter{Mathematical Model}
+This chapter presents the foundational relationships of continuum dynamics that are essential for this study. We introduce the governing equations for fluid flow in an unbounded domain, along with a discussion of turbulence and Reynolds decomposition. Additionally, we cover specific characteristics pertinent to modeling blood flow in vessels and summarize the assumptions made in developing the mathematical model employed herein.
 
 \section{Fluid Dynamics}
-We will consider the fluid under study as a continuum, thus treating it as a perfectly continuous structure. The equations describing the dynamics of the continuum can be uniquely derived from the laws of conservation of mass, momentum, and energy. These equations are also linked with the physical properties of the studied environment and material.
+In this work, we model the fluid as a continuum, treating it as an idealized continuous medium. The governing equations for continuum dynamics derive from the fundamental conservation laws of mass, momentum, and energy, intrinsically linked with the physical properties of the fluid and its surroundings.
 
-In an isolated and isothermal system, the development of fluid dynamics over time can be expressed using a system of partial differential equations in the form
-\\
+Assuming an isolated, isothermal system, the evolution of the fluid flow in three-dimensional space is governed by the following system of partial differential equations:
 \begin{subequations}\label{NS}
 	\begin{gather}
 		\label{a}
@@ -14,100 +13,88 @@ In an isolated and isothermal system, the development of fluid dynamics over tim
 		\frac{\partial (\rho \vec{u})}{\partial t} + \nabla \cdot (\rho \vec{u} \otimes \vec{u}) = \nabla \cdot \mathbf{T} + \rho \vec{g},
 	\end{gather}
 \end{subequations}
-where the symbol $ \otimes $ denotes the outer product defined by components as $ (\vec{u} \otimes \vec{u})_{ij} = u_{i} u_{j}, \: i,j \in \{1,2,3\} $ \cite{Anderson}. The quantities in \eqref{NS} respectively represent
+where $ \otimes $ denotes the outer product, defined component-wise as $ (\vec{u} \otimes \vec{u})_{ij} = u_{i} u_{j}, \: i,j \in \{1,2,3\} $ \cite{Anderson}. The quantities in \eqref{NS} are defined as follows:
 \begin{itemize}
-	\item[]{\makebox[3cm]{$ \rho $ \si{[kg.m^{-3}]}\hfill} the density of the fluid,}
-	\item[]{\makebox[3cm]{$ \vec{u} $ \si{[m.s^{-1}]}\hfill} the vector of macroscopic velocity,}
-	\item[]{\makebox[3cm]{$ \mathbf{T} $ \si{[kg.m^{-1}.s^{-2}]}\hfill} the complete stress tensor,}
-	\item[]{\makebox[3cm]{$ \vec{g} $ \si{[m.s^{-2}]}\hfill} the vector of acceleration of external forces.}
+	\item[]{\makebox[3cm]{$ \rho $ \si{[kg.m^{-3}]} \hfill} density of the fluid},
+	\item[]{\makebox[3cm]{$ \vec{u} $ \si{[m.s^{-1}]} \hfill} vector of macroscopic velocity,}
+	\item[]{\makebox[3cm]{$ \mathbf{T} $ \si{[kg.m^{-1}.s^{-2}]} \hfill} total stress tensor,}
+	\item[]{\makebox[3cm]{$ \vec{g} $ \si{[m.s^{-2}]} \hfill} vector of external force accelerations.}
 \end{itemize}
-All quantities in \eqref{NS} are generally functions of time $ t $ \si{[s]} and position $ \vec{x} $~\si{[m]}.
+Each of these quantities is generally a function of time $ t $ \si{[s]} and spatial position $ \vec{x} $ \si{[m]}.
 
-The isothermal system can be supplemented with the equation of state of an ideal gas in the form
+For an isothermal system, the ideal gas equation of state applies, expressed as:
 \begin{equation}\label{pressure}
 	p = c^{2}_{s} \ \rho,
 \end{equation}
-where $ p $ \si{[Pa]} denotes pressure and $ c_{s} $ \si{[m.s^{-1}]} is the speed of sound in the fluid \cite{Latt}. In this case, \eqref{NS} together with \eqref{pressure} form a closed system that can be solved without the use of the law of conservation of energy.
+where $ p $ \si{[Pa]} represents the pressure, and $ c_{s} $ \si{[m.s^{-1}]} is the speed of sound in the fluid \cite{Latt}. Together, equations \eqref{NS} and \eqref{pressure} form a closed system, allowing the model to omit the energy conservation law.
 
-\subsection{Stress Tensor and Force Effects}
+\subsection{Stress Tensor}
 
-We will denote the dynamic stress tensor as $\mathbf{T}_{\mu} = \big(\sigma^{\, \mu}_{ij} \,\big)$ \si{[kg.m^{-1}.s^{-2}]}, where $ i,j \in \{1,2,3\} $. For Newtonian fluids, the components of the dynamic stress tensor are linearly dependent on the spatial derivatives of velocity. Fluids that do not fulfill this linear dependence are called non-Newtonian. For the components of the dynamic stress tensor of Newtonian fluids, it holds that \cite{Schlichting}
+We denote the dynamic stress tensor as $\mathbf{T}_{\mu} = \big(\sigma^{\, \mu}_{ij} \big)$ \si{[kg.m^{-1}.s^{-2}]}, where $i,j \in \{1,2,3\}$. For Newtonian fluids, each component of the dynamic stress tensor linearly depends on the spatial velocity derivatives. Fluids that do not satisfy this linear relationship are classified as non-Newtonian. For Newtonian fluids, the dynamic stress tensor components are given by \cite{Schlichting}:
 
 \begin{subequations}\label{newton}
 	\begin{eqnarray}
 		\sigma^{\, \mu}_{ii} = \lambda \nabla \cdot \vec{u} + 2 \mu \frac{\partial u_i}{\partial x_i},&& \hspace{-3mm} i \in \{1,2,3\}, \\[5pt]
-		\sigma^{\, \mu}_{ij} = \sigma^{\, \mu}_{ji} = \mu \ \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right),&& \hspace{-4mm} \ i,j \in \{1,2,3\}, \: i \neq j,
+		\sigma^{\, \mu}_{ij} = \sigma^{\, \mu}_{ji} = \mu \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right),&& \hspace{-4mm} \ i,j \in \{1,2,3\}, \: i \neq j,
 	\end{eqnarray}
 \end{subequations}
-where $ \mu $ \si{[kg.m^{-1}.s^{-1}]} denotes the dynamic viscosity and $ \lambda $ \si{[kg.m^{-1}.s^{-1}]} is the so-called second viscosity coefficient~\cite{Cengel}. For Newtonian fluids, $\mathbf{T}_{\mu}$ is clearly a symmetric tensor. Further introducing the strain rate tensor~$\mathbf{D}~$ \si{[s^{-1}]} by the relation
+where $ \mu $ \si{[kg.m^{-1}.s^{-1}]} is the dynamic viscosity, and $ \lambda $ \si{[kg.m^{-1}.s^{-1}]} represents the second viscosity coefficient~\cite{Cengel}. For Newtonian fluids, $\mathbf{T}_{\mu}$ is symmetric by definition.
 
+By introducing the strain rate tensor~$\mathbf{D}$ \si{[s^{-1}]}, defined as
 \begin{equation}\label{eq:D}
-	\mathbf{D} = \frac{1}{2} \left[ \nabla \vec{u} \ + \ (\nabla \vec{u})^T \right],
+	\mathbf{D} = \frac{1}{2} \left[ \nabla \vec{u} + (\nabla \vec{u})^T \right],
 \end{equation}
-the dynamic stress tensor can equivalently be rewritten in the form
-
+the dynamic stress tensor can be equivalently expressed as
 \begin{equation}\label{eq:1}
-	\mathbf{T}_{\mu} = 2 \mu \mathbf{D} \ + \ \left( \lambda + \frac{2}{3} \mu \right) \ (\nabla \cdot \vec{u}) \  \mathbf{I} \ ,
+	\mathbf{T}_{\mu} = 2 \mu \mathbf{D} + \left( \lambda + \frac{2}{3} \mu \right) (\nabla \cdot \vec{u}) \mathbf{I},
 \end{equation}
-where $ \mathbf{I} $ is the identity tensor of corresponding dimension. Using Stokes' hypothesis, $ \lambda = -\frac{2}{3} \mu $ \cite{Anderson}, which relates the dynamic viscosity and the second viscosity coefficient, the relation \eqref{eq:1} becomes
-
+where $ \mathbf{I} $ denotes the identity tensor in three-dimensional space. By invoking Stokes' hypothesis, which states $ \lambda = -\frac{2}{3} \mu $ \cite{Anderson}, the above equation simplifies to
 \begin{equation}
 	\mathbf{T}_{\mu} = 2 \mu \mathbf{D}.
 \end{equation}
-Using $\mathbf{T}_{\mu}$, the complete stress tensor for a Newtonian fluid can further be written in the form
+The complete stress tensor for a Newtonian fluid is then given by
 \begin{equation}\label{eq:T}
 	\mathbf{T} = -p\mathbf{I} + \mathbf{T}_{\mu},
 \end{equation}
-where $ \mathbf{I} $ again is the identity tensor of corresponding dimension \cite{Cengel}.
+where $ \mathbf{I} $ remains the identity tensor in three-dimensional space \cite{Cengel}.
 
-The strain rate tensor is also used to define the shear rate $ \dot{\gamma} $~\si{[s^{-1}]} \cite{Cengel} by the relation
+The strain rate tensor also facilitates defining the shear rate $ \dot{\gamma} $~\si{[s^{-1}]} \cite{Cengel} as
 \begin{equation}\label{eq:dot gamma}
 	\dot{\gamma} = \sqrt{2} \| \mathbf{D} \| _{F},
 \end{equation}
-where $ \| \cdot \| _{F} $ denotes the Frobenius matrix norm defined for a general matrix $ \mathbf{A} $ of dimensions $ m \times n $ with elements $ a_{ij} $ as
+where $ \| \cdot \| _{F} $ denotes the Frobenius norm, defined for a matrix $ \mathbf{A} $ of dimensions $ m \times n $ with elements $ a_{ij} $ as
 \begin{equation}
 	\| \mathbf{A} \| _{F}  \coloneqq \sqrt{\sum_{i = 1}^{m} \sum_{j = 1}^{n} |a_{ij}|^2}.
 \end{equation}
 
-If the focus of investigation is the force effects of the fluid at the boundary of an object $ \partial \Omega $, we can express the components of the total force acting on $ \partial \Omega $ using \eqref{eq:T} as
-
-\begin{equation}\label{eq:stress_int}
-	{F}_{i} = \int\limits_{\partial\Omega}(\mathbf{T} \vec{n})_{i} \mathrm{d}S, \hspace{2mm} i \in \{1,2,3\},
-\end{equation}
-where $ \vec{n} $ denotes the normal vector to the boundary $ \partial \Omega $. The force expressed in this way represents the sum of the effects of pressure and viscous forces.
-
-For describing the interaction of the fluid with an obstacle, the wall shear stress (in English \textit{wall shear stress}) \cite{WallStress} is often used, which we will denote by $ \tau _w $ \si{[kg.m^{-1}.s^{-2}]} and which is defined in 2D by the relation
+To characterize fluid interaction with boundaries, the wall shear stress, denoted by $ \tau _w $ \si{[kg.m^{-1}.s^{-2}]} and commonly referred to as the \textit{wall shear stress} \cite{WallStress}, is often used. In three-dimensional space, it is defined by
 \begin{equation}\label{eq:wall shear stress}
 	\tau_w = \mathbf{T} \cdot \vec{t},
 \end{equation}
-where $ \vec{t} $ denotes the unit tangent vector at the wall at the point in question.
+where $ \vec{t} $ is the unit tangent vector at the wall at the given point.
 
 \subsection{Turbulence and Reynolds Decomposition}\label{turb}
-We will refer to as turbulent any flow that is disordered in both time and space. The direction and magnitude of the velocity in turbulent flow constantly change, leading to generally irregular fluctuations. Turbulent flow exhibits a random and unstable character.
+We define turbulent flow as a flow state that is disordered in both time and space, characterized by continuous fluctuations in both the direction and magnitude of velocity. This results in random, unstable behavior that distinguishes turbulence from laminar flow.
 
-Turbulent flow can be observed at higher values of the Reynolds number, which is a dimensionless quantity defined as
+Turbulence typically occurs at high values of the Reynolds number, a dimensionless parameter defined by
 \begin{equation}\label{Re}
 	\mathrm{Re} = \dfrac{l_{0} u_{0}}{\nu} = \dfrac{l^{2}_{0}}{t_{0} \nu},
 \end{equation}
-where $ \nu $ is the kinematic viscosity \si{[m^2.s^{-1}]}, and $ l_{0} $~\si{[m]}, $ t_{0} $ \si{[s]}, and $ u_{0} $~\si{[m.s^{-1}]} are respectively the characteristic length, time, and velocity specific to the task at hand \cite{Landau}.
+where $ \nu $ represents the kinematic viscosity \si{[m^2.s^{-1}]}, and $ l_{0} $~\si{[m]}, $ t_{0} $~\si{[s]}, and $ u_{0} $~\si{[m.s^{-1}]} denote the characteristic length, time, and velocity relevant to the specific flow \cite{Landau}.
 
-From the described properties of turbulent flow, it is clear that describing it is challenging. One approach to describing the turbulent flow field is through the statistical method of Reynolds' time averaging of quantities \cite{Sodja2007}, where a given quantity $ \psi $ is decomposed into its mean values $ \overline{\psi} $ and fluctuations $ \psi ' $ as
+Due to the complex and stochastic nature of turbulent flow, its precise description is inherently challenging. A common approach is to employ Reynolds' time-averaging method, where the instantaneous value of a flow variable $ \psi $ is decomposed into its mean value $ \overline{\psi} $ and a fluctuating component $ \psi' $:
 \begin{equation}
-	\psi = \overline{\psi} + \psi '.
+	\psi = \overline{\psi} + \psi'.
 \end{equation}
-The fluctuations $ \psi ' $ are defined such that the mean value $ \overline{\psi '} $ over a time period must be zero \cite{Schlichting}.
+Here, the fluctuation $ \psi' $ is defined such that its time-averaged value over a sufficiently long period is zero, i.e., $ \overline{\psi'} = 0 $ \cite{Schlichting}.
 
-We emphasize that $ \psi $ in this case represents any scalar quantity, for which we may choose, for example, the components of velocity $ \vec{u}_i $, pressure $ p $, or density $ \rho $ \cite{Sodja2007}. Furthermore, it is important to note that the time interval for averaging
-%, or control volume,
-should be of an order of magnitude larger than the time
-%, or spatial scale,
-of the turbulent phenomena we wish to describe \cite{Sodja2007}.
+In this decomposition, $ \psi $ can represent any scalar quantity, such as the components of velocity $ \vec{u}_i $, pressure $ p $, or density $ \rho $ \cite{Sodja2007}. The averaging period should be significantly larger than the time scale of the turbulent fluctuations being studied, ensuring that the mean values accurately represent the underlying flow structure \cite{Sodja2007}.
 
-If we now restrict ourselves to the Reynolds decomposition of the velocity field $ \vec{u} (\vec{x}, t) $ in terms of time averaging, we can introduce the turbulent kinetic energy $ T_{\text{turb}} $~\si{[m^{2}.s^{-2}]} by the relation
+Focusing on the Reynolds decomposition of the velocity field $ \vec{u} (\vec{x}, t) $ with respect to time averaging, we define the turbulent kinetic energy $ T_{\text{turb}} $~\si{[m^{2}.s^{-2}]} as
 \begin{equation}\label{eq:turb kin energy}
-	T_{\text{turb}} = \dfrac{1}{2} \left( \overline{(u_1 ')^2} + \overline{(u_2 ')^2} + \overline{(u_3 ')^2} \right) = \dfrac{1}{2} \left( \overline{(u_1 ')^2 + (u_2 ')^2 + (u_3 ')^2} \right),
+	T_{\text{turb}} = \dfrac{1}{2} \left( \overline{(u_1 ')^2} + \overline{(u_2 ')^2} + \overline{(u_3 ')^2} \right) = \dfrac{1}{2} \overline{ \left( u_1 '^2 + u_2 '^2 + u_3 '^2 \right) },
 \end{equation}
-where we have used arithmetic rules when employing Reynolds decomposition \cite{Sodja2007}.
+where we utilize the arithmetic properties of Reynolds decomposition to obtain this expression \cite{Sodja2007}.
 
 \section{Description of Vascular Flow}\label{cevni proudeni}
 Due to the presence of numerous physical, chemical, and physiological processes, vascular flow represents a highly complex process. In many cases, however, a simplified model that neglects some characteristics suffices for its description \cite{Saloner2019}. In this section, we briefly describe some aspects for which a simplified model can be considered under appropriate assumptions.
@@ -163,11 +150,9 @@ In most cases, blood flow can be approximated by laminar flow \cite{Sequeira}. H
 The occurrence of turbulent flow is physiologically undesirable as it is often accompanied by significant dissipation of kinetic energy, which can strain parts of the circulatory system. Additionally, vascular areas with turbulence show increased strain on vessel walls, which can lead to tissue damage and diseases such as arteriosclerosis. Therefore, it is desirable to minimize turbulence in blood flow \cite{Saloner2019, Kameneva2004}.
 
 \section{Assumptions of the Mathematical Model in This Work}\label{pred}
-Finally, we summarize the additional assumptions we will consider in our system. These assumptions simplify the solution of the system \eqref{NS}. Specifically, in this work, we will consider only an isothermal system (i.e., its temperature is constant over time), on which no external forces act. The considered fluid is also incompressible, Newtonian, and with constant dynamic viscosity.
+In this section, we summarize the additional assumptions applied to our system to simplify solving the governing equations \eqref{NS}. Specifically, we assume an isothermal system (i.e., constant temperature over time) with no external forces acting on it. The fluid under consideration is incompressible, Newtonian, and characterized by a constant dynamic viscosity.
 
-We will consider a rectangular area $ \Omega \subset \mathbb{R}^2 $, $ \Omega = (0, L_1) \times (0, L_2) $, where $ L_1, L_2 $ \si{[m]} are the dimensions of the rectangle, and the time interval $ \mathcal{I} = \langle 0, T \rangle,$ where $ T > 0$. Let's denote
-
-The equations \eqref{NS} solved on $ \Omega \times \mathcal{I} $ with these assumptions reduce to \cite{Schlichting}
+We consider a rectangular domain $ \Omega \subset \mathbb{R}^3 $, defined by $ \Omega = (0, L_1) \times (0, L_2) \times (0, L_3) $, where $ L_1 $, $ L_2 $, and $ L_3 $ \si{[m]} represent the domain dimensions along each spatial axis. The temporal interval is denoted by $ \mathcal{I} = \langle 0, T \rangle $, where $ T > 0 $. With these assumptions, the governing equations \eqref{NS} on $ \Omega \times \mathcal{I} $ simplify to \cite{Schlichting}:
 
 \begin{subequations}\label{NS s predpoklady}
 	\begin{gather}
@@ -177,18 +162,20 @@ The equations \eqref{NS} solved on $ \Omega \times \mathcal{I} $ with these assu
 		\rho \frac{\text{D} \vec{u}}{\text{D} t} = - \nabla p + \mu \Delta \vec{u},
 	\end{gather}
 \end{subequations}
-where we used the notation of the material derivative operator
+where we have introduced the material derivative operator
 \begin{equation}
 	\dfrac{\text{D}}{\text{D} t} \coloneqq \dfrac{\partial}{\partial t} + \vec{u} \cdot \nabla.
 \end{equation}
 
-We denote $ \partial \Omega_{\text{in}} $ as the part of the boundary of the area $ \Omega $ where the boundary condition at the inlet is prescribed, $ \partial \Omega_{\text{out}} $ as the part of the boundary where the boundary condition at the outlet is prescribed, and $ \partial \Omega_{\text{w}} $ as the part of the boundary where the interface between the fluid and the solid exists and where a no-slip boundary condition is considered. Then the equations \eqref{NS s predpoklady} are supplemented by initial and boundary conditions
+The boundary of $ \Omega $ is partitioned as follows: $ \partial \Omega_{\text{in}} $ denotes the inflow boundary where inlet conditions are specified; $ \partial \Omega_{\text{out}} $ represents the outflow boundary; and $ \partial \Omega_{\text{w}} $ corresponds to the wall boundaries, where a no-slip condition is imposed. The system \eqref{NS s predpoklady} is supplemented by the following initial and boundary conditions:
+
 \begin{subequations}\label{eq:okrajovky}
 	\begin{alignat}{3}
-		&\vec{u} = \vec{u}_{\text{ini}},  &p = p_{\text{ini}} \hspace{5mm} &\text{on } \ \Omega \times \mathcal{I}\\[3pt]
-		&(\nabla p - \nu \Delta \vec{u}) \cdot \vec{n}  = 0, &\vec{u} = \vec{u}_{\text{in}} \hspace{5mm} &\text{on } \ \partial \Omega_{\text{in}} \times \mathcal{I}\\[3pt]
-		&\vec{u} = \vec{0}, \, &\nabla p \cdot \vec{n} = 0 \hspace{5mm} &\text{on } \ \partial \Omega_{\text{w}} \times \mathcal{I}\\[3pt]
-		&p = p_{\text{out}}, &\nabla u_i \cdot \vec{n} = 0 \hspace{5mm} &\text{on } \ \partial \Omega_{\text{out}} \times \mathcal{I}, \, i = 1, 2 \ ,
+		&\vec{u} = \vec{u}_{\text{ini}},  &p = p_{\text{ini}} \hspace{5mm} &\text{on } \ \Omega \times \mathcal{I},\\[3pt]
+		&(\nabla p - \nu \Delta \vec{u}) \cdot \vec{n}  = 0, &\vec{u} = \vec{u}_{\text{in}} \hspace{5mm} &\text{on } \ \partial \Omega_{\text{in}} \times \mathcal{I},\\[3pt]
+		&\vec{u} = \vec{0}, \, &\nabla p \cdot \vec{n} = 0 \hspace{5mm} &\text{on } \ \partial \Omega_{\text{w}} \times \mathcal{I},\\[3pt]
+		&p = p_{\text{out}}, &\nabla u_i \cdot \vec{n} = 0 \hspace{5mm} &\text{on } \ \partial \Omega_{\text{out}} \times \mathcal{I}, \quad i = 1, 2, 3,
 	\end{alignat}
 \end{subequations}
-where $ \vec{n} $ is the unit external normal vector to the boundary of the considered area, $ \vec{u}_{\text{ini}}$ \si{[m.s^{-1}]} or $ p_{\text{ini}} $ \si{[kg.m^{-1}.s^{-2}]} is the initial velocity or initial pressure, respectively, $ \vec{u}_{\text{in}}$ \si{[m.s^{-1}]} is the velocity prescribed at the inlet, and $ p_{\text{out}} $~\si{[kg.m^{-1}.s^{-2}]} is the pressure prescribed at the outlet. Initial and boundary conditions are further discussed in section~\ref{pocatecni a okrajove podminky}.
+where $ \vec{n} $ is the outward-pointing normal unit vector to the boundary $ \partial \Omega $. Here, $ \vec{u}_{\text{ini}}$ \si{[m.s^{-1}]} and $ p_{\text{ini}} $ \si{[kg.m^{-1}.s^{-2}]} denote the initial velocity and pressure, respectively; $ \vec{u}_{\text{in}}$ \si{[m.s^{-1}]} is the prescribed inflow velocity at $ \partial \Omega_{\text{in}} $; and $ p_{\text{out}} $~\si{[kg.m^{-1}.s^{-2}]} is the prescribed outflow pressure at $ \partial \Omega_{\text{out}} $. Initial and boundary conditions are further elaborated in Section~\ref{pocatecni a okrajove podminky}.
+
