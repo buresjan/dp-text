@@ -1,0 +1,90 @@
+\chapter{Custom Nelder-Mead algorithm implementation}\label{appendix B}
+
+
+\begin{lstlisting}[
+	language=Python,
+	caption={Custom Nelder-Mead algorithm implementation.},
+	label={lst:NM}]	
+import numpy as np
+
+def nelder_mead(f, x_start,
+step=0.1, no_improve_thr=1e-6,
+no_improv_break=10, max_iter=0,
+alpha=1., gamma=2., rho=0.5, sigma=0.5):
+
+# Initialization
+dim = len(x_start)
+prev_best = f(x_start)
+no_improv = 0
+simplex = [x_start]
+scores = [prev_best]
+
+# Generate initial simplex around x_start
+for i in range(dim):
+x = np.copy(x_start)
+x[i] += step
+simplex.append(x)
+scores.append(f(x))
+
+simplex = np.array(simplex)
+scores = np.array(scores)
+
+iter_count = 0
+
+while True:
+# Order simplex points by function value (ascending)
+order = np.argsort(scores)
+simplex = simplex[order]
+scores = scores[order]
+best = scores[0]
+
+# Stopping criteria
+if max_iter and iter_count >= max_iter:
+return simplex[0], best
+if no_improv >= no_improv_break:
+return simplex[0], best
+
+iter_count += 1
+if best < prev_best - no_improve_thr:
+prev_best = best
+no_improv = 0
+else:
+no_improv += 1
+
+# Centroid of the best n points (excluding the worst)
+centroid = np.mean(simplex[:-1], axis=0)
+
+# Reflection
+xr = centroid + alpha * (centroid - simplex[-1])
+rscore = f(xr)
+if scores[0] <= rscore < scores[-2]:
+simplex[-1] = xr
+scores[-1] = rscore
+continue
+
+# Expansion
+if rscore < scores[0]:
+xe = centroid + gamma * (xr - centroid)
+escore = f(xe)
+if escore < rscore:
+simplex[-1] = xe
+scores[-1] = escore
+else:
+simplex[-1] = xr
+scores[-1] = rscore
+continue
+
+# Contraction
+xc = centroid + rho * (simplex[-1] - centroid)
+cscore = f(xc)
+if cscore < scores[-1]:
+simplex[-1] = xc
+scores[-1] = cscore
+continue
+
+# Reduction
+best_point = simplex[0]
+for i in range(1, len(simplex)):
+simplex[i] = best_point + sigma * (simplex[i] - best_point)
+scores[i] = f(simplex[i])
+\end{lstlisting}

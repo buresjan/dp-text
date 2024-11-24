@@ -35,6 +35,22 @@
 \usepackage{multirow}
 \usepackage{pdfpages}
 
+\usepackage{lipsum}
+\usepackage{forest}
+
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+
+\def\Size{4pt}
+\tikzset{
+	folder/.pic={
+		\filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+		(-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);  
+		\filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+		(-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+	}
+}
+
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric,arrows.meta}
 \usetikzlibrary{positioning}
@@ -100,6 +116,27 @@
 %}
 
 \definecolor{myGrey}{rgb}{0.55, 0.55, 0.55}
+% Define light grey color
+\definecolor{lightgray}{gray}{0.95}
+
+% Configure lstlisting environment
+\lstset{
+	backgroundcolor=\color{lightgray},   % Set background color
+	frame=single,                       % Add a box around the code
+	rulecolor=\color{black},            % Set the box border color
+	xleftmargin=0.2cm,                  % Add some horizontal margin
+	xrightmargin=0.2cm,                 % Add some horizontal margin
+	basicstyle=\ttfamily\small,         % Set font style and size
+	keywordstyle=\color{blue},          % Keywords in blue
+	commentstyle=\color{green!50!black},% Comments in dark green
+	stringstyle=\color{red},            % Strings in red
+	showstringspaces=false,             % Do not show spaces in strings
+	breaklines=true,                    % Enable line breaking
+	tabsize=4,                           % Set tab size
+	aboveskip=2em,                      % Space above the listing
+	belowskip=0em,                      % Space below the listing
+	abovecaptionskip=1em,
+}
 
 
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
@@ -184,7 +221,7 @@
 
 %% Print out all vectors in bold type instead of printing an arrow above them
 \renewcommand{\vec}[1]{\boldsymbol{#1}}
-\renewcommand{\lstlistingname}{Příklad kódu}
+\renewcommand{\lstlistingname}{Code Listing}
 
 % Replace standard \cite by the parenthetical variant \citep
 %\renewcommand{\cite}{\citep}
@@ -196,14 +233,15 @@
 \input{chapters/frontpage.tex}
 \input{chapters/zadani.tex}
 \input{chapters/declaration.tex}
-%\input{chapters/abstract.tex}
+\input{chapters/abstract.tex}
 \input{chapters/toc.tex}
 \input{chapters/introduction.tex}
 \input{chapters/model/mathematicalmodel.tex}
 \input{chapters/lbm/lbm.tex}
 \input{chapters/geometry/geometry.tex}
 \input{chapters/optimization/optimization.tex}
-%\input{chapters/conclusion.tex}
+\input{chapters/results/results.tex}
+\input{chapters/conclusion.tex}
 \input{chapters/appendix.tex}
 
 

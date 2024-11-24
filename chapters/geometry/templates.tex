@@ -1,60 +1,53 @@
-\section{Template-Based Geometry Generation}
+\section{Template-based geometry generation}
 
-\todo[inline]{improve the mainly placeholder text, use the things we agreed upon with RF}
+The geometry generation process begins with predefined Gmsh template files. These templates, which are created by the user, serve as the foundation for defining the problem-specific geometry. The template itself defines the problem being solved. 
+A full example of a Gmsh template file used in this workflow can be found in Appendix \ref{appendix A}.
 
-\subsection{Gmsh Template Files}
+Each Gmsh template file incorporates placeholders for variable parameters, marked with the "DEFINE\_" string prefix (e.g., \texttt{DEFINE\_OFFSET}, \texttt{DEFINE\_ANGLE}). These placeholders are replaced programmatically with specific values provided by the optimization algorithm. Importantly, the number of placeholders in the template must correspond to the dimension of the optimization problem being solved, ensuring that each optimization parameter is appropriately mapped to a specific aspect of the geometry.
 
-The geometry generation process relies on predefined Gmsh template files. These templates serve as flexible blueprints for creating a variety of geometries, with key parameters such as dimensions, resolution, and specific geometric features being dynamically filled based on the optimization parameters. The template files are structured to allow for easy modification, where placeholders represent variable values that are substituted programmatically during the optimization process.
+The Python function responsible for this substitution process is shown in Listing \ref{lst:template}. The function reads the template file, replaces the placeholders with the actual parameter values, and writes the modified geometry definition to a new file.
 
-% [Optional Figure suggestion: A snippet of a Gmsh template file, showing the placeholders and how they are replaced with actual values.]
-
-Each Gmsh template is parameterized to accommodate variations in geometry. For example, the templates can define features such as the dimensions of the extracardiac conduit, pulmonary artery, or vena cava superior. Parameters such as the rotation angle or the mesh density are key elements that allow flexibility in the final geometry generated.
-
-\subsection{Parameterization}
-
-The optimization parameters dictate how the geometry templates are modified. Each parameter maps to a placeholder within the Gmsh file, which is replaced by the actual value provided during the optimization. This process ensures that each geometry is tailored precisely to the current set of optimization requirements.
-
-One of the main challenges during parameterization is ensuring consistency across different geometries. This involves making sure that the parameters result in valid geometries that meet the required constraints for numerical simulations. Additionally, the range of allowable parameter values must be carefully managed to avoid issues such as mesh inconsistencies or geometry deformations.
-
-\subsection{Example Workflow}
-
-To illustrate the process, consider the generation of an extracardiac conduit. The Gmsh template defines the conduit using several geometric points, splines, and surfaces. The optimization parameters, such as the conduit diameter and length, are substituted into the template at predefined positions. Once the template is modified, Gmsh generates a 3D mesh of the conduit, which can then be further processed.
-
-\begin{lstlisting}[language=C++]
-	...
-	// Define points along the axis of the upper cylinder
-	Point(101) = {0.0, 0.0, LOWER_LENGTH + UPPER_LENGTH, h};
-	Point(102) = {0.0, 0.0, LOWER_LENGTH, h};
+\newpage
+\begin{lstlisting}[
+language=Python,
+caption={Function for modifying Gmsh template files.},
+label={lst:template}]
+def modify_geo_file(input_file_path, output_file_path, **kwargs):	
+	# Open and read the content of the original GEO file
+	with open(input_file_path, "r") as file:
+		file_data = file.read()
 	
-	// Create line and wire for upper cylinder extrusion
-	Line(101) = {102, 101};
-	Wire(102) = {101};
+	# Iterate through each keyword argument to replace placeholders
+	for variable, value in kwargs.items():
+		# Construct the placeholder string
+		placeholder_variable = "DEFINE_" + variable.upper()
+		replace_string = str(value)
 	
-	// Disk representing the base of the upper cylinder
-	Disk(101) = {0.0, 0.0, LOWER_LENGTH + UPPER_LENGTH, UPPER_RADIUS};
+	# Replace the placeholder with the actual value
+	file_data = file_data.replace(placeholder_variable, replace_string)
 	
-	// Extrude the surface to form the second cylinder volume
-	Extrude { Surface{101}; } Using Wire {102}
-	...
+	# Write the modified data to the new GEO file
+	with open(output_file_path, "w") as file:
+		file.write(file_data)
 \end{lstlisting}
 
+The modified Gmsh file is then processed to generate the desired geometry. Figure \ref{fig:outline} illustrates the geometry outlines produced by the template example from Appendix \ref{appendix A}. These outlines serve as the basis for further processing. Once the geometry outlines are defined, Gmsh is used to export the geometry as an \texttt{.stl} file. The \texttt{.stl} file captures the full 3D structure, ready for the next steps in the workflow. Figure \ref{fig:stl file} shows the \texttt{.stl} file generated from the template example in Appendix \ref{appendix A}.
 
 \begin{figure}[H]
-	\centering
-	\vspace{6mm}
-	\includegraphics[width=.99\textwidth]{figures/gmsh.pdf}
-	\vspace{4mm}
-	\caption{Overview of the \texttt{meshgen} package.}
-	\label{fig:gmsh}
+	\begin{subfigure}{0.99\textwidth}
+		\centering
+		\includegraphics[width=0.83\textwidth, trim={70mm 25mm 10mm 10mm}, clip]{figures/outline.png}
+		\caption{Geometry outlines generated using the Gmsh template.}
+		\label{fig:outline}
+	\end{subfigure}
 \end{figure}
-
-
-
-\begin{figure}[H]
-	\centering
-	\vspace{6mm}
-	\includegraphics[width=.99\textwidth]{figures/stl.pdf}
-	\vspace{4mm}
-	\caption{Overview of the \texttt{meshgen} package.}
-	\label{fig:stl}
+\begin{figure}[H]\ContinuedFloat
+	\begin{subfigure}{0.99\textwidth}
+		\vspace{-10mm}
+		\centering
+		\includegraphics[width=0.83\textwidth, trim={70mm 25mm 10mm 10mm}, clip]{figures/stl.png}
+		\caption{3D geometry exported to an \texttt{.stl} file. The blue volume represents the fluid sites later projected onto the LBM mesh.}
+		\label{fig:stl file}
+	\end{subfigure}
+	\caption{3D geometry exported to an \texttt{.stl} file. The blue volume represents the fluid sites later projected onto the LBM mesh.}
 \end{figure}

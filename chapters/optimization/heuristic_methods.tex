@@ -17,56 +17,51 @@ The Nelder-Mead method finds a solution to an optimization problem by iterativel
 
 The transformations performed during each iteration are determined by comparing the function values at the vertices of the simplex. The newly formed simplex shares either exactly one vertex or exactly $ n $ vertices with the simplex from the preceding iteration. The algorithm continues to iteratively transform the simplex until a stopping condition (specified by the user) is met \cite{BBO-textbook}. Details of the Nelder-Mead method, including the algorithm's description and the choice of stopping condition, are discussed in \cite{BBO-textbook, derivative-free-review, Nelder1965}.
 
-
 \begin{algorithm}
 	\caption{Nelder-Mead algorithm}\label{neldermead}
 	\begin{algorithmic}[1]
-		\Require Initial simplex $Y^0 = \{y^0, y^1, \dots, y^n\}$, function $f: \mathbb{R}^n \to \mathbb{R}$, parameters $\delta^e$, $\delta^{oc}$, $\delta^{ic}$, $\gamma$, iteration counter $k \gets 0$
-		\Ensure Approximate minimum of $f$
+		\Require Initial simplex $S^0 = \{s^0, s^1, \dots, s^n\}$, function $f: \mathbb{R}^n \to \mathbb{R}$, parameters $\delta^{\text{e}}$, $\delta^{\text{oc}}$, $\delta^{\text{ic}}$, $\gamma$, iteration counter $k \gets 0$
+		\Ensure Approximate optimal solution $\vec{x^{\star}}$ for function $f$
 		
-		\Procedure{Nelder-Mead}{$Y^0$}
-		\State Reorder $Y^k$ so that $f(y^0) \leq f(y^1) \leq \dots \leq f(y^n)$
-		\State Set $f^k_{\text{best}} = f(y^0)$
+		\Procedure{Nelder-Mead}{$S^0$}
+		\State Reorder $S^k$ so that $f(s^0) \leq f(s^1) \leq \dots \leq f(s^n)$
+		\State Set $f^k_{\text{best}} = f(s^0)$
 		
 		\While{stopping condition not met}
 		\Algphase{Reflection}
-		\State Compute centroid $x^c = \frac{1}{n} \sum_{i=0}^{n-1} y^i$
-		\State Set reflection point $x^r = x^c + \delta^r (x^c - y^n)$
-		\State Compute $f^r = f(x^r)$
-		\If{$f^k_{\text{best}} \leq f^r < f(y^{n-1})$}
-		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^r\}$
+		\State Compute centroid $x^{\text{c}} = \frac{1}{n} \sum_{i=0}^{n-1} s^i$
+		\State Set reflection point $x^{\text{r}} = x^{\text{c}} + (x^{\text{c}} - s^n)$ and compute $f^{\text{r}} = f(x^{\text{r}})$
+		\If{$f^k_{\text{best}} \leq f^{\text{r}} < f(s^{n-1})$}
+		\State Set $S^{k+1} = \{s^0, s^1, \dots, s^{n-1}, x^{\text{r}}\}$
 		\State Increment $k \gets k+1$ and continue
 		\EndIf
 		
 		\Algphase{Expansion}
-		\If{$f^r < f^k_{\text{best}}$}
-		\State Set expansion point $x^e = x^c + \delta^e (x^r - x^c)$
-		\State Compute $f^e = f(x^e)$
+		\If{$f^{\text{r}} < f^k_{\text{best}}$}
+		\State Set expansion point $x^{\text{e}} = x^{\text{c}} + \delta^{\text{e}} (x^{\text{r}} - x^{\text{c}})$ and compute $f^{\text{e}} = f(x^{\text{e}})$
 		\If{$f^e < f^r$}
-		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^e\}$
+		\State Set $S^{k+1} = \{s^0, s^1, \dots, s^{n-1}, x^\text{e}\}$
 		\Else
-		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^r\}$
+		\State Set $S^{k+1} = \{s^0, s^1, \dots, s^{n-1}, x^\text{r}\}$
 		\EndIf
 		\State Increment $k \gets k+1$ and continue
 		\EndIf
 		
 		\Algphase{Contraction}
-		\If{$f^r \geq f(y^n)$}
-		\State \textbf{Outside Contraction:} Compute $x^{oc} = x^c + \delta^{oc}(x^c - y^n)$
-		\State Compute $f^{oc} = f(x^{oc})$
-		\If{$f^{oc} < f(y^n)$}
-		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^{oc}\}$
+		\If{$f^\text{r} \geq f(s^n)$}
+		\State \textbf{Outside Contraction:} Compute $x^\text{oc} = x^\text{c} + \delta^{\text{oc}}(x^\text{c} - s^n)$ and $f^{\text{oc}} = f(x^{\text{oc}})$
+		\If{$f^{\text{oc}} < f(s^n)$}
+		\State Set $S^{k+1} = \{s^0, s^1, \dots, s^{n-1}, x^{\text{oc}}\}$
 		\Else
-		\State \textbf{Shrink:} Set $Y^{k+1} = \{y^0, y^0 + \gamma(y^1 - y^0), \dots, y^0 + \gamma(y^n - y^0)\}$
+		\State \textbf{Shrink:} Set $S^{k+1} = \{s^0, s^0 + \gamma(s^1 - s^0), \dots, s^0 + \gamma(s^n - s^0)\}$
 		\EndIf
 		\State Increment $k \gets k+1$ and continue
 		\Else
-		\State \textbf{Inside Contraction:} Compute $x^{ic} = x^c + \delta^{ic}(x^c - y^n)$
-		\State Compute $f^{ic} = f(x^{ic})$
-		\If{$f^{ic} < f(y^n)$}
-		\State Set $Y^{k+1} = \{y^0, y^1, \dots, y^{n-1}, x^{ic}\}$
+		\State \textbf{Inside Contraction:} Compute $x^{\text{ic}} = x^\text{c} + \delta^{\text{ic}}(x^\text{c} - s^n)$ and $f^{\text{ic}} = f(x^{\text{ic}})$
+		\If{$f^{\text{ic}} < f(s^n)$}
+		\State Set $S^{k+1} = \{s^0, s^1, \dots, s^{n-1}, x^{\text{ic}}\}$
 		\Else
-		\State Set $Y^{k+1} = \{y^0, y^0 + \gamma(y^1 - y^0), \dots, y^0 + \gamma(y^n - y^0)\}$
+		\State Set $S^{k+1} = \{s^0, s^0 + \gamma(s^1 - s^0), \dots, s^0 + \gamma(s^n - s^0)\}$
 		\EndIf
 		\State Increment $k \gets k+1$ and continue
 		\EndIf
@@ -74,8 +69,7 @@ The transformations performed during each iteration are determined by comparing 
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
-
-
+%
 The heuristic nature of the Nelder-Mead method stems from the fact that its principle is based on a somewhat random search of the space using predefined rules. Several iterations of space exploration using simplexes, for a specific choice of initial simplex and a specific function, are shown in Figure \ref{fig:NM}. While the convergence of this method has been proven, it is not guaranteed that the method will always converge to a stationary point \cite{BBO-textbook}. It should be noted that the Nelder-Mead method was primarily developed for unconstrained optimization problems, but it can be adapted for constrained optimization problems.
 
 
