@@ -1,5 +1,5 @@
 \subsection{Optimization Using a Surrogate Model}\label{model-based}
-In cases where evaluating the objective function at a specific point is time-consuming or computationally expensive, it can be useful to employ a surrogate for the objective function during optimization. We define a surrogate model of the given problem as the problem
+In cases where evaluating the objective function at a specific point is time-consuming or computationally expensive, it can be useful to employ a surrogate model for the objective function during optimization. We define a surrogate model of the given problem as the problem
 
 \begin{equation}
 	\min_{\vec{x} \in \mathbf{\tilde{X}}} \tilde{f}(\vec{x}),
@@ -8,7 +8,7 @@ where
 \begin{equation}
 	\mathbf{\tilde{X}} = \left\{ \vec{x} \in \mathbf{D} \subseteq \mathbb{R}^n \ \middle| \ \vec{\tilde{g}} (\vec{x}) \leq \vec{0} \wedge \vec{\tilde{h}} (\vec{x}) = \vec{0} \right\},
 \end{equation}
-and the functions \( \tilde{f}, \vec{\tilde{g}} \), and \( \vec{\tilde{h}} \) have characteristics similar to those of the functions \( f, \vec{g} \), and \( \vec{h} \) in the original problem. The characteristics of \( \tilde{f}, \vec{\tilde{g}} \), and \( \vec{\tilde{h}} \) are intentionally left undefined, reflecting the fact that the surrogate model does not necessarily need to be an accurate approximation of the original problem \cite{two-decades, BBO-textbook, Kramer2011}. A good approximative model may not always be a suitable surrogate for optimization purposes, a situation illustrated in Fig. \ref{fig:surrogate}.
+and the functions \( \tilde{f}, \vec{\tilde{g}} \), and \( \vec{\tilde{h}} \) have characteristics similar to those of the functions \( f, \vec{g} \), and \( \vec{h} \) in the original problem. The characteristics of \( \tilde{f}, \vec{\tilde{g}} \), and \( \vec{\tilde{h}} \) are intentionally left undefined, reflecting the fact that the surrogate model does not necessarily need to be an accurate approximation of the original problem \cite{BBO-textbook, two-decades, Kramer2011}. A good approximative model may not always be a suitable surrogate for optimization purposes, a situation illustrated in Figure \ref{fig:surrogate}.
 
 \begin{figure}[H]
 	\centering
@@ -17,4 +17,4 @@ and the functions \( \tilde{f}, \vec{\tilde{g}} \), and \( \vec{\tilde{h}} \) ha
 	\label{fig:surrogate}
 \end{figure}
 
-Using a surrogate model in optimization is often part of a larger optimization method. Surrogate models can, for example, be used within GPS and MADS methods described in section \ref{direct-search}, where, during the exploration step, we first evaluate the surrogate function \( \tilde{f} \) at the same points, sort these values, and then use the sorted set of points to evaluate the original function \( f \). This potentially allows us to significantly reduce the time required to complete the exploration step, as sorting the points increases the probability of finding a better estimate of the solution at one of the first examined points \cite{BBO-textbook}. Surrogate models can also be used within other methods to accelerate the process, and their application is discussed in detail in \cite{two-decades, BBO-textbook}.
+Using a surrogate model in optimization is often just a part of a more complex optimization method. Surrogate models can, for example, be used within GPS and MADS methods described in section \ref{direct-search}, where, during the poll step, we first evaluate the surrogate function \( \tilde{f} \) at the points from the poll set, sort these values, and use them to sort the poll set used to evaluate the original function \( f \). This potentially allows us to significantly reduce the time required to complete the poll step, as sorting the points increases the probability of finding a better estimate of the solution at one of the first examined points \cite{BBO-textbook}. Surrogate models can also be used within other methods to accelerate the optimization process, and their application is discussed in detail in \cite{BBO-textbook, two-decades}.

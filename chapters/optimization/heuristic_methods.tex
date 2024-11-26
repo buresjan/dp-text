@@ -15,7 +15,7 @@ The Nelder-Mead method finds a solution to an optimization problem by iterativel
 	\label{fig:NM operations}
 \end{figure}
 
-The transformations performed during each iteration are determined by comparing the function values at the vertices of the simplex. The newly formed simplex shares either exactly one vertex or exactly $ n $ vertices with the simplex from the preceding iteration. The algorithm continues to iteratively transform the simplex until a stopping condition (specified by the user) is met \cite{BBO-textbook}. Details of the Nelder-Mead method, including the algorithm's description and the choice of stopping condition, are discussed in \cite{BBO-textbook, derivative-free-review, Nelder1965}.
+The transformations performed during each iteration are determined by comparing the function values at the vertices of the simplex. The newly formed simplex shares either exactly one vertex or exactly $ n $ vertices with the simplex from the preceding iteration. The algorithm continues to iteratively transform the simplex until a stopping condition (specified by the user) is met \cite{BBO-textbook}. Details of the Nelder-Mead method, including the algorithm's description and the choice of stopping condition, are discussed in \cite{BBO-textbook, derivative-free-review, Nelder1965}. The full Nelder-Mead method algorithm is presented in Algorithm~\ref{neldermead}.
 
 \begin{algorithm}
 	\caption{Nelder-Mead algorithm}\label{neldermead}
@@ -70,55 +70,55 @@ The transformations performed during each iteration are determined by comparing 
 	\end{algorithmic}
 \end{algorithm}
 %
-The heuristic nature of the Nelder-Mead method stems from the fact that its principle is based on a somewhat random search of the space using predefined rules. Several iterations of space exploration using simplexes, for a specific choice of initial simplex and a specific function, are shown in Figure \ref{fig:NM}. While the convergence of this method has been proven, it is not guaranteed that the method will always converge to a stationary point \cite{BBO-textbook}. It should be noted that the Nelder-Mead method was primarily developed for unconstrained optimization problems, but it can be adapted for constrained optimization problems.
+The heuristic nature of the Nelder-Mead method stems from the fact that its principle is based on a somewhat random search of the space using predefined rules. Several iterations of space exploration using simplexes, for a specific choice of initial simplex and a specific function, are shown in Figure \ref{fig:NM}. While the convergence of this method has been proven, it is not guaranteed that the method will always converge to a stationary point \cite{BBO-textbook}. It should be noted that the Nelder-Mead method was primarily developed for unconstrained optimization problems, but it can be adapted for constrained optimization problems  \cite{BBO-textbook}.
 
 
 \begin{figure}[H]
 	\vspace{-5mm}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		%		trim={<left> <lower> <right> <upper>}
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}, clip]{figures/nelder1.pdf}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder2.pdf}
 	\end{subfigure}
 	\vspace{1mm}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder3.pdf}
 	\end{subfigure}
 	\vspace{1mm}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder4.pdf}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder5.pdf}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder6.pdf}
 	\end{subfigure}
 	\centering
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder7.pdf}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder8.pdf}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.32\textwidth}
+	\begin{subfigure}[b]{0.325\textwidth}
 		\centering
 		\includegraphics[width=0.96\textwidth, trim={0 0 0 0}]{figures/nelder9.pdf}
 	\end{subfigure}
 	\begin{center}
-		\begin{subfigure}[b]{0.66\textwidth}
+		\begin{subfigure}[b]{0.77\textwidth}
 			\centering
-			\includegraphics[width=0.985\textwidth, trim={0 6mm 0 9mm}]{figures/nelder.png}
+			\includegraphics[width=0.985\textwidth, trim={0 6mm 0 7mm}]{figures/nelder.png}
 		\end{subfigure}
 	\end{center}
 	

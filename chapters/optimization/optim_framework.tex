@@ -7,6 +7,9 @@ A fully automated and modular optimization framework was developed to solve the 
 	
 	In this study, we use the Nelder-Mead method, implemented in Python specifically for this work and detailed in Appendix~\ref{appendix B}. Additionally, the framework includes the MADS method (see Section~\ref{direct-search}), implemented in the open-source \texttt{NOMAD} library \cite{nomad} in C++. For handling constraints in both the Nelder-Mead and MADS methods, we use the extreme barrier function.
 	
+	In previous work \cite{buresBP, buresVU}, we explored the use of gradient-based optimization methods in the context of black-box optimization coupled with LBM simulations. These methods utilized interpolation boundary conditions, such as the Bouzidi condition \cite{Bouzidi2001}, on the boundaries of obstacles to ensure continuity of the objective function as the geometry changed. It was demonstrated that gradient-free methods are preferable in this context due to their effectiveness and simplicity.
+
+	
 	\item \textbf{Geometry Generation}:  
 	The optimization parameters, updated at each iteration, are passed to the geometry generator. For generating the geometries used in numerical simulations, we use the \texttt{meshgen} package detailed in Chapter~\ref{geometry}.
 	
