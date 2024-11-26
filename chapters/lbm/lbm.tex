@@ -35,120 +35,151 @@ In this thesis, we consider the D3Q27 velocity model, which is schematically sho
 The velocity space of the microscopic particle velocity is discretized by a finite set of microscopic velocities, which, in the case of the D3Q27 model, is defined as
 
 \begin{equation}\label{eq:velocities}
-	\begin{gathered}
-		\left(\boldsymbol{\xi}_k\right)_{k=1}^{27}=\left(\left(\begin{array}{l}
-			0 \\
-			0 \\
-			0
-		\end{array}\right),\left(\begin{array}{l}
-			1 \\
-			0 \\
-			0
-		\end{array}\right),\left(\begin{array}{l}
-			0 \\
-			1 \\
-			0
-		\end{array}\right),\left(\begin{array}{l}
-			0 \\
-			0 \\
-			1
-		\end{array}\right),\left(\begin{array}{c}
-			-1 \\
-			0 \\
-			0
-		\end{array}\right),\left(\begin{array}{c}
-			0 \\
-			-1 \\
-			0
-		\end{array}\right),\left(\begin{array}{c}
-			0 \\
-			0 \\
-			-1
-		\end{array}\right)\right., \\
-		\left.\left(\begin{array}{l}
-			0 \\
-			1 \\
-			1
-		\end{array}\right),\left(\begin{array}{c}
-			0 \\
-			1 \\
-			-1
-		\end{array}\right),\left(\begin{array}{c}
-			0 \\
-			-1 \\
-			1
-		\end{array}\right),\left(\begin{array}{c}
-			0 \\
-			-1 \\
-			-1
-		\end{array}\right),\left(\begin{array}{l}
-			1 \\
-			1 \\
-			0
-		\end{array}\right),\left(\begin{array}{c}
-			1 \\
-			-1 \\
-			0
-		\end{array}\right),\left(\begin{array}{c}
-			-1 \\
-			1 \\
-			0
-		\end{array}\right),\left(\begin{array}{l}
-			-1 \\
-			-1 \\
-			0
-		\end{array}\right),\left(\begin{array}{l}
-			1 \\
-			0 \\
-			1
-		\end{array}\right),\left(\begin{array}{l}
-			1 \\
-			0 \\
-			-1
-		\end{array}\right)\right., \\
-		\left.\left(\begin{array}{c}
-			-1 \\
-			0 \\
-			1
-		\end{array}\right),\left(\begin{array}{c}
-			-1 \\
-			0 \\
-			-1
-		\end{array}\right),\left(\begin{array}{l}
-			1 \\
-			1 \\
-			1
-		\end{array}\right),\left(\begin{array}{c}
-			1 \\
-			1 \\
-			-1
-		\end{array}\right),\left(\begin{array}{c}
-			1 \\
-			-1 \\
-			1
-		\end{array}\right),\left(\begin{array}{c}
-			1 \\
-			-1 \\
-			-1
-		\end{array}\right),\left(\begin{array}{c}
-			-1 \\
-			1 \\
-			1
-		\end{array}\right),\left(\begin{array}{c}
-			-1 \\
-			1 \\
-			-1
-		\end{array}\right),\left(\begin{array}{c}
-			-1 \\
-			-1 \\
-			1
-		\end{array}\right),\left(\begin{array}{l}
-			-1 \\
-			-1 \\
-			-1
-		\end{array}\right)\right).
-	\end{gathered}
+	\begin{aligned}
+		\left(\boldsymbol{\xi}_k\right)_{k=1}^{27} = &
+		\left(
+		\begin{aligned}
+			&\left(
+			\begin{aligned}
+				0 \\ 0 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ 0 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ 1 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ 0 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ 0 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ -1 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ 0 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ 1 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ 1 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ -1 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				0 \\ -1 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ 1 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ -1 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ 1 \\ 0
+			\end{aligned}
+			\right), \\
+			&\left(
+			\begin{aligned}
+				-1 \\ -1 \\ 0
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ 0 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ 0 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ 0 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ 0 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ 1 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ 1 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ -1 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				1 \\ -1 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ 1 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ 1 \\ -1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ -1 \\ 1
+			\end{aligned}
+			\right),
+			\left(
+			\begin{aligned}
+				-1 \\ -1 \\ -1
+			\end{aligned}
+			\right)
+		\end{aligned}
+		\right).
+	\end{aligned}
 \end{equation}
+
+
 
 \input{chapters/lbm/dimensionless.tex}
 \input{chapters/lbm/discretization.tex}

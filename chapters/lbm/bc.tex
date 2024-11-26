@@ -2,7 +2,7 @@
 
 The appropriate choice of initial and boundary conditions, consistent with the studied problem, is an integral part of the subsequent numerical simulation. Due to the specific mesoscopic description of the fluid within LBM, careful attention must be given to the initial and boundary conditions used in the practical part of this work. Therefore, the chosen initial and boundary conditions are described in more detail below.
 
-\subsection{Initial Condition}\label{pocatecni podminka}
+\subsection{Initial condition}\label{pocatecni podminka}
 Let us now consider the domain defined by relations \eqref{eq:domain}. To set the initial condition, we use the equilibrium distribution function \( f^{\mathrm{eq}} \), which has the form
 \begin{equation}\label{eq:feq}
 	f^{\mathrm{eq}}_{k} = \rho w_{k} \, \left(1 + \frac{\vec{\xi_{k}} \cdot \vec{u}}{c^{2}_{s}} + \frac{(\vec{\xi_{k}} \cdot \vec{u})^2}{2c^{4}_{s}} - \frac{\vec{u} \cdot \vec{u}}{2c^{2}_{s}} \right)\, , \hspace{2mm} k \in \{1,\dots,27\},
@@ -18,10 +18,10 @@ The initial distribution \( \rho \), and the velocity \( \vec{u} \), are defined
 \end{equation}
 In this approach to setting the initial condition, we assume that the non-equilibrium part of the distribution functions \( f^{\mathrm{neq}}_{k} = f_{k} - f^{\mathrm{eq}}_{k} \) can be neglected, and the distribution functions can be approximated by their equilibrium part. A significant advantage of this choice of initial condition approximation is its straightforward implementation, and therefore, it is used in this work, although other more sophisticated options exist, such as those discussed in \cite{PE}.
 
-\subsection{Boundary Conditions}
+\subsection{Boundary conditions}
 
 
-\subsubsection{Bounce-back Boundary Condition}\label{bounce-back}
+\subsubsection{Bounce-back boundary condition}\label{bounce-back}
 The first boundary condition discussed is the bounce-back boundary condition, specifically its \textit{fullway} variant. The bounce-back boundary condition is typically used at the interface between a fluid and a solid. Its advantage is that it satisfies the no-slip boundary condition at the interface, and its implementation is straightforward. The principle of the bounce-back boundary condition is that at the interface, the distribution functions corresponding to particles with microscopic velocity \( \vec{\xi_{k}} \) are reflected back into the directions from which they arrived at the node, with velocity \( \vec{\xi_{\bar{k}}} = -\vec{\xi_{k}} \).
 
 When using this boundary condition, the interface is located halfway between the fluid and solid nodes. This does not cause issues when modeling flow around straight walls parallel to the grid, but for curved boundaries that are not parallel to the grid, the bounce-back method leads to a "staircase" shape of the boundary, which does not provide a good approximation of the actual interface position.
@@ -66,7 +66,7 @@ The fullway variant of the bounce-back boundary condition requires two time step
 
 It is worth noting that there is also a \textit{halfway} variant of the bounce-back boundary condition, which requires only one time step for its realization. Details can be found, for example, in \cite{Kruger}. However, in this work, we will limit ourselves to the fullway variant.
 
-\subsubsection{Equilibrium Boundary Condition}\label{equilibrium bc}
+\subsubsection{Equilibrium boundary condition}\label{equilibrium bc}
 One option for approximating unknown distribution function values at the boundary nodes is to use the equilibrium distribution function, defined as \cite{PE}
 \begin{equation}
 	f_i(\vec{x}, t)=f_{i}^{\text{(eq)}}(\rho(\vec{x}, t), \vec{u}(\vec{x}, t)), \hspace{2mm}  \forall k \in \{1,\dots,27\}, \forall t \in \hat{\mathcal{I}}.
