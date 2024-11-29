@@ -2,27 +2,27 @@
 
 \subsection{Problem setup}
 
-\begin{uloha}{Základní úloha rotující elipsy}
-	\vspace{2mm}
-	Nastavení úlohy:
-	\begin{itemize}
-		\item $ \Omega=(0 ; 17 \mathrm{~cm}) \times(0 ; 2{,}2 \mathrm{~cm}) \times(0 ; 10 \mathrm{~cm})$
-		\item $ \nu=3 \cdot 10^{-6} \mathrm{~m}^{2} \mathrm{~s}^{-1}$
-	\end{itemize} 
-	Nastavení v rámci LBM:
-	\begin{itemize}
-		\item Na $ \overline{\hat{\Omega}} $ volíme počáteční podmínku podle sekce \ref{pocatecni podminka}.
-		\item Na $ \partial \hat{\Omega}_{\mathrm{W}} $ volíme rychlost podle vztahu \eqref{eq:parabolic inflow} s $ U_m = 2{,}5 $ \si{m s^{-1}}.
-		\item Na jednotlivých částech hranice $ \partial \hat{\Omega}$ předepisujeme momentovou okrajovou podmínku popsanou v sekci \ref{moment based bc}. Na hranici obtékaného objektu v oblasti B předepisujeme Bouzidiho interpolační podmínku rozebranou v sekci \ref{interpolation bc}.
-		\item Mřížku volíme jako $\overline{\hat{\Omega}} = N_{x} \times N_{y}$, $N_{x} = 1120, \, N_{y} = 224$,
-		\item Kinematickou viskozitu v mřížkových jednotkách volíme $\nu^{L} = 10^{-3} $.
-	\end{itemize}
-	Použité optimalizační metody:
-	\begin{itemize}
-		\item Použijeme Nelderovu-Meadovu metodu (NM) a metodu MADS, obě metody jsou popsány v kapitole~\ref{optimalizace}.
-	\end{itemize}
-	\label{ulo:1}
-\end{uloha}
+%\begin{uloha}{Základní úloha rotující elipsy}
+%	\vspace{2mm}
+%	Nastavení úlohy:
+%	\begin{itemize}
+%		\item $ \Omega=(0 ; 17 \mathrm{~cm}) \times(0 ; 2{,}2 \mathrm{~cm}) \times(0 ; 10 \mathrm{~cm})$
+%		\item $ \nu=3 \cdot 10^{-6} \mathrm{~m}^{2} \mathrm{~s}^{-1}$
+%	\end{itemize} 
+%	Nastavení v rámci LBM:
+%	\begin{itemize}
+%		\item Na $ \overline{\hat{\Omega}} $ volíme počáteční podmínku podle sekce \ref{pocatecni podminka}.
+%		\item Na $ \partial \hat{\Omega}_{\mathrm{W}} $ volíme rychlost podle vztahu \eqref{eq:parabolic inflow} s $ U_m = 2{,}5 $ \si{m s^{-1}}.
+%		\item Na jednotlivých částech hranice $ \partial \hat{\Omega}$ předepisujeme momentovou okrajovou podmínku popsanou v sekci \ref{moment based bc}. Na hranici obtékaného objektu v oblasti B předepisujeme Bouzidiho interpolační podmínku rozebranou v sekci \ref{interpolation bc}.
+%		\item Mřížku volíme jako $\overline{\hat{\Omega}} = N_{x} \times N_{y}$, $N_{x} = 1120, \, N_{y} = 224$,
+%		\item Kinematickou viskozitu v mřížkových jednotkách volíme $\nu^{L} = 10^{-3} $.
+%	\end{itemize}
+%	Použité optimalizační metody:
+%	\begin{itemize}
+%		\item Použijeme Nelderovu-Meadovu metodu (NM) a metodu MADS, obě metody jsou popsány v kapitole~\ref{optimalizace}.
+%	\end{itemize}
+%	\label{ulo:1}
+%\end{uloha}
 
 
 \subsection{Results and discussion}
