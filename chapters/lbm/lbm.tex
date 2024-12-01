@@ -1,10 +1,10 @@
 \chapter{Lattice Boltzmann method}\label{lbm}
 
-We can consider a fluid as a continuum and use a macroscopic description, meaning we view the fluid as a whole and utilize macroscopic quantities such as density, flow velocity, or pressure for the state description, with the governing equations being \eqref{NS}. On the other hand, we can describe the dynamics of each particle in a given volume and thus use a microscopic description. Describing the dynamics of a particle at a microscopic scale is not difficult, but a significant drawback of this approach is its evident computational complexity, which is directly proportional to the number of particles being studied.
+A fluid can be described as a continuum and using a macroscopic perspective, where it is treated as a whole, and its state is characterized by macroscopic quantities such as density, flow velocity, or pressure. In this case the governing equations are the Navier-Stokes equations \eqref{NS}. A fluid's behavior can also be described on a microscopic scale by tracking the dynamics of all individual particles. A significant drawback of this approach is its evident computational complexity, which is directly proportional to the number of particles involved.
 
-A middle ground between the above-mentioned descriptions is the mesoscopic description \cite{PE}, which is based on kinetic theory. The fluid is described using one-particle probability distribution functions of density \( f(\vec{x},\vec{\xi}, t) \) \si{[kg.s^3.m^{-6}]}, which describe the system in the space of coordinates \( \vec{x} \), microscopic velocities \( \vec{\xi} \), and time \( t \). The distribution functions \( f \) give the density of particles occurring in the vicinity of \( \vec{x} \) at time \( t \) with a microscopic velocity \( \vec{\xi} \).
+A compromise between these two approaches is the description of a fluid on a mesoscopic scale \cite{PE}, which is based on the kinetic theory. The fluid is described using one-particle density function \( f(\vec{x},\vec{\xi}, t) \) \si{[kg.s^3.m^{-6}]}, which describes the system in the space of positions \( \vec{x} \) and microscopic velocities \( \vec{\xi} \)., and time \( t \). The density functions  represent the density of particles at a position \( \vec{x} \), with microscopic velocity \( \vec{\xi} \), at time \( t \).
 
-The one-particle distribution functions in the vicinity of \( \vec{x} \) satisfy the Boltzmann transport equation \cite{Kruger}
+The one-particle density functions satisfy the Boltzmann transport equation \cite{Kruger}
 \begin{equation}\label{eq:BTR}
 	\frac{\partial f}{\partial t} + \sum_{i = 1}^{3} \xi _{i} \frac{\partial f}{\partial x_{i}} + \sum_{i = 1}^{3} g_{i} \frac{\partial f}{\partial \xi _{i}} = \mathcal{C}(f), 
 \end{equation}
@@ -20,9 +20,9 @@ Using the distribution functions \( f \), certain macroscopic quantities can be 
 \end{subequations}
 
 
-The lattice Boltzmann method (LBM) is a numerical method based on the mesoscopic description of fluids. The numerical scheme of LBM can be derived by discretizing \eqref{eq:BTR}. In LBM, the spatial discretization is performed using a discrete equidistant lattice, and the discretization of velocity space is carried out using a finite set of microscopic velocities. We introduce velocity models denoted as D$d$Q$q$, where $ d$ and $q$ represent the dimension of the considered space and the number of different directions in which movement from each lattice node is possible, respectively.
+The lattice Boltzmann method (LBM) is a numerical method based on the mesoscopic description of fluids. The numerical scheme of LBM can be derived by discretizing \eqref{eq:BTR}. In LBM, the spatial discretization is performed using a discrete equidistant lattice, and the discretization of velocity space utilizes a finite set of discrete microscopic velocities. These discrete velocity sets are described using velocity models denoted as D$d$Q$q$, where $ d$  specifies the spatial dimension and $q$ the number of different velocity directions at each lattice node.
 
-In this thesis, we consider the D3Q27 velocity model, which is schematically shown in Figure~\ref{fig:d3q27}.
+In this thesis, we use the D3Q27 velocity model illustrated in Figure~\ref{fig:d3q27}.
 
 \begin{figure}[h]
 	\centering
@@ -32,7 +32,7 @@ In this thesis, we consider the D3Q27 velocity model, which is schematically sho
 	\label{fig:d3q27}
 \end{figure}
 
-The velocity space of the microscopic particle velocity is discretized by a finite set of microscopic velocities, which, in the case of the D3Q27 model, is defined as
+In the case of the D3Q27 model, the velocity space is discretized by a finite set of microscopic velocities defined as
 
 \begin{equation}\label{eq:velocities}
 	\begin{aligned}

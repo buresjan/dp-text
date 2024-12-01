@@ -1,5 +1,5 @@
 \subsection{Computational domain and discrete grid}
-From this point forward, we assume that all quantities are expressed in lattice units, meaning $ \Delta l $ and $ \Delta t $ now represent non-dimensional spatial and time steps, respectively. We consider a cuboidal computational domain $ \Omega \subset \mathbb{R}^3 $, see section \ref{pred}. This domain in LBM is discretized using an equidistant grid
+From this point forward $ \Delta l $ and $ \Delta t $ represent non-dimensional spatial and time step, respectively. We consider a cuboidal computational domain $ \Omega \subset \mathbb{R}^3 $, see Section~ \ref{pred}. This domain is discretized using an equidistant grid
 
 \begin{subequations}\label{eq:domain}
 	\begin{eqnarray}
@@ -9,15 +9,15 @@ From this point forward, we assume that all quantities are expressed in lattice 
 \end{subequations}
 where $ N_{i} $ [-] denotes the number of grid points in the $ x_i $ direction, $ i = 1, 2, 3 $.
 
-The boundary of the domain $ \Omega $ will be denoted by $ \partial \Omega $ and understood as the closure of the disjoint union of the individual parts 
+The boundary of the domain $ \Omega $ is denoted by $ \partial \Omega $ and is defined as the closure of the union of disjoint parts 
 \begin{equation}\label{eq:border decomposition}
 	\partial \Omega = \overline{\partial \Omega_{\mathrm{W}} \cup \partial \Omega_{\mathrm{E}} \cup \partial \Omega_{\mathrm{N}} \cup \partial \Omega_{\mathrm{S}} \cup \partial \Omega_{\mathrm{F}} \cup \partial \Omega_{\mathrm{B}}},
 \end{equation}
-where the meanings of $\partial \Omega_{\mathrm{W}} , \partial \Omega_{\mathrm{E}} , \partial \Omega_{\mathrm{N}}, \partial \Omega_{\mathrm{S}}, \partial \Omega_{\mathrm{F}}$, $  \partial \Omega_{\mathrm{B}} $ are illustrated in Figure \ref{fig:domain}. We will further consider the discretization of the boundary of the computational domain as
+where $\partial \Omega_{\mathrm{W}} , \partial \Omega_{\mathrm{E}} , \partial \Omega_{\mathrm{N}}, \partial \Omega_{\mathrm{S}}, \partial \Omega_{\mathrm{F}}$, and $  \partial \Omega_{\mathrm{B}} $ represent the west, east, north, south, front, and back boundaries, respectively, as illustrated in~Figure \ref{fig:domain}. The discretized boundary of the computational domain is given by
 \begin{equation}\label{eq:border}
 	\partial\hat{\Omega} = \overline{\hat{\Omega}} \, \backslash \, \hat{\Omega},
 \end{equation}
-with the corresponding parts of the discrete boundary denoted as $ \partial \hat{\Omega}_{\mathrm{W}} , \partial \hat{\Omega}_{\mathrm{E}} , \partial \hat{\Omega}_{\mathrm{N}}, \partial \hat{\Omega}_{\mathrm{S}}, \partial \hat{\Omega}_{\mathrm{F}}$,  and $ \partial \hat{\Omega}_{\mathrm{B}} $.
+with its corresponding parts denoted by $ \partial \hat{\Omega}_{\mathrm{W}} , \partial \hat{\Omega}_{\mathrm{E}} , \partial \hat{\Omega}_{\mathrm{N}}, \partial \hat{\Omega}_{\mathrm{S}}, \partial \hat{\Omega}_{\mathrm{F}}$,  and $ \partial \hat{\Omega}_{\mathrm{B}} $.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.99\textwidth]{figures/omega.pdf}
@@ -26,11 +26,11 @@ with the corresponding parts of the discrete boundary denoted as $ \partial \hat
 	\vspace{1.8mm}
 \end{figure}
 
-The time interval over which the problem will be investigated will be denoted by $ \mathcal{I} $ , where ${\mathcal{I} = \langle 0, T \rangle}$, and $ T > 0 $. The interval $ \mathcal{I} $ is discretized as
+The time interval of interest is denoted by $ \mathcal{I} $ , where ${\mathcal{I} = [ 0, T ]}$, and $ T > 0 $. The interval $ \mathcal{I} $ is discretized as
 \begin{equation}\label{eq:timediscrete}
 	\hat{\mathcal{I}} = \left\{ t_{i} = i \frac{T}{N_t} \ \middle| \ i \in \left\{0, \dots, N_{t} \right\} \right\},
 \end{equation}
-where $ N_t $ represents the number of discrete time steps for the discretization of the interval $ \mathcal{I} $.
+where $ N_t $ represents the number of discrete time steps.
 
 \subsection{Discrete Boltzmann transport equation}
 When using the D3Q27 model, we work with a set of distribution functions
@@ -44,17 +44,16 @@ It can be shown that by discretizing the equation \eqref{eq:BTR}, we obtain the 
 	f_{k}\left(\vec{x}+\Delta t \vec{\xi}_{k}, t+\Delta t \right) =
 	f_{k}(\vec{x}, t) + \mathcal{C}_{k}(\vec{x}, t) + \mathcal{S}_{k}(\vec{x}, t), \hspace{2.5mm} k \in \{1, \dots, 27 \}, \ \forall \vec{x} \in \hat{\Omega}, \ \forall t \in \hat{\mathcal{I}},
 \end{equation}
-where $ \mathcal{C}_{k} $ represents the discrete collision operator and $ \mathcal{S}_{k} $ is the discrete forcing term. Details of the derivation of the discrete form of the Boltzmann transport equation can be found in \cite{Kruger}.
+where $ \mathcal{C}_{k} $ represents the discrete collision operator, and $ \mathcal{S}_{k} $ is the discrete forcing term. Details of the derivation can be found in \cite{Kruger}.
 
-The discrete collision operator $\mathcal{C}_{k}$ in equation \eqref{eq:BTRdiscrete} defines the specific variant of LBM. Several choices for $\mathcal{C}_{k}$ exist, each corresponding to different LBM formulations. These include, for instance, the single relaxation time (SRT-LBM) \cite{GeierCuLBM}, multiple relaxation time (MRT-LBM) \cite{MRT}, central moment (CLBM) \cite{GeierCLBM}, entropic (ELBM) \cite{ELBM}, and cumulant-based (CuLBM) \cite{GeierCuLBM} approaches. In this work, we use the cumulant collision operator, as detailed in \cite{GeierCuLBM}.
+The choice of the discrete collision operator $\mathcal{C}_{k}$ in equation \eqref{eq:BTRdiscrete} defines the specific variant of LBM. Several choices for $\mathcal{C}_{k}$ exist, including single relaxation time (SRT-LBM) \cite{GeierCuLBM}, multiple relaxation time (MRT-LBM) \cite{MRT}, central moment (CLBM) \cite{GeierCLBM}, entropic (ELBM) \cite{ELBM}, and cumulant-based (CuLBM) \cite{GeierCuLBM}. In this work, we use the cumulant collision operator, as detailed in \cite{GeierCuLBM}.
 
-
-We can further introduce the post-collision distribution functions $ f^{*}_{k} $ as
+To simplify the computation of the discrete equation, we define the post-collision distribution functions $ f^{*}_{k} $ as
 \begin{equation}\label{eq:fstar}
 	f^{*}_{k}(\vec{x}, t) = f_{k}(\vec{x}, t) + \mathcal{C}_{k}(\vec{x}, t) + \mathcal{S}_{k}(\vec{x}, t), \hspace{2.5mm} k \in \{1, \dots, 27 \}, \ \forall \vec{x} \in \hat{\Omega}, \ \forall t \in \hat{\mathcal{I}}.
 \end{equation}
 Using $ f^{*}_{k} $, we can express \eqref{eq:BTRdiscrete} in the form
 \begin{equation}\label{eq:collision}
-	f_{k}\left(\vec{x}+\Delta t \vec{\xi}_{k}, t+\Delta t\right) = f^{*}_{k}(\vec{x}, t), \hspace{2.5mm} k \in \{1, \dots, 27 \}, \ \forall \vec{x} \in \hat{\Omega}, \ \forall t \in \hat{\mathcal{I}},
+	f_{k}\left(\vec{x}+\Delta t \vec{\xi}_{k}, t+\Delta t\right) = f^{*}_{k}(\vec{x}, t), \hspace{2.5mm} k \in \{1, \dots, 27 \}, \ \forall \vec{x} \in \hat{\Omega}, \ \forall t \in \hat{\mathcal{I}}.
 \end{equation}
-which can be interpreted as an explicit prescription for calculating the distribution functions.
+This formulation allows for an explicit prescription of calculating the distribution functions.

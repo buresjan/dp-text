@@ -1,0 +1,25 @@
+In this work, the fluid is modeled as a continuum. The governing equations for continuum dynamics derive from the fundamental conservation laws of mass, momentum, and energy, which are inherently tied to the physical properties of the fluid and its environment.
+
+Assuming an isolated, isothermal system, the evolution of fluid flow in three-dimensional space is governed by the following system of partial differential equations:
+\begin{subequations}\label{NS}
+	\begin{gather}
+		\label{a}
+		\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{u}) = 0, \\[5pt]
+		\label{b}
+		\frac{\partial (\rho \vec{u})}{\partial t} + \nabla \cdot (\rho \vec{u} \otimes \vec{u}) = \nabla \cdot \mathbf{T} + \rho \vec{g},
+	\end{gather}
+\end{subequations}
+where $ \otimes $ denotes the outer product, defined component-wise as $ (\vec{u} \otimes \vec{u})_{ij} = u_{i} u_{j}, \: i,j \in \{1,2,3\} $ \cite{Anderson}. The quantities in \eqref{NS} are defined as follows:
+\begin{itemize}
+	\item[]{\makebox[3cm]{$ \rho $ \si{[kg.m^{-3}]} \hfill} density of the fluid},
+	\item[]{\makebox[3cm]{$ \vec{u} $ \si{[m.s^{-1}]} \hfill} macroscopic velocity vector,}
+	\item[]{\makebox[3cm]{$ \mathbf{T} $ \si{[kg.m^{-1}.s^{-2}]} \hfill} (total) stress tensor,}
+	\item[]{\makebox[3cm]{$ \vec{g} $ \si{[m.s^{-2}]} \hfill} external force acceleration vector.}
+\end{itemize}
+Each of these quantities is generally a function of time $ t $ \si{[s]} and spatial position $ \vec{x} $ \si{[m]}.
+
+For an isothermal system, the ideal gas equation of state holds, expressed as:
+\begin{equation}\label{pressure}
+	p = c^{2}_{s} \ \rho,
+\end{equation}
+where $ p $ \si{[Pa]} represents the pressure, and $ c_{s} $ \si{[m.s^{-1}]} is the speed of sound in the fluid \cite{Latt}. Together, equations \eqref{NS} and \eqref{pressure} form a closed system, eliminating the need to explicitly consider the conservation of energy.

@@ -1,10 +1,10 @@
 \section{Non-dimensionalization and discretization}
-The computational domain \( (0 ; L_1) \times(0 ; L_2) \times(0 ; L_3)\), where \( L_i\) \si{[m]}, $i=1,2,3$,  are the dimensions of the domain, is discretized using an equidistant grid with a spatial step size \( \Delta l \) \si{[m]}. The time interval is then uniformly divided with a time step size \( \Delta t \)~\si{[s]}.
+The computational domain \( (0 ; L_1) \times(0 ; L_2) \times(0 ; L_3)\), where \( L_i\) \si{[m]}, $i=1,2,3$, represent the dimensions of the domain, is discretized using an equidistant grid with a spatial step size \( \Delta l \) \si{[m]}. The time interval is discretized uniformly using a time step size \( \Delta t \)~\si{[s]}.
 
-In LBM, it is common to work with non-dimensional quantities instead of the original physical ones, as discussed, for example, in \cite{Kruger}. We will now introduce the basic conversion relationships for transitioning to a non-dimensional system of units. We also define the grid used for the discretization of the domain in LBM and describe the discretized Boltzmann transport equation.
+In LBM, it is common to work with non-dimensional quantities instead of physical ones, as discussed in \cite{Kruger}. This section introduces the conversion relationships for transitioning to a non-dimensional system, defines the lattice used for domain discretization, and describes the discretized Boltzmann transport equation.
 
 \subsection{Non-dimensional units}
-As mentioned, in LBM, it is advantageous to consider all quantities as non-dimensional. We transition from physical units to non-dimensional lattice units. It should be emphasized that the physical principles remain valid regardless of the choice of the unit system. The transition between unit systems can be performed using the law of similarity for fluid dynamics, where the equivalence of systems requires that the values of relevant non-dimensional quantities remain conserved \cite{Kruger}. One such non-dimensional quantity that can be used during the transition is, for example, the Reynolds number \eqref{Re}.
+The transition between unit systems can be performed using the law of similarity for fluid dynamics, which ensures that the values of relevant non-dimensional quantities remain constant \cite{Kruger}. One such non-dimensional quantity that can be used during the transition is, for example, the Reynolds number \eqref{Re}. It should be emphasized that the physical principles remain valid regardless of the choice of the unit system. 
 
 In the following conversion relations, all quantities in lattice units are marked with the superscript \( L \). It can be shown \cite{Kruger} that the following holds:
 \begin{eqnarray}
@@ -13,8 +13,6 @@ In the following conversion relations, all quantities in lattice units are marke
 	\nu^L &=& \nu \dfrac{\Delta t}{\Delta l^{2}},\\[5pt]
 	u^{L}_{i} &=& \dfrac{\Delta t}{\Delta l} u_{i}, \ i \in \{1, 2, 3\}.
 \end{eqnarray}
-The characteristic length, time, and velocity values are chosen in accordance with the given physical problem. The dimension of the computational domain or an obstacle is typically chosen as \( l_{0} \). Details of the derivation of the above conversion relations can be found in \cite{Kruger}.
+The characteristic length, time, and velocity values are chosen based on the given physical problem. The computational domain's largest dimension or the size of an obstacle within the flow is typically chosen as \( l_{0} \). Detailed derivations of these relations can be found in \cite{Kruger}. From the relationship for kinematic viscosity, it can be seen that for a given spatial step \( \Delta l \), the time step \( \Delta t \) is linked to the value of \( \nu^L \).
 
-It should be noted that from the conversion relation for kinematic viscosity, we can see that for a given grid with a spatial step \( \Delta l \), the time step \( \Delta t \) is linked to the value of \( \nu^L \).
-
-For simplicity, in this work, we will assume that the spatial step \( \Delta l ^L \) and the time step \( \Delta t ^L \) in lattice units are \( \Delta l ^L  =  \Delta t ^L = 1 \). Let us emphasize that in this chapter, we will work exclusively with quantities in lattice units and will thus omit the use of the superscript \( L \), although the non-dimensional description will still be considered.
+For simplicity, in this work, we will assume that the spatial step \( \Delta l ^L \) and the time step \( \Delta t ^L \) in lattice units are \( \Delta l ^L  =  \Delta t ^L = 1 \). In the remainder of this chapter, we use lattice units exclusively and for brevity we omit the superscript \( L \), though all quantities will be non-dimensional.

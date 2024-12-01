@@ -73,7 +73,7 @@ The \texttt{Geometry} class supports the following key functionalities:
 	
 	\item \textbf{Mesh Exporting}: Exports the voxelized mesh as binary NumPy object (\texttt{.npy}), plain text file (\texttt{.txt}), or LBM simulation-compatible \texttt{.tnl} format. Exporting in the \texttt{.tnl} format is achieved using the PyTNL package \cite{pytnl}, which provides Python bindings for TNL.
 	
-	\item \textbf{Visualization}: Visualizes the voxelized geometry, primarily for debugging purposes. Visualization is implemented using the Mayavi Python package \cite{mayavi}, which allows inspecting geometries in a 3D environment. An example visualization, generated using the \texttt{.geo} template file from Appendix \ref{appendix A}, is shown in Figure \ref{fig:visualization}.
+	\item \textbf{Visualization}: Visualizes the voxelized geometry, primarily for debugging purposes. Visualization is implemented using the Mayavi Python package \cite{mayavi}, which allows inspecting geometries in an interactive 3D environment. An example visualization, generated using the \texttt{.geo} template file from Appendix \ref{appendix A}, is shown in Figure \ref{fig:visualization}.
 \end{itemize}
 
 \begin{figure}[H]
@@ -97,7 +97,8 @@ from meshgen.geometry import Geometry
 geom = Geometry(
 	name="junction_1d",  # name of the .geo template file
 	resolution=8,        # desired resolution for the LBM simulation
-	split=1024,          # slice thickness; mesh is split into 1024 slices
+	split=1024,          # slice thickness; mesh is split into 1024 
+						 # slices
 	num_processes=8,     # distribute slices into 8 groups, each
 						 # processed on a separate CPU core
 	offset=0.02,		 # any optimization parameters specific to

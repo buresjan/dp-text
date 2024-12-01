@@ -1,0 +1,37 @@
+We denote the dynamic stress tensor as $\mathbf{T}_{\mu} = \big(\sigma^{\, \mu}_{ij} \big)$ \si{[kg.m^{-1}.s^{-2}]}, where $i,j \in \{1,2,3\}$. For Newtonian fluids, each component of the dynamic stress tensor linearly depends on the spatial velocity derivatives. Fluids that do not satisfy this linear relationship are classified as non-Newtonian. For Newtonian fluids, the dynamic stress tensor components are given by \cite{Schlichting}:
+
+\begin{subequations}\label{newton}
+	\begin{eqnarray}
+		\sigma^{\, \mu}_{ii} = \lambda \nabla \cdot \vec{u} + 2 \mu \frac{\partial u_i}{\partial x_i},&& \hspace{-3mm} i \in \{1,2,3\}, \\[5pt]
+		\sigma^{\, \mu}_{ij} = \sigma^{\, \mu}_{ji} = \mu \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right),&& \hspace{-4mm} \ i,j \in \{1,2,3\}, \: i \neq j,
+	\end{eqnarray}
+\end{subequations}
+where $ \mu $ \si{[kg.m^{-1}.s^{-1}]} is the dynamic viscosity, and $ \lambda $ \si{[kg.m^{-1}.s^{-1}]} represents the second viscosity coefficient~\cite{Cengel}. For Newtonian fluids, $\mathbf{T}_{\mu}$ is symmetric.
+
+By introducing the strain rate tensor~$\mathbf{D}$ \si{[s^{-1}]}, defined as
+\begin{equation}\label{eq:D}
+	\mathbf{D} = \frac{1}{2} \left[ \nabla \vec{u} + (\nabla \vec{u})^T \right],
+\end{equation}
+the dynamic stress tensor can be equivalently expressed as
+\begin{equation}\label{eq:1}
+	\mathbf{T}_{\mu} = 2 \mu \mathbf{D} + \left( \lambda + \frac{2}{3} \mu \right) (\nabla \cdot \vec{u}) \mathbf{I},
+\end{equation}
+where $ \mathbf{I} $ denotes the identity tensor in three-dimensional space. Stokes' hypothesis, which assumes $ \lambda = -\frac{2}{3} \mu $ \cite{Anderson}, simplifies the expression to
+\begin{equation}
+	\mathbf{T}_{\mu} = 2 \mu \mathbf{D}.
+\end{equation}
+The stress tensor for a Newtonian fluid is then given by
+\begin{equation}\label{eq:T}
+	\mathbf{T} = -p\mathbf{I} + \mathbf{T}_{\mu},
+\end{equation}
+where $ \mathbf{I} $ remains the identity tensor in three-dimensional space and $ p $ \si{[Pa]} represents the pressure \cite{Cengel}.
+
+Furthermore, the strain rate tensor is used to the define the shear rate $ \dot{\gamma} $~\si{[s^{-1}]} \cite{Cengel} given by
+\begin{equation}\label{eq:dot gamma}
+	\dot{\gamma} = \sqrt{2} \| \mathbf{D} \| _{F},
+\end{equation}
+where $ \| \cdot \| _{F} $ denotes the Frobenius norm, defined as
+\begin{equation}
+	\| \mathbf{A} \| _{F}  \coloneqq \sqrt{\sum_{i = 1}^{m} \sum_{j = 1}^{n} |a_{ij}|^2},
+\end{equation}
+where $ \mathbf{A} $ is a matrix of dimensions $ m \times n $ with elements $ a_{ij} $ 

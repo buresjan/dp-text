@@ -1,10 +1,6 @@
 \section{Notes on the implementation}\label{notes on the LBM implementation}
-As mentioned in the introduction, the numerical solution using LBM was based on a code developed at the Department of Mathematics of FNSPE, CTU in Prague, which is used to solve the Navier-Stokes equations for a Newtonian incompressible fluid. The program is implemented in C++ using the TNL library \cite{Oberhuber2021, Klinkovsky2022} and employs parallelization on a GPU using the CUDA platform. The used variant of the lattice Boltzmann method CuLBM is implemented in the code for the D3Q27 model.
+As mentioned in the introduction, the numerical solution using LBM was based on a code developed at the Department of Mathematics of FNSPE, CTU in Prague, which is used to solve the Navier-Stokes equations for a Newtonian incompressible fluid. The program is implemented in C++ using the TNL library \cite{Oberhuber2021, Klinkovsky2022} and employs parallelization on a GPU using the CUDA platform. The variant of the lattice Boltzmann method used, CuLBM, is implemented in the code for the D3Q27 model.
 
-For the purposes of this work, the code developed within a previous bachelor's thesis \cite{JB} was extended, in which several modifications were made compared to the code developed at the Department of Mathematics of FNSPE, specifically:
-\begin{itemize}
-	\item implementation of the stress tensor integration method for force calculation using difference,
-	\item implementation of various methods for the local calculation of the stress tensor,
-	\item implementation of interpolation boundary conditions,
-	\item calculation of monitored quantities and their subsequent output to files.
-\end{itemize}
+For the purposes of this work, the code developed previously in \cite{buresBP, buresVU} was extended with several modifications to enhance its functionality. The most significant modifications include the implementation of stress tensor calculations using finite differences and the calculation of other monitored quantities (objective functions used in the optimization process) with their subsequent output to files for further analysis.
+
+Additionally, the code has been designed with a templated structure, allowing flexibility in adapting to the optimization process. The computational domain, including its dimensions and the classification of nodes as fluid or wall, is dynamically defined based on the current parameters provided by the optimization framework.

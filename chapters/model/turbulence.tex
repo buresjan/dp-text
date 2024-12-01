@@ -1,0 +1,21 @@
+We define turbulent flow as a flow state that is disordered in both time and space, characterized by continuous fluctuations in both the direction and magnitude of velocity. This results in unstable behavior that distinguishes turbulence from laminar flow.
+
+Turbulence typically occurs at high values of the Reynolds number, a dimensionless parameter defined by
+\begin{equation}\label{Re}
+	\mathrm{Re} = \dfrac{l_{0} u_{0}}{\nu} = \dfrac{l^{2}_{0}}{t_{0} \nu},
+\end{equation}
+where $ \nu $ represents the kinematic viscosity \si{[m^2.s^{-1}]}, and $ l_{0} $~\si{[m]}, $ t_{0} $~\si{[s]}, and $ u_{0} $~\si{[m.s^{-1}]} denote the characteristic length, time, and velocity relevant to the specific flow \cite{Landau}.
+
+Given the highly complex nature of turbulent flow, achieving an exact description is challenging. A common approach is to employ Reynolds time-averaging method, where the instantaneous value of a flow variable $ \psi $ is decomposed into its mean value $ \overline{\psi} $ and a fluctuating component $ \psi' $:
+\begin{equation}
+	\psi = \overline{\psi} + \psi'.
+\end{equation}
+The fluctuation $ \psi' $ is defined such that its time-averaged value over a sufficiently long period is zero, i.e., $ \overline{\psi'} = 0 $ \cite{Schlichting}.
+
+In this decomposition, $ \psi $ can represent any scalar quantity, such as velocity components $ \vec{u}_i $, pressure $ p $, or density $ \rho $ \cite{Sodja2007}. The averaging period should be significantly larger than the time scale of the turbulent fluctuations being studied \cite{Sodja2007}.
+
+When applying the Reynolds decomposition to the velocity field $ \vec{u} (\vec{x}, t) $ with respect to time averaging, the (specific) turbulent kinetic energy $ T_{\text{turb}} $~\si{[m^{2}.s^{-2}]} is defined as
+\begin{equation}\label{eq:turb kin energy}
+	T_{\text{turb}} = \dfrac{1}{2} \left( \overline{(u_1 ')^2} + \overline{(u_2 ')^2} + \overline{(u_3 ')^2} \right) = \dfrac{1}{2} \overline{ \left( u_1 '^2 + u_2 '^2 + u_3 '^2 \right) },
+\end{equation}
+where we utilize the arithmetic properties of Reynolds decomposition to simplify this expression \cite{Sodja2007}.
