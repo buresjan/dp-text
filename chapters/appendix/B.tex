@@ -1,28 +1,28 @@
-\chapter{Custom Nelder-Mead Algorithm Implementation}\label{appendix B}
+\chapter{Custom Nelder-Mead algorithm implementation}\label{appendix B}
 
 \section{Key features}
 
 \subsection*{Initialization}
 The simplex is initialized around the starting point \texttt{x\_start} using a defined step size. The function values for each vertex of the simplex are evaluated to initialize scores.
 
-\subsection*{Stopping Criteria}
+\subsection*{Stopping criteria}
 The algorithm stops when:
 \begin{itemize}
 	\item The maximum number of iterations (\texttt{max\_iter}) is reached.
 	\item The objective function improvement over consecutive iterations is below a defined threshold\\ (\texttt{no\_improve\_thr}) for a specified number of iterations (\texttt{no\_improv\_break}).
 \end{itemize}
 
-\subsection*{Function Evaluations}
+\subsection*{Function evaluations}
 While the implementation is suboptimal in terms of the total number function evaluations, this design choice was made because, in the case specific for this work, a single function evaluation usually takes up to several hours. Thus, the algorithm prioritizes evaluating all candidate points (with potential parallelization) before making comparisons or updates to the simplex. This approach ensures that computational resources are utilized efficiently, even at the cost of additional function evaluations in some scenarios.
 
 \section{The implementation}
 
-The main part of the custom implementation is presented in Listing~\ref{lst:NM}. Full implementation is available on Github at \href{https://github.com/buresjan/nelder-mead}{\texttt{https://github.com/buresjan/nelder-mead}}. The online code also includes several test cases showing the functionality of the custom implementation.
+The main part of the custom implementation is presented in Listing~\ref{lst:NM}. Full implementation is available upon request on Github at \href{https://github.com/buresjan/nelder-mead}{\texttt{https://github.com/buresjan/nelder-mead}}. The online code also includes several test cases showing the functionality of the custom implementation.
 
 \newpage
 \begin{lstlisting}[
 	language=Python,
-	caption={Main part of the custom Nelder-Mead algorithm implementation.},
+	caption={Main part of the custom Nelder-Mead algorithm implementation.  Full implementation is available upon request on Github at \href{https://github.com/buresjan/nelder-mead}{\texttt{https://github.com/buresjan/nelder-mead}}.},
 	label={lst:NM}]
 def nelder_mead(
 	f,
