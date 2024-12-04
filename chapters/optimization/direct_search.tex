@@ -27,6 +27,7 @@ After initializing the necessary starting parameters, each iteration of the GPS 
 
 The changes described above define a new mesh $ \mathbf{M} _k $ in each iteration. The mesh changes throughout the GPS algorithm. The algorithm terminates when $ \delta_{k+1} < \varepsilon $ for some user-specified $ \varepsilon > 0 $. It can be shown that the mesh step converges to zero, and under appropriate assumptions, the solution estimates converge to a stationary point of the objective function. Details can be found in \cite{BBO-textbook}. It should be noted that the convergence of GPS has been proven for unconstrained problems \cite{BBO-textbook}. The full GPS algorithm is presented in Algorithm~\ref{GPS-algo}.
 \\[4pt]
+\todo[inline]{Explain what is $t$ and $\tau$ in the algorithm, add typical ranges for $\tau$ maybe.}
 \begin{algorithm}[H]
 	\caption{Generalized Pattern Search (GPS) for unconstrained optimization}\label{GPS-algo}
 	\begin{algorithmic}[1]
@@ -68,7 +69,7 @@ The changes described above define a new mesh $ \mathbf{M} _k $ in each iteratio
 	\end{algorithmic}
 \end{algorithm}
 
-We now turn our attention to the MADS algorithm, which generalizes the GPS algorithm by allowing for a different set of polling directions. The key difference is that MADS introduces the concept of a frame, which allows the poll directions to form a dense subset in $ \mathbb{R}^{n} $ as the algorithm progresses~\cite{BBO-textbook, derivative-free-review}. The frame $\mathbf{F}_k$ at iteration $k$ is defined as
+We turn our attention to the MADS algorithm, which generalizes the GPS algorithm by allowing for a different set of polling directions. The key difference is that MADS introduces the concept of a frame, which allows the poll directions to form a dense subset in $ \mathbb{R}^{n} $ as the algorithm progresses~\cite{BBO-textbook, derivative-free-review}. The frame $\mathbf{F}_k$ at iteration $k$ is defined as
 \begin{equation}
 	\mathbf{F}_k = \{ \vec{x} \in \mathbf{M}_k \ \big| \ \| \vec{x} - \vec{x}_k \|_\infty \leq \Delta_k b \},
 \end{equation}

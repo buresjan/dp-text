@@ -1,5 +1,5 @@
 \section{Solving constrained problems}\label{constrained}
-We will now consider the problem \ref{eq:basic problem}, where the set of feasible solutions is given by \ref{eq:feasible solution}. In this section, we describe how to generally solve this problem by converting it into a sequence of unconstrained optimization problems. There exist several other methods for solving constrained problems, but here we will focus on the penalty and the barrier methods.
+We consider the problem \ref{eq:basic problem}, where the set of feasible solutions is given by \ref{eq:feasible solution}. In this section, we describe how to generally solve this problem by converting it into a sequence of unconstrained optimization problems. There exist several other methods for solving constrained problems, but here we focus on~the penalty and the barrier methods.
 
 \subsection{Penalty methods}\label{penalty method}
 As mentioned earlier, penalty methods convert constrained optimization problems into unconstrained ones. The fundamental principle of penalty methods is to incorporate the conditions that define the set of feasible solutions by adding a penalty term to the objective function, which reflects the degree of violation of those conditions \cite{Bert}. The penalty function is defined as a continuous scalar function on $ \mathbb{R}^n $ that satisfies
@@ -36,7 +36,7 @@ The construction of the sequence of penalty parameters and the principle of the 
 
 
 \subsection{Barrier method}\label{barrier method}
-The barrier method operates on a principle similar to that of the penalty method, but its main difference is that, during the iterative process of finding an optimal solution to a constrained problem, it ensures that the solution estimates always remain within the interior of the feasible set, which is defined as
+The barrier method uses a principle similar to the penalty method, but its main difference is that, during the iterative process of finding an optimal solution to a constrained problem, it ensures that the solution estimates always remain within the interior of the feasible set, which is defined as
 \begin{equation}
 	\mathbf{X}^{\mathrm{o}} = \left\{ \vec{x} \in \mathbf{D} \subseteq \mathbb{R}^n \ \middle| \ \vec{g}(\vec{x}) < \vec{0} \right\}.
 \end{equation}
