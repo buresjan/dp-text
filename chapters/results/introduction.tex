@@ -44,15 +44,19 @@ The shared geometric framework and boundary labels, is illustrated in Figure~\re
 \egroup
 
 \subsection*{Model 1: Simplified cylindrical junction}
-
-The first model represents a basic cylindrical junction, where the bottom vertical cylinder corresponds to the inferior vena cava (IVC), the horizontal cylinder corresponds to the pulmonary artery, and the top vertical cylinder represents the superior vena cava (SVC). The IVC and SVC are connected perpendicularly to the pulmonary artery, creating a cross-like structure. 
-
-Model 1 was chosen because it introduces only one degree of freedom: the vertical offset of the IVC relative to the SVC. This simplicity makes it feasible to sample and evaluate the optimization space exhaustively, providing an opportunity to study the behavior of the objective functions, namely wall shear stress (WSS) and turbulence kinetic energy (TKE), in detail.
+The first model represents a basic cylindrical junction with the IVC and SVC connected perpendicularly to the PA, creating a cross-like structure as illustrated in Figure~\ref{fig:model1_schematic}. Model 1 was chosen because it introduces only one degree of freedom, the horizontal offset of the IVC axis relative to the SVC denoted by $o_1$. This simplicity makes it possible to sample the optimization space, evaluate the studied optimization functions at the points of the sampling, providing an opportunity to study their behavior and also to verify the result arising from the optimization framework.
 
 \subsection*{Model 2: More complex geometric model}
-The second model introduces additional complexity by incorporating five degrees of freedom: the vertical offset of the IVC, the angles of connection for both the IVC and SVC to the pulmonary artery, the flaring of the IVC, and the width of the IVC. This model enables a more detailed investigation of the interaction between geometric parameters and hemodynamic efficiency.
-
-Model 2 was selected because its higher complexity allows for greater variations in geometry and, consequently, a potentially larger impact on flow dynamics. However, the increased number of degrees of freedom makes it infeasible to sample the optimization space comprehensively, rendering the model more akin to a "black box" during optimization.
+Illustration of Model 2 is presented in Figure~\ref{fig:model1_schematic}. The second model introduces additional complexity by incorporating six degrees of freedom:
+\begin{itemize}
+	\item horizontal offset of the IVC axis denoted by $o_1$,
+	\item angle of connection of the IVC denoted by $\alpha_1$,
+	\item angle of connection of the  SVC denoted by $\alpha_2$,
+	\item width and curvature of the connection of the IVC to the PA denoted by $f_1$,
+	\item width and curvature of the connection of the SVC to the PA denoted by $f_2$,
+	\item width of the of the IVC denoted by $l_1$.
+\end{itemize}
+Model 2 was selected because its higher complexity allows for greater variations in geometry.
 
 \begin{figure}[h]
 	\begin{subfigure}{0.48\textwidth}
@@ -67,4 +71,6 @@ Model 2 was selected because its higher complexity allows for greater variations
 		\caption[Complex Geometric Model]{Schematic of Model 2: A more complex model with five degrees of freedom—IVC offset, connection angles, flaring, and width of the IVC.}
 		\label{fig:model2_schematic}
 	\end{subfigure}
+	\caption{Schematic illustrations of Model 1 and Model 2.}
+	\label{fig:model schemas}
 \end{figure}
