@@ -27,7 +27,6 @@ After initializing the necessary starting parameters, each iteration of the GPS 
 
 The changes described above define a new mesh $ \mathbf{M} _k $ in each iteration. The mesh changes throughout the GPS algorithm. The algorithm terminates when $ \delta_{k+1} < \varepsilon $ for some user-specified $ \varepsilon > 0 $. It can be shown that the mesh step converges to zero, and under appropriate assumptions, the solution estimates converge to a stationary point of the objective function. Details can be found in \cite{BBO-textbook}. It should be noted that the convergence of GPS has been proven for unconstrained problems \cite{BBO-textbook}. The full GPS algorithm is presented in Algorithm~\ref{GPS-algo}.
 \\[4pt]
-\todo[inline]{Explain what is $t$ and $\tau$ in the algorithm, add typical ranges for $\tau$ maybe.}
 \begin{algorithm}[H]
 	\caption{Generalized Pattern Search (GPS) for unconstrained optimization}\label{GPS-algo}
 	\begin{algorithmic}[1]
@@ -73,7 +72,7 @@ We turn our attention to the MADS algorithm, which generalizes the GPS algorithm
 \begin{equation}
 	\mathbf{F}_k = \{ \vec{x} \in \mathbf{M}_k \ \big| \ \| \vec{x} - \vec{x}_k \|_\infty \leq \Delta_k b \},
 \end{equation}
-where $M_k$ represents the current mesh, $ \Delta_k $ is the frame size parameter, satisfying $ \delta_k \leq \Delta_k $, and $b = \max \ \{ \| d \| _\infty \ \big| \ d \in \mathbf{D} \}$. The extent of the frame is determined by the parameter $ \Delta_k $, and the polling directions are taken from this frame.
+where $M_k$ represents the current mesh, $ \Delta_k $ is the frame size parameter, which satisfies $ \delta_k \leq \Delta_k $, and $b = \max \ \{ \| d \| _\infty \ \big| \ d \in \mathbf{D} \}$. The extent of the frame is determined by the parameter $ \Delta_k $, and the polling directions are taken from this frame.
 
 Each iteration of the MADS algorithm begins similarly to GPS, with a search step where a finite set $S_k$ of candidate points, selected based on the current mesh, is evaluated by computing the objective function at each of the points. If none of these points improves upon the current best solution, the algorithm proceeds to the poll step. 
  
@@ -82,18 +81,31 @@ The poll set $P_k$ is a subset of points selected from $\mathbf{F}_k$ and $\math
 
 \begin{figure}[H]
 	\centering
-	\vspace{0.5cm}
-	\includegraphics[width=1.01\textwidth]{figures/mads.pdf}
-	\caption{Examples of meshes and frames $\mathbb{R}^2$ for different
-		values of $\delta_k$ and $\Delta_k$}
+	\vspace{0.2cm}
+	\includegraphics[width=1.0\textwidth]{figures/mads.pdf}
+	\caption{Examples of meshes and frames in $\mathbb{R}^2$ for different
+		values of $\delta_k$ and $\Delta_k$.}
 	\label{fig:mads}
 \end{figure}
 
 If an improvement is found in the poll step, the new point is set as $ \vec{x}_{k+1} $, and the frame size $ \Delta_k $ and mesh size $ \delta_k $ may be increased to encourage further exploration. Conversely, if no improvement is found, $ \vec{x}_{k+1} = \vec{x}_k $, and the mesh size is reduced, i.e., $ \delta_{k+1} < \delta_k $, to allow for a more local search. The process of shrinking and refining the frame and mesh sizes continues until $ \delta_k $ falls below a user-specified threshold, at which point the algorithm terminates.
 
-MADS also incorporates the \textit{extreme barrier function} to handle constraints, similarly to GPS. For constrained optimization problems, the objective function is modified into an extreme barrier function~\cite{BBO-textbook}, which penalizes any infeasible points by assigning them an infinite objective value. This simple yet effective strategy ensures that the optimization remains focused on feasible regions of the search space, and the algorithm converges to a stationary point even for constrained problems. A full description of the MADS algorithm and its implementation details can be found in~\cite{BBO-textbook}.
+MADS employs a modified objective function that incorporates an extreme barrier function to handle constraint, similar approach can also be used in GPS. For constrained optimization problems, the objective function is adjusted using an extreme barrier function~\cite{BBO-textbook}, which assigns an infinite objective value to any infeasible points, effectively penalizing them. The extreme barrier function, denoted as $B_{\infty}$, represents a special case of barrier functions commonly employed in constrained optimization methods~\cite{Bert}. It is defined as
+\begin{align}
+	\begin{split}
+		B_{\infty}(\vec{x}) &= 0, \ \ \forall \vec{x} \in \mathbf{X},\\[6pt]
+		B_{\infty}(\vec{x}) &= +\infty, \ \ \text{otherwise.}
+	\end{split}
+\end{align}
+The modified objective function is then given by
+\begin{align}\label{eq:extreme barrier}
+	\begin{split}
+		f_{\infty}(\vec{x}) &= f(\vec{x}) , \ \ \forall \vec{x} \in \mathbf{X},\\[6pt]
+		f_{\infty}(\vec{x}) &= +\infty, \ \ \text{otherwise.}
+	\end{split}
+\end{align}
 
-
+This simple yet effective strategy ensures that the optimization remains focused on feasible regions of the search space, and the algorithm converges to a stationary point even for constrained problems. A full description of the MADS algorithm and its implementation details can be found in~\cite{BBO-textbook}.
 
 \begin{algorithm}[H]
 	\caption{Mesh Adaptive Direct Search (MADS) for constrained optimization}\label{MADS}

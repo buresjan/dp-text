@@ -4,8 +4,7 @@ In this section, we summarize the additional assumptions applied to our system t
 Specifically, the model assumes an isothermal system (i.e., constant temperature over time) with no external forces acting on it. Blood is treated as an incompressible, Newtonian fluid with constant dynamic viscosity. This assumption is justified as the model of TCPC involves relatively large vessels where the non-Newtonian effects of blood, such as viscosity variations, are expected to be negligible.
 
 The vessel walls are assumed to be rigid, ignoring their elasticity. While this simplification reduces the model's physiological fidelity, it significantly decreases the computational complexity of the simulations. 
-Studies such as \cite{masters2004} and \cite{orlando2006} have shown that neglecting compliance in larger vessels can impact the accuracy of results, particularly in terms of power loss and flow distribution. However, modeling fluid-structure interactions to incorporate wall compliance would require detailed \textit{in vivo} data and significantly increase the computational demand.
-\todo[inline]{add the references to bib}
+Studies such as \cite{Masters2004} and \cite{Orlando2006} have shown that neglecting compliance in larger vessels can impact the accuracy of results, particularly in terms of power loss and flow distribution. However, modeling fluid-structure interactions to incorporate wall compliance would require detailed \textit{in vivo} data and significantly increase the computational demand.
 
 Additionally, we assume a constant, steady inflow profile, neglecting pulsatile flow variations typically observed in physiological blood flow. While pulsatility can influence flow patterns and energy dissipation, its omission simplifies the boundary conditions and reduces simulation time. This assumption is particularly suited to studying time-averaged hemodynamic metrics, which are often of primary interest in TCPC modeling.
 
