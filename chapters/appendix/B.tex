@@ -22,81 +22,126 @@ The main part of the custom implementation is presented in Listing~\ref{lst:NM}.
 \newpage
 \begin{lstlisting}[
 	language=Python,
-	caption={Main part of the custom Nelder-Mead algorithm implementation.  Full implementation is available upon request on Github at \href{https://github.com/buresjan/nelder-mead}{\texttt{https://github.com/buresjan/nelder-mead}}.},
+	caption={Main part of the custom Nelder-Mead algorithm implementation.  Full implementation is available on Github at \href{https://github.com/buresjan/nelder-mead}{\texttt{https://github.com/buresjan/nelder-mead}}.},
 	label={lst:NM}]
 def nelder_mead(
 	f,
 	x_start,
 	step=0.01,
-	no_improve_thr=1e-8,
-	no_improv_break=10,
-	max_iter=100,
-	delta_e=2.0,
-	delta_oc=0.5,
-	delta_ic=0.5,
-	gamma=0.5,
+	no_improve_thr=1e-6,
+	no_improv_break=20,
+	max_iter=1000,
+	# Standard Nelder-Mead parameters
+	delta_e=2.0,  # expansion coefficient
+	delta_oc=0.5,  # outside contraction coefficient
+	delta_ic=0.5,  # inside contraction coefficient
+	gamma=0.5,  # shrink coefficient
+	verbose=False,
 ):
-	simplex, scores = initialize_simplex(f, x_start, step)
-	prev_best = scores[0]
-	no_improv = 0
-	iter_count = 0
-	
-	while True:
-		simplex, scores = order_simplex(simplex, scores)
-		best = scores[0]
-		
-		# Check stopping criteria
-		if max_iter and iter_count >= max_iter:
-			return simplex[0], best
-		if no_improv >= no_improv_break:
-		return simplex[0], best
-		
-		iter_count += 1
-		if best < prev_best - no_improve_thr:
-			prev_best = best
-			no_improv = 0
-		else:
-			no_improv += 1
-		
-		centroid = compute_centroid(simplex)
-		candidates = generate_candidate_points(
-			centroid, simplex[-1], delta_e, delta_oc, delta_ic
+simplex, scores = initialize_simplex(f, x_start, step, verbose)
+prev_best = scores[0]
+no_improv = 0
+iter_count = 0
+
+while True:
+	# Order simplex by score
+	simplex, scores = order_simplex(simplex, scores)
+	best = scores[0]
+
+	# Verbose output
+	if verbose:
+		print(
+			f"Iteration {iter_count}: Best estimate = {simplex[0]}, "
+			f"Function value = {best}, "
+			f"Simplex: {simplex}"
 		)
-		
-		# Evaluate function values for candidate points
-		f_r = f(candidates["reflection"])
-		f_e = f(candidates["expansion"])
-		f_oc = f(candidates["outside_contraction"])
-		f_ic = f(candidates["inside_contraction"])
-		
-		# Apply the Nelder-Mead algorithm
-		if scores[0] <= f_r < scores[-2]:  # Reflection
+
+	# Check stopping criteria
+	if max_iter and iter_count >= max_iter:
+		return simplex[0], best
+	if no_improv >= no_improv_break:
+		return simplex[0], best
+
+	iter_count += 1
+	if best < prev_best - no_improve_thr:
+		prev_best = best
+		no_improv = 0
+	else:
+		no_improv += 1
+	
+	# Compute centroid (excluding the worst point)
+	centroid = compute_centroid(simplex)
+	
+	# Generate candidate points
+	candidates = generate_candidate_points(
+		centroid, simplex[-1], delta_e, delta_oc, delta_ic
+	)
+	
+	# Evaluate candidates in parallel
+	candidate_keys = [
+		"reflection",
+		"expansion",
+		"outside_contraction",
+		"inside_contraction",
+	]
+	candidate_values = [candidates[key] for key in candidate_keys]
+	
+	with concurrent.futures.ProcessPoolExecutor() as executor:
+		future_to_key = {
+			executor.submit(f, candidate): key
+			for key, candidate in zip(candidate_keys, candidate_values)
+		}
+		results = {}
+		for future in concurrent.futures.as_completed(future_to_key):
+			key = future_to_key[future]
+			results[key] = future.result()
+	
+	f_r = results["reflection"]
+	f_e = results["expansion"]
+	f_oc = results["outside_contraction"]
+	f_ic = results["inside_contraction"]
+	
+	# Nelder-Mead logic:
+	# 1. If reflection is better than the best point, try expansion
+	if f_r < scores[0]:
+		if f_e < f_r:
+			# Expansion is better than reflection
+			simplex[-1] = candidates["expansion"]
+			scores[-1] = f_e
+			continue
+		else:
+			# Keep reflection
 			simplex[-1] = candidates["reflection"]
 			scores[-1] = f_r
 			continue
-		
-		if f_r < scores[0]:  # Expansion
-			if f_e < f_r:
-				simplex[-1] = candidates["expansion"]
-				scores[-1] = f_e
-			else:
-				simplex[-1] = candidates["reflection"]
-				scores[-1] = f_r
-				continue
-		
-		if f_r >= scores[-1]:  # Contraction
-			if f_oc < scores[-1]:  # Outside contraction
-				simplex[-1] = candidates["outside_contraction"]
-				scores[-1] = f_oc
-				continue
-			if f_ic < scores[-1]:  # Inside contraction
-				simplex[-1] = candidates["inside_contraction"]
-				scores[-1] = f_ic
-				continue
-		
-	simplex, scores = shrink_simplex(simplex, scores, gamma, f)
+	
+	# 2. If reflection is not better than best, but better than second-worst, accept reflection
+	elif f_r < scores[-2]:
+		simplex[-1] = candidates["reflection"]
+		scores[-1] = f_r
+		continue
+	
+	# 3. If reflection is worse or equal to second-worst but better than worst, do outside contraction
+	elif f_r < scores[-1]:
+		if f_oc <= f_r:
+			# Outside contraction improved over worst
+			simplex[-1] = candidates["outside_contraction"]
+			scores[-1] = f_oc
+			continue
+		else:
+			# Outside contraction didn't improve, shrink
+			simplex, scores = shrink_simplex(simplex, scores, gamma, f)
+			continue
+	
+	# 4. Reflection is not better than worst, try inside contraction
+		else:
+		if f_ic < scores[-1]:
+			# Inside contraction improved over worst
+			simplex[-1] = candidates["inside_contraction"]
+			scores[-1] = f_ic
+			continue
+		else:
+			# Inside contraction didn't improve, shrink
+			simplex, scores = shrink_simplex(simplex, scores, gamma, f)
+			continue
 \end{lstlisting}
-
-
-\todo[inline]{Add typical choices of values for the NM parameters.}
-\todo[inline]{Add diagram explaining the parallelization, accompany with runtime comparisons and brief explanation.}
