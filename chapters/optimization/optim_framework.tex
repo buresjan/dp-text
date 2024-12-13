@@ -5,7 +5,7 @@ A fully automated and modular optimization framework was developed to solve the 
 	\item \textbf{Optimization}:  
 	The first component encompasses the optimization method, which governs the entire process. In this part, the optimization problem is defined along with any required constraints.
 	
-	In this study, we use the Nelder-Mead method, implemented in Python specifically for this work and detailed in Appendix~\ref{appendix B}. Additionally, the framework includes the MADS method (see Section~\ref{direct-search}), implemented in the open-source \texttt{NOMAD} library \cite{nomad} in C++. For handling constraints in both the Nelder-Mead and MADS methods, we use the extreme barrier function.
+	In this study, we use the Nelder-Mead method, implemented in Python specifically for this work and detailed in Appendix~\ref{appendix C}. Additionally, the framework includes the MADS method (see Section~\ref{direct-search}), implemented in the open-source \texttt{NOMAD} library \cite{nomad} in C++. For handling constraints in both the Nelder-Mead and MADS methods, we use the extreme barrier function.
 	
 	In previous work \cite{buresBP, buresVU}, we explored the use of gradient-based optimization methods in the context of black-box optimization coupled with LBM simulations. These methods utilized interpolation boundary conditions, such as the Bouzidi condition \cite{Bouzidi2001}, on the boundaries of obstacles to ensure continuity of the objective function as the geometry changed. It was demonstrated that gradient-free methods are preferable in this context due to their effectiveness and simplicity.
 

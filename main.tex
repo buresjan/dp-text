@@ -38,6 +38,7 @@
 \usepackage{rotating}
 \usepackage{lipsum}
 \usepackage{forest}
+\usepackage[nottoc]{tocbibind}
 
 \definecolor{folderbg}{RGB}{124,166,198}
 \definecolor{folderborder}{RGB}{110,144,169}
@@ -117,6 +118,8 @@
 %}
 
 \definecolor{myGrey}{rgb}{0.55, 0.55, 0.55}
+\definecolor{myGreen}{rgb}{0.22, 0.57, 0.22}
+\definecolor{myGreen2}{rgb}{0.9, 1.0, 0.9}
 % Define light grey color
 \definecolor{lightgray}{gray}{0.95}
 
@@ -205,7 +208,22 @@
 	rightrule=0.9pt,
 	bottomrule=0.9pt,
 	fonttitle=\scshape,
-	title={\textbf{{\large Problem}} {\large \thetcbcounter: \hspace{0.1mm}} {\large #2}}
+	title={\textbf{{\large Problem setup}} {\large \thetcbcounter: \hspace{0.1mm}} {\large #2}}
+}
+
+\newtcolorbox[auto counter,number within=chapter]{optimproblem}[2][]{
+	enhanced,
+	colframe = myGreen,
+	colback  = myGreen2,
+	%	coltitle = #2!20!black,
+	breakable,
+	arc=0pt,
+	outer arc=0pt,
+	boxrule=0.9pt,
+	rightrule=0.9pt,
+	bottomrule=0.9pt,
+	fonttitle=\scshape,
+	title={\textbf{{\large Optimization setup}} {\large \thetcbcounter: \hspace{0.1mm}} {\large #2}}
 }
 %%---------------------------------------------------------------------
 

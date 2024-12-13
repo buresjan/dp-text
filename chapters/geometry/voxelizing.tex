@@ -1,6 +1,6 @@
 \section{Mesh processing}\label{mesh}
 
-The mesh processing pipeline is designed to take raw \texttt{.stl} files generated from the geometry and convert them into a voxelized representation suitable for numerical simulations. This section describes the main steps involved in the mesh processing pipeline as illustrated in Figure \ref{fig:voxelizing}.
+The mesh processing pipeline is designed to take the generated  \texttt{.stl} files and convert them into a voxelized representation suitable for numerical simulations. This section describes the main steps involved in the mesh processing pipeline as illustrated in Figure \ref{fig:voxelizing}.
 
 \begin{figure}[H]
 	\centering
@@ -35,8 +35,8 @@ with ProcessPoolExecutor(max_workers=num_processes) as executor:
 		) for submsh, margin in zip(submeshes, margins)
 	]
 	
-	# Collecting results with progress display
-	comps = [
+	# Collecting results
+	components = [
 		future.result() for future in 
 		tqdm(futures, total=len(submeshes), desc="Voxelizing")
 	]
@@ -44,7 +44,7 @@ with ProcessPoolExecutor(max_workers=num_processes) as executor:
 
 \subsection{Voxelization and recombination of slices}\label{voxelizing and recombining}
 
-The mesh, whether processed as a whole or divided into submeshes (if parallelization is used), is split into individual slices based on thickness that is defined by the user. Each slice is then converted into a voxelized representation using the Trimesh package, which provides a tool for voxelizing 3D geometries, as shown in Listing \ref{lst:voxelize}.
+The mesh, whether processed as a whole or divided into submeshes (if parallelization is used), is split into individual slices based on their thickness that is defined by the user. Each slice is then converted into a voxelized representation using the Trimesh package, which provides a tool for voxelizing 3D geometries, as shown in Listing \ref{lst:voxelize}.
 
 \begin{lstlisting}[
 	language=Python,
@@ -73,7 +73,7 @@ The \texttt{Geometry} class supports the following key functionalities:
 	
 	\item \textbf{Mesh Exporting}: Exports the voxelized mesh as binary NumPy object (\texttt{.npy}), plain text file (\texttt{.txt}), or LBM simulation-compatible \texttt{.tnl} format. Exporting in the \texttt{.tnl} format is achieved using the PyTNL package \cite{pytnl}, which provides Python bindings for TNL.
 	
-	\item \textbf{Visualization}: Visualizes the voxelized geometry, primarily for debugging purposes. Visualization is implemented using the Mayavi Python package \cite{mayavi}, which allows inspecting geometries in an interactive 3D environment. An example visualization, generated using the \texttt{.geo} template file from Appendix \ref{appendix A}, is shown in Figure \ref{fig:visualization}.
+	\item \textbf{Visualization}: Visualizes the voxelized geometry, primarily for debugging purposes. Visualization is implemented using the Mayavi Python package \cite{mayavi}, which allows inspecting geometries in an interactive 3D environment. An example visualization, generated using the \texttt{.geo} template file from Appendix \ref{appendix B}, is shown in Figure \ref{fig:visualization}.
 \end{itemize}
 
 \begin{figure}[H]

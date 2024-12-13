@@ -1,147 +1,71 @@
-\chapter{Custom Nelder-Mead algorithm implementation}\label{appendix B}
+\chapter{Gmsh template files}\label{appendix B}
 
-\section{Key features}
-
-\subsection*{Initialization}
-The simplex is initialized around the starting point \texttt{x\_start} using a defined step size. The function values for each vertex of the simplex are evaluated to initialize scores.
-
-\subsection*{Stopping criteria}
-The algorithm stops when:
-\begin{itemize}
-	\item The maximum number of iterations (\texttt{max\_iter}) is reached.
-	\item The objective function improvement over consecutive iterations is below a defined threshold\\ (\texttt{no\_improve\_thr}) for a specified number of iterations (\texttt{no\_improv\_break}).
-\end{itemize}
-
-\subsection*{Function evaluations}
-While the implementation is suboptimal in terms of the total number function evaluations, this design choice was made because, in the case specific for this work, a single function evaluation usually takes up to several hours. Thus, the algorithm prioritizes evaluating all candidate points (with potential parallelization) before making comparisons or updates to the simplex. This approach ensures that computational resources are utilized efficiently, even at the cost of additional function evaluations in some scenarios.
-
-\section{The implementation}
-
-The main part of the custom implementation is presented in Listing~\ref{lst:NM}. Full implementation is available upon request on Github at \href{https://github.com/buresjan/nelder-mead}{\texttt{https://github.com/buresjan/nelder-mead}}. The online code also includes several test cases showing the functionality of the custom implementation.
-
-\newpage
 \begin{lstlisting}[
-	language=Python,
-	caption={Main part of the custom Nelder-Mead algorithm implementation.  Full implementation is available on Github at \href{https://github.com/buresjan/nelder-mead}{\texttt{https://github.com/buresjan/nelder-mead}}.},
-	label={lst:NM}]
-def nelder_mead(
-	f,
-	x_start,
-	step=0.01,
-	no_improve_thr=1e-6,
-	no_improv_break=20,
-	max_iter=1000,
-	# Standard Nelder-Mead parameters
-	delta_e=2.0,  # expansion coefficient
-	delta_oc=0.5,  # outside contraction coefficient
-	delta_ic=0.5,  # inside contraction coefficient
-	gamma=0.5,  # shrink coefficient
-	verbose=False,
-):
-simplex, scores = initialize_simplex(f, x_start, step, verbose)
-prev_best = scores[0]
-no_improv = 0
-iter_count = 0
-
-while True:
-	# Order simplex by score
-	simplex, scores = order_simplex(simplex, scores)
-	best = scores[0]
-
-	# Verbose output
-	if verbose:
-		print(
-			f"Iteration {iter_count}: Best estimate = {simplex[0]}, "
-			f"Function value = {best}, "
-			f"Simplex: {simplex}"
-		)
-
-	# Check stopping criteria
-	if max_iter and iter_count >= max_iter:
-		return simplex[0], best
-	if no_improv >= no_improv_break:
-		return simplex[0], best
-
-	iter_count += 1
-	if best < prev_best - no_improve_thr:
-		prev_best = best
-		no_improv = 0
-	else:
-		no_improv += 1
+	language=C++,
+	caption={An example of \texttt{.geo} template file implemented in Gmsh.},
+	label={lst:gmsh template}]
+	SetFactory("OpenCASCADE");
+	// 1 optimisation parameter - offset of the bottom cylinder
+	// Characteristic mesh length
+	h = 0.0005;
+	Mesh.CharacteristicLengthMin = h;
+	Mesh.CharacteristicLengthMax = h;
 	
-	# Compute centroid (excluding the worst point)
-	centroid = compute_centroid(simplex)
+	// Cylinder dimensions
+	LOWER_LENGTH = 0.05;  // Length of the lower cylinder in meters
+	LOWER_RADIUS = 0.007; // Radius of the lower cylinder in meters
+	UPPER_LENGTH = 0.05;  // Length of the upper cylinder in meters
+	UPPER_RADIUS = 0.007; // Radius of the upper cylinder in meters
+	MIDDLE_LENGTH = 0.17; // Length of the middle cylinder in meters
+	MIDDLE_RADIUS = 0.011;  // Radius of the middle cylinder in meters
+	// Offset for positioning along the X-axis
+	OFFSET = DEFINE_OFFSET;
 	
-	# Generate candidate points
-	candidates = generate_candidate_points(
-		centroid, simplex[-1], delta_e, delta_oc, delta_ic
-	)
+	////// First Cylinder - Lower //////
+	// Define points along the axis of the lower cylinder
+	Point(1) = {OFFSET, 0.0, LOWER_LENGTH, h};
+	Point(2) = {OFFSET, 0.0, 0.0, h};
+	// Create line and wire for lower cylinder extrusion
+	Line(1) = {2, 1};
+	Wire(2) = {1};
+	// Disk representing the base of the lower cylinder
+	Disk(1) = {OFFSET, 0.0, LOWER_LENGTH, LOWER_RADIUS};
+	// Extrude the surface to form the first cylinder volume
+	Extrude { Surface{1}; } Using Wire {2}
 	
-	# Evaluate candidates in parallel
-	candidate_keys = [
-		"reflection",
-		"expansion",
-		"outside_contraction",
-		"inside_contraction",
-	]
-	candidate_values = [candidates[key] for key in candidate_keys]
+	////// Second Cylinder - Upper //////
+	// Define points along the axis of the upper cylinder
+	Point(101) = {0.0, 0.0, LOWER_LENGTH + UPPER_LENGTH, h};
+	Point(102) = {0.0, 0.0, LOWER_LENGTH, h};
+	// Create line and wire for upper cylinder extrusion
+	Line(101) = {102, 101};
+	Wire(102) = {101};
+	// Disk representing the base of the upper cylinder
+	Disk(101) = {0.0, 0.0, LOWER_LENGTH + UPPER_LENGTH, UPPER_RADIUS};
+	// Extrude the surface to form the second cylinder volume
+	Extrude { Surface{101}; } Using Wire {102}
 	
-	with concurrent.futures.ProcessPoolExecutor() as executor:
-		future_to_key = {
-			executor.submit(f, candidate): key
-			for key, candidate in zip(candidate_keys, candidate_values)
-		}
-		results = {}
-		for future in concurrent.futures.as_completed(future_to_key):
-			key = future_to_key[future]
-			results[key] = future.result()
+	////// Third Cylinder - Middle //////
+	// Define points along the axis of the middle cylinder
+	Point(10001) = {-MIDDLE_LENGTH / 2.0, 0.0, LOWER_LENGTH, h};
+	Point(10002) = {MIDDLE_LENGTH / 2.0, 0.0, LOWER_LENGTH, h};
+	// Create line and wire for middle cylinder extrusion
+	Line(10001) = {10002, 10001};
+	Wire(10002) = {10001};
+	// Disk representing the base of the middle cylinder
+	Disk(10001) = {-MIDDLE_LENGTH / 2.0, 0.0, LOWER_LENGTH, MIDDLE_RADIUS};
+	// Orient disk along the XY plane
+	Rotate{{0, 1, 0}, {-MIDDLE_LENGTH / 2.0, 0.0, LOWER_LENGTH}, Pi/2}{Surface{10001};}
+	// Extrude the surface to form the third cylinder volume
+	Extrude { Surface{10001}; } Using Wire {10002}
 	
-	f_r = results["reflection"]
-	f_e = results["expansion"]
-	f_oc = results["outside_contraction"]
-	f_ic = results["inside_contraction"]
-	
-	# Nelder-Mead logic:
-	# 1. If reflection is better than the best point, try expansion
-	if f_r < scores[0]:
-		if f_e < f_r:
-			# Expansion is better than reflection
-			simplex[-1] = candidates["expansion"]
-			scores[-1] = f_e
-			continue
-		else:
-			# Keep reflection
-			simplex[-1] = candidates["reflection"]
-			scores[-1] = f_r
-			continue
-	
-	# 2. If reflection is not better than best, but better than second-worst, accept reflection
-	elif f_r < scores[-2]:
-		simplex[-1] = candidates["reflection"]
-		scores[-1] = f_r
-		continue
-	
-	# 3. If reflection is worse or equal to second-worst but better than worst, do outside contraction
-	elif f_r < scores[-1]:
-		if f_oc <= f_r:
-			# Outside contraction improved over worst
-			simplex[-1] = candidates["outside_contraction"]
-			scores[-1] = f_oc
-			continue
-		else:
-			# Outside contraction didn't improve, shrink
-			simplex, scores = shrink_simplex(simplex, scores, gamma, f)
-			continue
-	
-	# 4. Reflection is not better than worst, try inside contraction
-		else:
-		if f_ic < scores[-1]:
-			# Inside contraction improved over worst
-			simplex[-1] = candidates["inside_contraction"]
-			scores[-1] = f_ic
-			continue
-		else:
-			# Inside contraction didn't improve, shrink
-			simplex, scores = shrink_simplex(simplex, scores, gamma, f)
-			continue
+	////// Union and Cleanup //////
+	// Unite the three volumes and delete original parts
+	BooleanUnion{ Volume{1}; Delete; }{ Volume{2, 3}; Delete; }
+	// Delete any remaining surfaces
+	Recursive Delete { Surface{1, 101, 10001 }; }
+	// Delete any remaining lines
+	Recursive Delete { Line{1, 101, 10001}; }
 \end{lstlisting}
+
+\todo[inline]{Add multiple figures with different offsets showcasing this geometry.}

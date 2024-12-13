@@ -72,25 +72,28 @@ An alternative to the fullway method is the \textit{halfway} variant of the boun
 %\end{equation}
 %The advantage of this approximation is its simple implementation, while the disadvantage is the neglect of the non-equilibrium part of the distribution function \cite{PE}.
 
-\subsubsection{Symmetric boundary condition}\label{symmetric bc}
-The symmetric boundary condition assumes that the domain is symmetric relative to a given mirror plane. This boundary condition can be understood as a bounce-back-like method. The distribution functions leave the boundary node at time $t$, meet the symmetry surface at time $t + \frac{\Delta t}{2}$, where they are mirrored, and return to the fluid nodes at time $t + \Delta t$. The components of the mirrored velocity depend on the normal vector of the symmetry plane, the tangential components of the velocity remain unchanged. The symmetric boundary condition is illustrated in Figure~\ref{fig:symmetric bc}.
-\vspace{2mm}
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}{0.47\textwidth}
-		\centering
-		\includegraphics[width=0.99\textwidth, trim={0mm 0mm 0mm 0mm}]{figures/symmetric-a.pdf}
-		\caption{The distribution functions leave the boundary node at time $t$.}
-		\label{fig:sym a}
-	\end{subfigure}\hfill% 
-	\begin{subfigure}{0.47\textwidth}
-			\centering
-			\includegraphics[width=0.99\textwidth, trim={0mm 0mm 0mm 0mm}]{figures/symmetric-b.pdf}
-			\caption{The mirrored distribution functions return to fluid nodes at time $t + \Delta t$.}
-			\label{fig:sym b}
-	\end{subfigure}
-	\vspace{2mm}
-	\caption{Illustration of the symmetric boundary condition for the symmetry plane with the normal vector \( (-1, 0, 0) \) using the D3Q27 velocity model. White points represent fluid nodes, and gray plane resents the symmetry plane.}
-	\label{fig:symmetric bc}
+%\subsubsection{Symmetric boundary condition}\label{symmetric bc}
+%The symmetric boundary condition assumes that the domain is symmetric relative to a given mirror plane. This boundary condition can be understood as a bounce-back-like method. The distribution functions leave the boundary node at time $t$, meet the symmetry surface at time $t + \frac{\Delta t}{2}$, where they are mirrored, and return to the fluid nodes at time $t + \Delta t$. The components of the mirrored velocity depend on the normal vector of the symmetry plane, the tangential components of the velocity remain unchanged. The symmetric boundary condition is illustrated in Figure~\ref{fig:symmetric bc}.
+%\vspace{2mm}
+%\begin{figure}[H]
+%	\centering
+%	\begin{subfigure}{0.47\textwidth}
+%		\centering
+%		\includegraphics[width=0.99\textwidth, trim={0mm 0mm 0mm 0mm}]{figures/symmetric-a.pdf}
+%		\caption{The distribution functions leave the boundary node at time $t$.}
+%		\label{fig:sym a}
+%	\end{subfigure}\hfill% 
+%	\begin{subfigure}{0.47\textwidth}
+%			\centering
+%			\includegraphics[width=0.99\textwidth, trim={0mm 0mm 0mm 0mm}]{figures/symmetric-b.pdf}
+%			\caption{The mirrored distribution functions return to fluid nodes at time $t + \Delta t$.}
+%			\label{fig:sym b}
+%	\end{subfigure}
+%	\vspace{2mm}
+%	\caption{Illustration of the symmetric boundary condition for the symmetry plane with the normal vector \( (-1, 0, 0) \) using the D3Q27 velocity model. White points represent fluid nodes, and gray plane resents the symmetry plane.}
+%	\label{fig:symmetric bc}
+%
+%\end{figure}
 
-\end{figure}
+\subsubsection{Free outflow boundary condition}\label{symmetric bc}
+When using the free outflow boundary condition at the outlets, each distribution function for directions pointing out of the domain is set equal to the value it had at the adjacent node inside the computational domain in the previous timestep. While this boundary condition is numerically stable, its usage can cause unphysical behavior of pressure and velocity field near the outflow boundary. Details on the free outflow boundary condition can be found in \cite{PE}.
