@@ -38,6 +38,7 @@
 \usepackage{rotating}
 \usepackage{lipsum}
 \usepackage{forest}
+\usepackage{transparent}
 \usepackage[nottoc]{tocbibind}
 
 \definecolor{folderbg}{RGB}{124,166,198}
@@ -195,8 +196,11 @@
 %% is inserted.
 %\addtocontents{toc}{\protect\vspace{-1cm}}
 
+\newcommand{\mylabel}[2]{#2\def\@currentlabel{#2}\label{#1}}
 
-\newtcolorbox[auto counter,number within=chapter]{problem}[2][]{
+\newcounter{problemcounter}
+\refstepcounter{problemcounter}
+\newtcolorbox[auto counter,number within=none]{problem}[2][]{
 	enhanced,
 	colframe = myGrey,
 %	colback  = #2!10,
@@ -208,7 +212,9 @@
 	rightrule=0.9pt,
 	bottomrule=0.9pt,
 	fonttitle=\scshape,
-	title={\textbf{{\large Problem setup}} {\large \thetcbcounter: \hspace{0.1mm}} {\large #2}}
+	before=\refstepcounter{problemcounter},
+	title={\textbf{{\large Problem setup}} {\large \arabic{problemcounter}: \hspace{0.1mm}} {\large #2}},
+	label=#1,
 }
 
 \newtcolorbox[auto counter,number within=chapter]{optimproblem}[2][]{

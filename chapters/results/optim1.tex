@@ -1,0 +1,19 @@
+\newpage
+\begin{optimproblem}{Basic cylindrical junction}
+	\vspace{2mm}
+	Physical setup:
+	\begin{itemize}
+		\item Domain: $ \Omega=(0 ; 170 \mathrm{~mm}) \times(0 ; 22 \mathrm{~mm}) \times(0 ; 100 \mathrm{~mm})$.
+		\item Kinematic viscosity: $ \nu=3 \cdot 10^{-6} \mathrm{~m}^{2} \mathrm{~s}^{-1}$.
+		\item Inflow at $\Gamma^{\text{IVC}}_{\text{in}}$: a constant velocity of magnitude $0{,}45$ \si{m s^{-1}},  aligned with the IVC axis in the positive $x_3$-direction.
+		\item Inflow at $\Gamma^{\text{SVC}}_{\text{in}}$: a constant velocity of magnitude $0{,}35$ \si{m s^{-1}}, aligned with the SVC axis in the negative $x_3$-direction.
+	\end{itemize} 
+	LBM setup:
+	\begin{itemize}
+		\item Initial condition on $ \overline{\hat{\Omega}} $ set as described in Section~\ref{pocatecni podminka}.
+		\item Boundary conditions at $\Gamma^{\text{W}}_{\text{out}}$ and $\Gamma^{\text{E}}_{\text{out}}$ set according to Section~\ref{symmetric bc}.
+		\item Discretization: $\overline{\hat{\Omega}} = N_{x} \times N_{y} \times N_{z}$, $N_{x} = 768, \, N_{y} = 105, N_{z} = 453$.
+		\item Kinematic viscosity in lattice units: $\nu^{L} = 10^{-3} $.
+	\end{itemize}
+	\label{optimprob:1}
+\end{optimproblem}
