@@ -1,4 +1,4 @@
-\chapter{Objective function tracking and geometry loading in LBM}\label{appendix A}
+\chapter{Objective functions and geometry loading in LBM}\label{appendix A}
 
 \subsection*{Loading the geometry}
 The following reads an automatically generated \texttt{.txt} file with the prescribed dimensions of the lattice meant to be used in a simulation.
@@ -86,7 +86,7 @@ velocityGradient calculateVelocityGradient(idx x, idx y, idx z)
 \end{lstlisting}
 
 \subsection*{Shear rate calculation}
-This function computes the shear rate $\dot{\gamma}$, defined by \eqref{eq:dot gamma}, at a given point in the simulation domain.
+This function computes the shear rate $\dot{\gamma}$, defined by \ref{eq:dot gamma}, at a given point in the simulation domain.
 \begin{lstlisting}[
 	language=C++,
 	caption={Implementation of the \texttt{dotGamma} function for shear rate calculation.},

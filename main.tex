@@ -217,7 +217,9 @@
 	label=#1,
 }
 
-\newtcolorbox[auto counter,number within=chapter]{optimproblem}[2][]{
+\newcounter{optimproblemcounter}
+\refstepcounter{optimproblemcounter}
+\newtcolorbox[auto counter]{optimproblem}[2][]{
 	enhanced,
 	colframe = myGreen,
 	colback  = myGreen2,
@@ -229,7 +231,8 @@
 	rightrule=0.9pt,
 	bottomrule=0.9pt,
 	fonttitle=\scshape,
-	title={\textbf{{\large Optimization setup}} {\large \thetcbcounter: \hspace{0.1mm}} {\large #2}}
+	before=\refstepcounter{optimproblemcounter},
+	title={\textbf{{\large Optimization setup}} {\large \arabic{optimproblemcounter}: \hspace{0.1mm}} {\large #2}}
 }
 %%---------------------------------------------------------------------
 

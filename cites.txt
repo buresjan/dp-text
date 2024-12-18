@@ -1,8 +1,0 @@
-BBO-textbook
-derivative-free-review
-two-decades
-Kramer2011
-Dantzig1990
-Nelder1965
-Audet2002
-Audet2006
