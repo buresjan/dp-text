@@ -126,3 +126,5 @@ To deepen our understanding of the system’s behavior, Table~\ref{tab:studied p
 \input{chapters/results/optim1.tex}
 
 From the optimization results it can be observed that both the custom Nelder-Mead algorithm and the MADS method using the same initial point resulted in the same results both for the near-wall shear rate and the turbulent kinetic energy minimization. It can be observed, that for the turbulent kinetic energy minimization both the methods rather incorrectly identified $o^{*}_{1} = 0{,}55 \, \mathrm{cm}$ to be the minimum, while the minimum is located at $o^{*}_{1} = 0{,}0 \, \mathrm{cm}$. This is a natural consequence of the fact that both the Nelder-Mead method and the MADS method are not guaranteed global optimizers and of the location of the initial point. In case of the near-wall shear rate minimization, both methods identified the local minimum to be $o^{*}_{1} = 0{,}77 \, \mathrm{cm}$ which appears to be the 
+
+\todo[inline]{Expand and improve this. Mention the possibility of MADS becoming faster if parallelized and also that there was a cap of 20 BBE eval for MADS.}
