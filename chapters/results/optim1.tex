@@ -1,12 +1,14 @@
 \newpage
 \subsection{Optimization results}  
-In this section, we present the outcomes of the optimization studies on the Model 1 configuration using the Nelder--Mead and MADS methods. The objective functions considered are the near-wall shear rate and the turbulent kinetic energy. Our primary goals are to evaluate the convergence behavior of both optimization techniques, compare their efficiency, and assess their associated computational costs. Details of the hardware used for these computations can be found in \cite{gpu}.
+In this section, we present the results of the optimization studies on the Model 1 configuration using the Nelder--Mead and MADS methods. The objective functions considered are the near-wall shear rate and the turbulent kinetic energy. Our primary goals are to evaluate the convergence behavior of both optimization techniques, compare their efficiency, and assess their associated computational costs. Detailed specification of the hardware used for these computations can be found in \cite{gpu}.
 
 The custom Nelder--Mead implementation was parallelized and executed on four dedicated compute nodes, managed through a Slurm-based job submission system \cite{slurm}. This setup enabled multiple function evaluations to be performed simultaneously, thereby reducing the total wall time for the optimization process. In contrast, the MADS method was not parallelized and thus ran sequentially on single-node configurations.
 
 To ensure that the optimized configurations remained physiologically meaningful, we imposed constraints on the offset parameter \(o_1\). First, a primary geometrical constraint defined the feasible offset range as \(0{,}0 \leq o_1 \leq 2{,}4\,\text{cm}\). Next, to achieve the clinically motivated target that at least 25\% of the inferior vena cava (IVC) blood flow must be directed into the left pulmonary artery (LPA), we refined the constraint further. Using precomputed postprocessing analyses to identify offsets that satisfied this flow distribution, the offset was ultimately constrained to \(0{,}0 \leq o_1 \leq 0{,}78\,\text{cm}\), as shown in Figure~\ref{fig:ivc_flow_split}. Note that this approach contrasts with the optimization setup in Section~\ref{optim2}, where the IVC flow split is directly incorporated into the computations rather than relying on precomputed feasibility ranges.
 
 Finally, the initial starting point for the optimization was chosen at the center of the feasible design space, \(o_1^\text{init} = 0{,}39\,\text{cm}\). Selecting a midpoint as the initial guess is a common practice to ensure that the optimizer explores the search space efficiently from a neutral starting position.
+\todo[inline]{Add information about the location of the points, can be found out from the Figures.}
+\todo[inline]{Add information about what is studied and why, i.e., what is \#f and why is wall time imporant.}
 
 \vspace{7mm}
 \begin{table}[H]
