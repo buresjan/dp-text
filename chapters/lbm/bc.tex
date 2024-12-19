@@ -21,7 +21,7 @@ This approach assumes that the non-equilibrium component of the distribution fun
 \subsection{Boundary conditions}
 
 
-\subsubsection{Bounce-back boundary condition}\label{bounce-back}
+\subsubsection*{Bounce-back boundary condition}\label{bounce-back}
 The first boundary condition discussed is the bounce-back boundary condition, specifically its \textit{fullway} variant \cite{Kruger}. The bounce-back boundary condition is typically used for modeling the interface between a fluid and a solid. Its advantage is that it satisfies the no-slip condition at the fluid-solid interface while remaining straightforward to implement. The principle of the bounce-back boundary condition is that at the interface, the distribution functions corresponding to particles with microscopic velocity \( \vec{\xi_{k}} \) are reflected back into the directions from which they arrived at the node, with velocity \( \vec{\xi_{\bar{k}}} = -\vec{\xi_{k}} \).
 
 When using this boundary condition, the fluid-solid interface is located halfway between the fluid and solid nodes. For curved boundaries that are not parallel to the grid, the bounce-back method leads to a "staircase" shape of the boundary, which can limit the accuracy of the simulation.
@@ -95,5 +95,5 @@ An alternative to the fullway method is the \textit{halfway} variant of the boun
 %
 %\end{figure}
 
-\subsubsection{Free outflow boundary condition}\label{symmetric bc}
+\subsubsection*{Free outflow boundary condition}\label{symmetric bc}
 When using the free outflow boundary condition at the outlets, each distribution function for directions pointing out of the domain is set equal to the value it had at the adjacent node inside the computational domain in the previous timestep. While this boundary condition is numerically stable, its usage can cause unphysical behavior of pressure and velocity field near the outflow boundary. Details on the free outflow boundary condition can be found in \cite{PE}.
