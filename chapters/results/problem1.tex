@@ -112,10 +112,10 @@ To deepen our understanding of the system’s behavior, Table~\ref{tab:studied p
 	\begin{tabular}{|c|c|c|p{8cm}|}
 		\hline
 		\textbf{Point} & \boldmath{$o_1$} \textbf{[cm]} & \textbf{Pages} & \textbf{Reason for detailed investigation} \\ \hline
-		P$_0$ & 0{,}0 & \hyperlink{page.51}{51--52} & Symmetrical geometry; local minima in both $\dot{\gamma}^{A}_{\mathrm{nw}}$ and $T^{A}_{\mathrm{turb}}$. \\ \hline
-		P$_7$ & 0{,}7 & \hyperlink{page.53}{53--54} & Offset associated with the maximum $T^{A}_{\mathrm{turb}}$. \\ \hline
-		P$_8$ & 0{,}8 & \hyperlink{page.55}{55--56} &  Offset associated with a local minimum in $\dot{\gamma}^{A}_{\mathrm{nw}}$. \\ \hline
-		P$_{24}$ & 2{,}4 & \hyperlink{page.57}{57--58} & Large offset associated with minimal values of both $\dot{\gamma}^{A}_{\mathrm{nw}}$ and $T^{A}_{\mathrm{turb}}$. \\ \hline
+		P$_0$ & 0{,}0 & \hyperlink{page.50}{50--51} & Symmetrical geometry; local minima in both $\dot{\gamma}^{A}_{\mathrm{nw}}$ and $T^{A}_{\mathrm{turb}}$. \\ \hline
+		P$_7$ & 0{,}7 & \hyperlink{page.52}{52--53} & Offset associated with the maximum $T^{A}_{\mathrm{turb}}$. \\ \hline
+		P$_8$ & 0{,}8 & \hyperlink{page.54}{54--55} &  Offset associated with a local minimum in $\dot{\gamma}^{A}_{\mathrm{nw}}$. \\ \hline
+		P$_{24}$ & 2{,}4 & \hyperlink{page.56}{56--57} & Large offset associated with minimal values of both $\dot{\gamma}^{A}_{\mathrm{nw}}$ and $T^{A}_{\mathrm{turb}}$. \\ \hline
 	\end{tabular}
 	 \caption{Key offset points selected for detailed analysis. Each point corresponds to notable extrema or special configurations of $\dot{\gamma}^{A}_{\mathrm{nw}}$ or $T^{A}_{\mathrm{turb}}$.}
 	\label{tab:studied points}
@@ -124,7 +124,3 @@ To deepen our understanding of the system’s behavior, Table~\ref{tab:studied p
 
 \input{chapters/results/special_points.tex}
 \input{chapters/results/optim1.tex}
-
-From the optimization results it can be observed that both the custom Nelder-Mead algorithm and the MADS method using the same initial point resulted in the same results both for the near-wall shear rate and the turbulent kinetic energy minimization. It can be observed, that for the turbulent kinetic energy minimization both the methods rather incorrectly identified $o^{*}_{1} = 0{,}55 \, \mathrm{cm}$ to be the minimum, while the minimum is located at $o^{*}_{1} = 0{,}0 \, \mathrm{cm}$. This is a natural consequence of the fact that both the Nelder-Mead method and the MADS method are not guaranteed global optimizers and of the location of the initial point. In case of the near-wall shear rate minimization, both methods identified the local minimum to be $o^{*}_{1} = 0{,}77 \, \mathrm{cm}$ which appears to be the 
-
-\todo[inline]{Expand and improve this. Mention the possibility of MADS becoming faster if parallelized and also that there was a cap of 20 BBE eval for MADS.}

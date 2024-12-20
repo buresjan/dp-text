@@ -1,16 +1,15 @@
 \newpage
 \subsection{Optimization results}  
-In this section, we present the results of the optimization studies on the Model 1 configuration using the Nelder--Mead and MADS methods. The objective functions considered are the near-wall shear rate and the turbulent kinetic energy. Our primary goals are to evaluate the convergence behavior of both optimization techniques, compare their efficiency, and assess their associated computational costs. Detailed specification of the hardware used for these computations can be found in \cite{gpu}.
+In this section, we present the results of the optimization studies on the Model 1 configuration using the Nelder--Mead and MADS methods. The objective functions considered are the near-wall shear rate and the turbulent kinetic energy. Our primary goals are to validate the optimization framework, evaluate the convergence of both optimization methods used, and compare their efficiency. Detailed specifications of the hardware used for these computations can be found in \cite{gpu}.
 
-The custom Nelder--Mead implementation was parallelized and executed on four dedicated compute nodes, managed through a Slurm-based job submission system \cite{slurm}. This setup enabled multiple function evaluations to be performed simultaneously, thereby reducing the total wall time for the optimization process. In contrast, the MADS method was not parallelized and thus ran sequentially on single-node configurations.
+The custom Nelder--Mead implementation was parallelized and executed on four dedicated compute nodes, managed through a Slurm-based job submission system \cite{slurm}. This setup enabled multiple function evaluations to be performed simultaneously, naturally reducing the total wall time for the optimization process. In contrast, the MADS method was not parallelized and ran sequentially on a single computational node.
 
-To ensure that the optimized configurations remained physiologically meaningful, we imposed constraints on the offset parameter \(o_1\). First, a primary geometrical constraint defined the feasible offset range as \(0{,}0 \leq o_1 \leq 2{,}4\,\text{cm}\). Next, to achieve the clinically motivated target that at least 25\% of the inferior vena cava (IVC) blood flow must be directed into the left pulmonary artery (LPA), we refined the constraint further. Using precomputed postprocessing analyses to identify offsets that satisfied this flow distribution, the offset was ultimately constrained to \(0{,}0 \leq o_1 \leq 0{,}78\,\text{cm}\), as shown in Figure~\ref{fig:ivc_flow_split}. Note that this approach contrasts with the optimization setup in Section~\ref{optim2}, where the IVC flow split is directly incorporated into the computations rather than relying on precomputed feasibility ranges.
+To ensure that the optimized configurations remained physiologically meaningful, we imposed constraints on the offset parameter \(o_1\). First, a primary constraint defined the feasible offset range as \(0{,}0 \leq o_1 \leq 2{,}4\,\text{cm}\). Next, to achieve the clinically motivated target (discussed in Section~\ref{objective funcs meaning}) that at least 25\% of the IVC blood flow must be directed into the LPA, we refined the constraint further. Using precomputed splits to identify offsets that satisfied this flow distribution, the offset was ultimately constrained to \(0{,}0 \leq o_1 \leq 0{,}78\,\text{cm}\), as shown in Figure~\ref{fig:ivc_flow_split}.
 
-Finally, the initial starting point for the optimization was chosen at the center of the feasible design space, \(o_1^\text{init} = 0{,}39\,\text{cm}\). Selecting a midpoint as the initial guess is a common practice to ensure that the optimizer explores the search space efficiently from a neutral starting position.
-\todo[inline]{Add information about the location of the points, can be found out from the Figures.}
-\todo[inline]{Add information about what is studied and why, i.e., what is \#f and why is wall time imporant.}
+The sampled data points in Figure~\ref{fig:summary_metrics} did not cover the entirety of the feasible set and were interpolated linearly, hence determining the exact minima of the objective functions is not possible. However, the data strongly suggests that under the given constraints, the minimum near-wall shear rate is located near the upper bound of the feasible set, i.e. near \(o_1 = 0{,}78\,\text{cm}\). The minimum turbulent kinetic energy appears to be located near the lower bound, i.e. near \(o_1 = 0{,}0\,\text{cm}\). Finally, the initial starting point for the optimization was chosen at the center of the feasible set, \(o_1^\text{init} = 0{,}39\,\text{cm}\). 
 
-\vspace{7mm}
+In the following studies, we focus on both the number of function evaluations ($\#f$) and the total wall time required. Here, $\#f$ corresponds to the number of simulation runs needed. Because the custom Nelder–Mead implementation supports parallel execution of these simulations, it can complete a larger number of evaluations in a shorter wall time compared to MADS, which operates sequentially. The longer runtime associated with the MADS approach makes it more computationally demanding. To avoid excessive runtimes, MADS was run with a preset cap of 20 on $\#f$, ensuring that the total computation time remained manageable.
+
 \begin{table}[H]
 	\bgroup
 	\centering
@@ -19,12 +18,12 @@ Finally, the initial starting point for the optimization was chosen at the cente
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\textbf{Method} & \textbf{Objective function} & \textbf{Page} \\ \hline
-		Nelder-Mead & $\dot{\gamma}^{A}_{\mathrm{nw}}$ &\hyperlink{page.61}{61} \\ \hline
-		Nelder-Mead & $T^{A}_{\mathrm{turb}}$ & \hyperlink{page.62}{62} \\ \hline
-		MADS & $\dot{\gamma}^{A}_{\mathrm{nw}}$ & \hyperlink{page.63}{63} \\ \hline
-		MADS & $T^{A}_{\mathrm{turb}}$ & \hyperlink{page.64}{64} \\ \hline
+		Nelder-Mead & $\dot{\gamma}^{A}_{\mathrm{nw}}$ &\hyperlink{page.60}{60} \\ \hline
+		Nelder-Mead & $T^{A}_{\mathrm{turb}}$ & \hyperlink{page.61}{61} \\ \hline
+		MADS & $\dot{\gamma}^{A}_{\mathrm{nw}}$ & \hyperlink{page.62}{62} \\ \hline
+		MADS & $T^{A}_{\mathrm{turb}}$ & \hyperlink{page.63}{63} \\ \hline
 	\end{tabular}
-	\caption{Key offset points selected for detailed analysis. Each point corresponds to notable extrema or special configurations of $\dot{\gamma}^{A}_{\mathrm{nw}}$ or $T^{A}_{\mathrm{turb}}$.}
+	\caption{List of studied optimization configurations.}
 	\label{tab:optim configs}
 	\egroup
 \end{table}
@@ -34,3 +33,8 @@ Finally, the initial starting point for the optimization was chosen at the cente
 \input{chapters/results/optim1B.tex}
 \input{chapters/results/optim1C.tex}
 \input{chapters/results/optim1D.tex}
+
+
+From the optimization results, it can be observed that both the custom Nelder-Mead algorithm and the MADS method, when starting from the same initial point, resulted in the same outcomes for both the near-wall shear rate and turbulent kinetic energy minimization problems. However, for the turbulent kinetic energy objective, both methods converged to \(o_{1}^{\star} = 0{,}55\,\mathrm{cm}\), even though for the given constraints the true minimum is expected to be at \(o_{1}^{\star} = 0{,}0\,\mathrm{cm}\). This discrepancy is a direct consequence of the fact that neither Nelder-Mead nor MADS is a guaranteed global optimizer \cite{derivative-free-review}. In the case of the near-wall shear rate minimization, both methods identified the minimum at \(o_{1}^{\star} = 0{,}77\,\mathrm{cm}\), which aligns with expectations based on the interpolated sampled data.
+
+It is worth noting that the MADS method consistently reached its predefined maximum number of objective function evaluations, leading to notably longer run times than the Nelder-Mead method. This difference stems from the fact that the current MADS method implementation runs sequentially. If MADS method were parallelized to allow simultaneous function evaluations, its overall execution time could be significantly reduced, potentially making it superior to the parallelized Nelder-Mead approach.
